@@ -1,0 +1,50 @@
+<h1>Listing books</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Publication year</th>
+    <th>Publication place</th>
+    <th>Historical period</th>
+    <th>Has necrology</th>
+    <th>Has toc</th>
+    <th>Has index</th>
+    <th>Description</th>
+    <th>Characteristics</th>
+    <th>Table of contents</th>
+    <th>Has images</th>
+    <th>Other notes</th>
+    <th>Abstract</th>
+    <th>Keywords</th>
+    <th>Dig book</th>
+    <th>Deleted</th>
+  </tr>
+
+<% for book in @books %>
+  <tr>
+    <td><%=h book.title %></td>
+    <td><%=h book.publication_year %></td>
+    <td><%=h book.publication_place %></td>
+    <td><%=h book.historical_period %></td>
+    <td><%=h book.has_necrology %></td>
+    <td><%=h book.has_toc %></td>
+    <td><%=h book.has_index %></td>
+    <td><%=h book.description %></td>
+    <td><%=h book.characteristics %></td>
+    <td><%=h book.table_of_contents %></td>
+    <td><%=h book.has_images %></td>
+    <td><%=h book.other_notes %></td>
+    <td><%=h book.abstract %></td>
+    <td><%=h book.keywords %></td>
+    <td><%=h book.dig_book %></td>
+    <td><%=h book.deleted %></td>
+    <td><%= link_to 'Show', book %></td>
+    <td><%= link_to 'Edit', edit_book_path(book) %></td>
+    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New book', new_book_path %>

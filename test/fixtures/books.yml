@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  publication_year: 1
+  publication_place: MyString
+  historical_period: MyString
+  has_necrology: false
+  has_toc: false
+  has_index: false
+  description: MyText
+  characteristics: MyText
+  table_of_contents: MyText
+  has_images: false
+  other_notes: MyText
+  abstract: MyText
+  keywords: MyString
+  dig_book: MyString
+  deleted: false
+
+two:
+  title: MyString
+  publication_year: 1
+  publication_place: MyString
+  historical_period: MyString
+  has_necrology: false
+  has_toc: false
+  has_index: false
+  description: MyText
+  characteristics: MyText
+  table_of_contents: MyText
+  has_images: false
+  other_notes: MyText
+  abstract: MyText
+  keywords: MyString
+  dig_book: MyString
+  deleted: false

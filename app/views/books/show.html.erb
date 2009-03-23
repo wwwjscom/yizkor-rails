@@ -1,0 +1,83 @@
+<p>
+  <b>Title:</b>
+  <%=h @book.title %>
+</p>
+
+<p>
+  <b>Publication year:</b>
+  <%=h @book.publication_year %>
+</p>
+
+<p>
+  <b>Publication place:</b>
+  <%=h @book.publication_place %>
+</p>
+
+<p>
+  <b>Historical period:</b>
+  <%=h @book.historical_period %>
+</p>
+
+<p>
+  <b>Has necrology:</b>
+  <%=h @book.has_necrology %>
+</p>
+
+<p>
+  <b>Has toc:</b>
+  <%=h @book.has_toc %>
+</p>
+
+<p>
+  <b>Has index:</b>
+  <%=h @book.has_index %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @book.description %>
+</p>
+
+<p>
+  <b>Characteristics:</b>
+  <%=h @book.characteristics %>
+</p>
+
+<p>
+  <b>Table of contents:</b>
+  <%=h @book.table_of_contents %>
+</p>
+
+<p>
+  <b>Has images:</b>
+  <%=h @book.has_images %>
+</p>
+
+<p>
+  <b>Other notes:</b>
+  <%=h @book.other_notes %>
+</p>
+
+<p>
+  <b>Abstract:</b>
+  <%=h @book.abstract %>
+</p>
+
+<p>
+  <b>Keywords:</b>
+  <%=h @book.keywords %>
+</p>
+
+<p>
+  <b>Dig book:</b>
+  <%=h @book.dig_book %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%=h @book.deleted %>
+</p>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
