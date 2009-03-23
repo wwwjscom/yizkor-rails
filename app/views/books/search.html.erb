@@ -1,0 +1,13 @@
+<% form_tag '/books/find' do %>
+
+  <p>
+    <%= label_tag 'title' %><br />
+    <%= text_field_tag 'title' %>
+  </p>
+
+  <p>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+
+<%= debug params %>

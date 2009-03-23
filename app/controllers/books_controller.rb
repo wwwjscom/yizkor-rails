@@ -1,4 +1,18 @@
 class BooksController < ApplicationController
+
+  def search
+  end
+
+  def find
+    @book = Book.find_by_title(params['title'])
+
+    if @book != nil
+      render :action => 'show'
+    else
+      render :action => 'search'
+    end
+  end
+
   # GET /books
   # GET /books.xml
   def index

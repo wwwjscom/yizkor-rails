@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :books
 
-  map.search 'search', :controller => 'book', :action => 'search'
+  map.search 'search', :controller => 'books', :action => 'search'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
