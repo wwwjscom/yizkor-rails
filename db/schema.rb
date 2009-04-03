@@ -9,11 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090403214923) do
+ActiveRecord::Schema.define(:version => 20090403224329) do
 
   create_table "alt_titles", :force => true do |t|
-    t.integer "book_id"
-    t.string  "title"
+    t.integer  "book_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "books", :force => true do |t|
@@ -35,6 +37,11 @@ ActiveRecord::Schema.define(:version => 20090403214923) do
     t.boolean  "deleted"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "call_nums", :force => true do |t|
+    t.integer "book_id"
+    t.string  "call_num"
   end
 
 end

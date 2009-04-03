@@ -3,6 +3,7 @@ class CreateAltTitle < ActiveRecord::Migration
     create_table :alt_titles do |t|
       t.integer :book_id
       t.string :title
+      t.timestamps
     end
   end
 

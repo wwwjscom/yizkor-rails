@@ -101,16 +101,27 @@ class BooksController < ApplicationController
   def add_details
     @book = Book.find(params[:id])
     @alt_title = AltTitle.new
+    @call_num = CallNum.new
   end
 
   def add_alt_title
     @alt_title = AltTitle.new(params[:alt_title])
-    #@alt_title.book_id = params[:id]
     if @alt_title.save
       flash[:notice] = 'Title added!'
       redirect_to add_details_path
     else
       flash[:warning] = 'Error'
+      render add_details_path
+    end
+  end
+
+  def add_call_num
+    @call_num = CallNum.new(params[:call_num])
+    if @call_num.save
+      flash[:success] = 'Call number added'
+      redirect_to add_details_path
+    else
+      flash[:warning] = 'Unable to add call number'
       render add_details_path
     end
   end

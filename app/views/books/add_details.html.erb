@@ -13,6 +13,21 @@
 
 <hr />
 
+<% form_for(@call_num) do |f| %>
+  <%= f.error_messages %>
+
+  <input type="hidden" id="call_num_book_id" name="call_num[book_id]" value="<%= params[:id] %>" />
+  <p>
+    <%= f.label :call_num %>
+    <%= f.text_field :call_num %>
+  </p>
+
+  <%= f.submit 'Add call number' %>
+
+<% end %>
+
+<hr />
+
 <% form_for(@book) do |f| %>
   <%= f.error_messages %>
 
