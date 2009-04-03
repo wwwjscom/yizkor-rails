@@ -99,6 +99,19 @@ class BooksController < ApplicationController
   end
 
   def add_details
-    @book = Book.find(params[:book_id])
+    @book = Book.find(params[:id])
+    @alt_title = AltTitle.new
+  end
+
+  def add_alt_title
+    @alt_title = AltTitle.new(params[:alt_title])
+    #@alt_title.book_id = params[:id]
+    if @alt_title.save
+      flash[:notice] = 'Title added!'
+      redirect_to add_details_path
+    else
+      flash[:warning] = 'Error'
+      render add_details_path
+    end
   end
 end

@@ -2,6 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :books
 
   map.search 'search', :controller => 'books', :action => 'search'
+  map.add_details 'books/:id/add_details', :controller => 'books', :action => 'add_details'
+  map.alt_titles 'books/:id/add_alt_title', :controller => 'books', :action => 'add_alt_title'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

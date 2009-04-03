@@ -1,4 +1,4 @@
-<p><%= link_to 'Add details', { :action => 'add_details', :book_id => @book.id } %></p>
+<p><%= link_to 'Add details', add_details_path(@book) %></p>
 <p>
   <b>Title:</b>
   <%=h @book.title %>
