@@ -9,6 +9,7 @@ class BooksController < ApplicationController
     if @book != nil
       render :action => 'show'
     else
+      flash.now[:notice] = 'Book not found'
       render :action => 'search'
     end
   end
@@ -95,5 +96,9 @@ class BooksController < ApplicationController
       format.html { redirect_to(books_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def add_details
+    @book = Book.find(params[:book_id])
   end
 end

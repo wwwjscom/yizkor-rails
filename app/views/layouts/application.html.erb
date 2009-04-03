@@ -132,6 +132,9 @@
                 <span class="Textheight"><span class="Text14"><span class="arial"><span class="brown">
                         <br> </span></span></span></span>
 
+                <% if flash[:notice] -%>
+                  <div id='notice'><%= flash[:notice] %></div>
+                <% end -%>
           <%= yield %>
 
             </td></tr>
