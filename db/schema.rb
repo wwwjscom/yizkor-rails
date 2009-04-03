@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090403224329) do
+ActiveRecord::Schema.define(:version => 20090403233933) do
 
   create_table "alt_titles", :force => true do |t|
     t.integer  "book_id"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(:version => 20090403224329) do
   create_table "call_nums", :force => true do |t|
     t.integer "book_id"
     t.string  "call_num"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "page"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

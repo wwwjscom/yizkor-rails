@@ -28,70 +28,19 @@
 
 <hr />
 
-<% form_for(@book) do |f| %>
+<% form_for(@page) do |f| %>
   <%= f.error_messages %>
 
+  <input type="hidden" id="page_book_id" name="page[book_id]" value="<%= params[:id] %>" />
   <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :page %>
+    <%= f.text_field :page %>
   </p>
   <p>
-    <%= f.label :publication_year %><br />
-    <%= f.text_field :publication_year, :size => 4 %>
-  </p>
-  <p>
-    <%= f.label :publication_place %><br />
-    <%= f.text_field :publication_place %>
-  </p>
-  <p>
-    <%= f.label :historical_period %><br />
-    <%= f.text_field :historical_period %>
-  </p>
-  <p>
-    <%= f.label :has_necrology %><br />
-    <%= f.check_box :has_necrology %>
-  </p>
-  <p>
-    <%= f.label :has_toc %><br />
-    <%= f.check_box :has_toc %>
-  </p>
-  <p>
-    <%= f.label :has_index %><br />
-    <%= f.check_box :has_index %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :characteristics %><br />
-    <%= f.text_area :characteristics %>
-  </p>
-  <p>
-    <%= f.label :table_of_contents %><br />
-    <%= f.text_area :table_of_contents %>
-  </p>
-  <p>
-    <%= f.label :has_images %><br />
-    <%= f.check_box :has_images %>
-  </p>
-  <p>
-    <%= f.label :other_notes %><br />
-    <%= f.text_area :other_notes %>
-  </p>
-  <p>
-    <%= f.label :abstract %><br />
-    <%= f.text_area :abstract %>
-  </p>
-  <p>
-    <%= f.label :keywords %><br />
-    <%= f.text_field :keywords %>
-  </p>
-  <p>
-    <%= f.label :dig_book %><br />
-    <%= f.text_field :dig_book %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
+    <%= f.submit 'Add Page' %>
   </p>
 <% end %>
+
+<hr />
+
+

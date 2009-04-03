@@ -102,6 +102,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @alt_title = AltTitle.new
     @call_num = CallNum.new
+    @page = Page.new
   end
 
   def add_alt_title
@@ -125,4 +126,16 @@ class BooksController < ApplicationController
       render add_details_path
     end
   end
+
+  def add_page
+    @page = Page.new(params[:page])
+    if @page.save
+      flash[:success] = 'Page added'
+      redirect_to add_details_path
+    else
+      flash[:warning] = 'Unable to add page'
+      render add_details_path
+    end
+  end
+
 end
