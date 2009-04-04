@@ -103,6 +103,7 @@ class BooksController < ApplicationController
     @alt_title = AltTitle.new
     @call_num = CallNum.new
     @page = Page.new
+    @contributor = Contributor.new
   end
 
   def add_alt_title
@@ -134,6 +135,17 @@ class BooksController < ApplicationController
       redirect_to add_details_path
     else
       flash[:warning] = 'Unable to add page'
+      render add_details_path
+    end
+  end
+
+  def add_contributor
+    @contributor = Contributor.new(params[:contributor])
+    if @contributor.save
+      flash[:success] = 'Contributor added'
+      redirect_to add_details_path
+    else
+      flash[:warning] = 'Unable to add contributor'
       render add_details_path
     end
   end
