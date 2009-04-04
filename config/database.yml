@@ -19,6 +19,6 @@ test:
 production:
   adapter: mysql
   database: yizkor_production
-  username: root
-  password: root
+  username: yizkor
+  password: dJksuiwjsaZJSls
   server: localhost
