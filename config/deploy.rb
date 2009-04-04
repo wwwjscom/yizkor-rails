@@ -1,10 +1,8 @@
-default_run_options[:pty] = true
 set :application, "yizkor_books"
 set :repository,  "git@github.com:wwwjscom/yizkor-rails.git"
 set :scm, :git
 set :deploy_to, '/www/yizkor_books'
 set :runner, 'wwwjscom'
-ssh_options[:forward_agent] = true
 set :branch, "master"
 set :deploy_via, :remote_cache
 
