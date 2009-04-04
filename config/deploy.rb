@@ -3,8 +3,6 @@ set :repository,  "git@github.com:wwwjscom/yizkor-rails.git"
 set :scm, :git
 set :deploy_to, '/www/yizkor_books'
 set :runner, 'wwwjscom'
-set :branch, "master"
-set :deploy_via, :remote_cache
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
