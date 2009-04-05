@@ -104,6 +104,8 @@ class BooksController < ApplicationController
     @call_num = CallNum.new
     @page = Page.new
     @contributor = Contributor.new
+    @subject = Subject.new
+    @subject_types = SubjectType.find(:all)
   end
 
   def add_alt_title
@@ -146,6 +148,17 @@ class BooksController < ApplicationController
       redirect_to add_details_path
     else
       flash[:warning] = 'Unable to add contributor'
+      render add_details_path
+    end
+  end
+
+  def add_subject
+    @subject = Subject.new(params[:subject])
+    if @subject.save
+      flash[:success] = 'Subject added'
+      redirect_to add_details_path
+    else
+      flash[:warning] = 'Unable to add subject'
       render add_details_path
     end
   end

@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.call_nums 'books/:id/add_call_num', :controller => 'books', :action => 'add_call_num'
   map.pages 'books/:id/add_page', :controller => 'books', :action => 'add_page'
   map.contributors 'books/:id/add_contributor', :controller => 'books', :action => 'add_contributor'
+  map.subjects 'books/:id/add_subjects', :controller => 'books', :action => 'add_subject'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

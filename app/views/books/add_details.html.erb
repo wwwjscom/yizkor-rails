@@ -66,4 +66,16 @@
 
 <hr />
 
+<% form_for(@subject) do |f| %>
+
+  <input type="hidden" id="subject_book_id" name="subject[book_id]" value="<%= params[:id] %>" />
+  <p>
+    Subject: <%= select :subject, :subject_type_id, SubjectType.find(:all).collect { |s| [s.title, s.id] } %>
+  </p>
+  <p>
+    <%= f.submit 'Add Subject' %>
+  </p>
+
+<% end %>
+
 
