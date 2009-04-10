@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.pages 'books/:id/add_page', :controller => 'books', :action => 'add_page'
   map.contributors 'books/:id/add_contributor', :controller => 'books', :action => 'add_contributor'
   map.subjects 'books/:id/add_subjects', :controller => 'books', :action => 'add_subject'
+  map.languages 'books/:id/add_languages', :controller => 'books', :action => 'add_language'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

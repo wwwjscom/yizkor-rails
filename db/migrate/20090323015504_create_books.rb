@@ -17,9 +17,9 @@ class CreateBooks < ActiveRecord::Migration
       t.string :keywords
       t.string :dig_book
       t.boolean :deleted
-
       t.timestamps
     end
+    Book.create(:title => 'test')
   end
 
   def self.down

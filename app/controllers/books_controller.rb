@@ -105,7 +105,7 @@ class BooksController < ApplicationController
     @page = Page.new
     @contributor = Contributor.new
     @subject = Subject.new
-    @subject_types = SubjectType.find(:all)
+    @language = Language.new
   end
 
   def add_alt_title
@@ -159,6 +159,17 @@ class BooksController < ApplicationController
       redirect_to add_details_path
     else
       flash[:warning] = 'Unable to add subject'
+      render add_details_path
+    end
+  end
+
+  def add_language
+    @language = Language.new(params[:language])
+    if @language.save
+      flash[:success] = 'Language added'
+      redirect_to add_details_path
+    else
+      flash[:warning] = 'Unable to add language'
       render add_details_path
     end
   end
