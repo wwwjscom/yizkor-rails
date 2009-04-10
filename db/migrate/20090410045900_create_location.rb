@@ -1,4 +1,4 @@
-class CreateLocations < ActiveRecord::Migration
+class CreateLocation < ActiveRecord::Migration
   def self.up
     create_table :locations do |t|
       t.integer :book_id

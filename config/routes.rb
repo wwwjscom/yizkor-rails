@@ -11,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   map.languages 'books/:id/add_languages', :controller => 'books', :action => 'add_language'
   map.locations 'books/:id/add_locations', :controller => 'books', :action => 'add_location'
   map.location_variations 'books/:id/add_location_variations', :controller => 'books', :action => 'add_location_variation'
+  map.uploads 'books/:id/add_upload', :controller => 'books', :action => 'add_upload'
+  map.delete_uploads_path 'books/:id/delete_upload/', :controller => 'books', :action => 'delete_upload'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

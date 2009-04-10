@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090410045900) do
+ActiveRecord::Schema.define(:version => 20090410175033) do
 
   create_table "alt_titles", :force => true do |t|
     t.integer  "book_id"
@@ -102,6 +102,17 @@ ActiveRecord::Schema.define(:version => 20090410045900) do
     t.integer  "subject_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.integer "book_id"
+    t.integer "size"
+    t.string  "content_type"
+    t.string  "filename"
+    t.integer "height"
+    t.integer "width"
+    t.integer "parent_id"
+    t.string  "thumbnail"
   end
 
 end

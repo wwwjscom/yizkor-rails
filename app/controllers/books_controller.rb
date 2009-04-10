@@ -108,6 +108,8 @@ class BooksController < ApplicationController
     @language = Language.new
     @location = Location.new
     @location_variation = LocationVariation.new
+    @upload = Upload.new
+    @images = Upload.find(:all, :conditions => ["book_id = ?", params[:id]])
   end
 
   def add_alt_title
@@ -198,6 +200,23 @@ class BooksController < ApplicationController
     end
   end
 
+  def add_upload
+    @upload = Upload.new(params[:upload])
+    if @upload.save
+      flash[:notice] = 'Upload was successfully created.'
+      redirect_to add_details_path
+    else
+      render add_details_path
+    end
+  end
 
+  def delete_upload
+    if Upload.destroy(params[:book_id])
+      flash[:notice] = 'File deleted'
+    else
+      flash[:error] = 'Error deleting file'
+    end
+    redirect_to add_details_path
+  end
 
 end
