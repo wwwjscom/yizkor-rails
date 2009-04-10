@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090410043730) do
+ActiveRecord::Schema.define(:version => 20090410045900) do
 
   create_table "alt_titles", :force => true do |t|
     t.integer  "book_id"
@@ -62,6 +62,24 @@ ActiveRecord::Schema.define(:version => 20090410043730) do
   create_table "languages", :force => true do |t|
     t.integer  "book_id"
     t.integer  "language_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "location_variations", :force => true do |t|
+    t.integer  "location_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "name"
+    t.integer  "population"
+    t.integer  "pre_wwii_population"
+    t.string   "coordinates"
+    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

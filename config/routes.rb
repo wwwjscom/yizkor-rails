@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.contributors 'books/:id/add_contributor', :controller => 'books', :action => 'add_contributor'
   map.subjects 'books/:id/add_subjects', :controller => 'books', :action => 'add_subject'
   map.languages 'books/:id/add_languages', :controller => 'books', :action => 'add_language'
+  map.locations 'books/:id/add_locations', :controller => 'books', :action => 'add_location'
+  map.location_variations 'books/:id/add_location_variations', :controller => 'books', :action => 'add_location_variation'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

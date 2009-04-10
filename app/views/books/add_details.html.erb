@@ -93,3 +93,54 @@
 
 <% end %>
 
+<hr />
+
+<% form_for(@location) do |f| %>
+
+  <input type="hidden" id="location_book_id" name="location[book_id]" value="<%= params[:id] %>" />
+
+  <p>
+    <%= f.label :name, 'Name' %>:
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :name, 'Population' %>:
+    <%= f.text_field :population %>
+  </p>
+  <p>
+    <%= f.label :name, 'Pre WWII Population' %>:
+    <%= f.text_field :pre_wwii_population %>
+  </p>
+  <p>
+    <%= f.label :name, 'Coordinates' %>:
+    <%= f.text_field :coordinates %>
+  </p>
+  <p>
+    <%= f.label :name, 'Country' %>:
+    <%= f.text_field :country %>
+  </p>
+
+  <p>
+    <%= f.submit 'Add location' %>
+  </p>
+
+<% end %>
+
+<hr />
+
+<% form_for(@location_variation) do |f| %>
+
+  <p>
+    <%= f.label :location, 'Location' %>:
+    <%= select :book, :title, Location.find(:all).collect { |b| [b.name, b.id] } %>
+  </p>
+  <p>
+    <%= f.label :name, 'Variation' %>:
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit 'Add Variation' %>
+  </p>
+
+<% end %>

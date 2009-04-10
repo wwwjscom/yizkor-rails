@@ -106,6 +106,8 @@ class BooksController < ApplicationController
     @contributor = Contributor.new
     @subject = Subject.new
     @language = Language.new
+    @location = Location.new
+    @location_variation = LocationVariation.new
   end
 
   def add_alt_title
@@ -173,5 +175,29 @@ class BooksController < ApplicationController
       render add_details_path
     end
   end
+
+  def add_location
+    @location = Location.new(params[:location])
+    if @location.save
+      flash[:success] = 'Location added'
+      redirect_to add_details_path
+    else
+      flash[:warning] = 'Unable to add location'
+      render add_details_path
+    end
+  end
+
+  def add_location_variation
+    @location_variation = LocationVariation.new(params[:location_variation])
+    if @location_variation.save
+      flash[:success] = 'Location variation added'
+      redirect_to add_details_path
+    else
+      flash[:warning] = 'Unable to add location variation'
+      render add_details_path
+    end
+  end
+
+
 
 end
