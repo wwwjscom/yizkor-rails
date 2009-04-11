@@ -4,14 +4,6 @@ class BooksController < ApplicationController
   end
 
   def find
-    @book = Book.find_by_title(params['title'])
-
-    if @book != nil
-      render :action => 'show'
-    else
-      flash.now[:notice] = 'Book not found'
-      render :action => 'search'
-    end
   end
 
   # GET /books
