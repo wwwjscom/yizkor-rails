@@ -2,6 +2,6 @@
 
 <ul>
   <li><%= link_to 'All',  :controller => 'books', :action => 'index'  %></li>
-  <li><%= link_to 'Title', :action => 'find_by_title'  %></li>
-  <li><%= link_to 'Contributor', :action => 'search_by_contributor'  %></li>
+  <li><%= link_to 'Title', :action => 'search', :find_by => 'title'  %></li>
+  <li><%= link_to 'Contributor', :action => '_by_contributor'  %></li>
 </ul>

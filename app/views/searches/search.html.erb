@@ -1,6 +1,6 @@
 <% form_tag :action => 'search' do %>
 
-  <%= render :partial => 'find_by_title' %>
+  <%= render :partial => "find_by_#{params[:find_by]}" %>
   <p>
     <%= submit_tag "Search" %>
   </p>
