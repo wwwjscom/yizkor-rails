@@ -1,8 +1,8 @@
-<h1>New book</h1>
-
 <% form_for(@book) do |f| %>
   <%= f.error_messages %>
 
+  <fieldset>
+    <legend>New Book</legend>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -30,6 +30,10 @@
   <p>
     <%= f.label :has_index %><br />
     <%= f.check_box :has_index %>
+  </p>
+  <p>
+    <%= f.label :has_maps %><br />
+    <%= f.check_box :has_maps %>
   </p>
   <p>
     <%= f.label :description %><br />
@@ -64,8 +68,17 @@
     <%= f.text_field :dig_book %>
   </p>
   <p>
+    <%= f.label :nypl_link %><br />
+    <%= f.text_field :nypl_link %>
+  </p>
+  <p>
+    <%= f.label :quotations %><br />
+    <%= f.text_field :quotations %>
+  </p>
+  <p>
     <%= f.submit "Create" %>
   </p>
+  </fieldset>
 <% end %>
 
 <%= link_to 'Back', books_path %>
