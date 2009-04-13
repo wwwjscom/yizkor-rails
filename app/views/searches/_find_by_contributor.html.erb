@@ -1,0 +1,13 @@
+
+  <input type="hidden" id="find_by" name="find_by" value="contributor" />
+  <p>
+    <%= label_tag 'First' %>: 
+    <%= text_field_tag 'first', nil, :size => 50 %>
+  </p>
+  <p>
+    <%= label_tag 'Last' %>: 
+    <%= text_field_tag 'last', nil, :size => 50 %>
+  </p>
+  <p>
+  <%= select_tag 'Role', options_for_select(['Author', 'Translator', 'Editor']) %>
+  </p>

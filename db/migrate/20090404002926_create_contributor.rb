@@ -7,6 +7,8 @@ class CreateContributor < ActiveRecord::Migration
       t.string :role
       t.timestamps
     end
+
+    Contributor.create(:first => 'Jason', :last => 'Soo', :role => 'Author', :book_id => 1)
   end
 
   def self.down
