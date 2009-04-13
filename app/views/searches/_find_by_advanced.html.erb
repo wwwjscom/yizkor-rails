@@ -1,0 +1,47 @@
+
+  <input type="hidden" id="find_by" name="find_by" value="advanced" />
+  <p>
+    <%= label_tag 'historical_period', 'Historical Period' %>: 
+    <%= text_field_tag 'historical_period', nil, :size => 50 %>
+  </p>
+
+  <p>
+    <%= label_tag 'abtract', 'Abstract' %>: 
+    <%= text_field_tag 'abtract', nil, :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= label_tag 'keywords', 'Keywords' %>: 
+    <%= text_field_tag 'keywords', nil, :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= label_tag 'other_notes', 'Other Notes' %>: 
+    <%= text_field_tag 'other_notes', nil, :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= label_tag 'table_of_contents', 'Table of Contents' %>: 
+    <%= text_field_tag 'table_of_contents', nil, :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= label_tag 'has_toc', 'Has Table of Contents' %>: 
+    <%= check_box_tag 'has_toc' %>
+  </p>
+  <p>
+    <%= label_tag 'has_index', 'Has Index' %>: 
+    <%= check_box_tag 'has_index' %>
+  </p>
+  <p>
+    <%= label_tag 'has_necrology', 'Has Necrology' %>: 
+    <%= check_box_tag 'has_necrology' %>
+  </p>
+
+
+
+

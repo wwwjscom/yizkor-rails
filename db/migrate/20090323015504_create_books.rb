@@ -19,7 +19,7 @@ class CreateBooks < ActiveRecord::Migration
       t.boolean :deleted
       t.timestamps
     end
-    Book.create(:title => 'test')
+    Book.create(:title => 'test', :has_index => true, :publication_year => '2009')
   end
 
   def self.down

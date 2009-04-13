@@ -8,8 +8,7 @@ class SearchesController < ApplicationController
 
   def search
     find_by = params[:find_by]
-    #unless params[:commit].blank?
-    if !params[:commit].blank?
+    unless params[:commit].blank?
       book = find_query(find_by)
       if book.blank?
         flash[:notice] = 'Book not found'
@@ -24,7 +23,7 @@ class SearchesController < ApplicationController
 
   def find_query(find_by)
     case find_by
-      when 'title': Book.find_by_title(params[:title])
+      when 'title': books = Book.find_by_title(params[:title])
       when 'contributor': 
         books = Contributor.find(:all, 
           :conditions => 
@@ -37,6 +36,21 @@ class SearchesController < ApplicationController
         # to loop over all the results returned, which I didn't
         # write here.
         books = Book.find(:first, :conditions => ["id IN (?)", books.collect { |b| b.id }])
+      when 'advanced':
+        conditions = ""
+        # build conditions according to info given
+        params_list = ['historical_period', 'call_num', 'abstract', 'keywords', 'other_notes', 'table_of_contents', 'has_toc', 'has_index', 'has_necrology']
+        params_list.each do |param|
+          unless params[param].blank?
+            logger.info "#{param} is not blank.  Its set to #{params[param]}"
+            if conditions != ""
+              conditions += " AND"
+            end
+            conditions += " #{param} = #{params[param]}"
+          end
+        end
+logger.info "Query: #{conditions}"
+books = Book.find(:first, :conditions => ["#{conditions}"])
     end
     return books
   end
