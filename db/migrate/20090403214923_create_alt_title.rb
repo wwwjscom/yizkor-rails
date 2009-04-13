@@ -5,6 +5,7 @@ class CreateAltTitle < ActiveRecord::Migration
       t.string :title
       t.timestamps
     end
+    AltTitle.create(:title => 'alt test', :book_id => 1)
   end
 
   def self.down

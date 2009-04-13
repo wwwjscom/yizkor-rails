@@ -5,6 +5,7 @@ class CreateCallNum < ActiveRecord::Migration
       t.string :call_num
       t.timestamp
     end
+    CallNum.create(:call_num => '1', :book_id => 1)
   end
 
   def self.down

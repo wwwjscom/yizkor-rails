@@ -5,6 +5,8 @@ class CreatePage < ActiveRecord::Migration
       t.string :page
       t.timestamps
     end
+    Page.create(:page => 'this is a page', :book_id => 1)
+    Page.create(:page => 'page 2', :book_id => 1)
   end
 
   def self.down

@@ -15,6 +15,32 @@
 <center><h1 class="book_title"><%=h @book.title.capitalize %></h1></center>
 
 <p>
+  <b>Alternative Titles:</b>
+  <% @book.alt_title.each do |t| %>
+    <%= t.title %><br />
+  <% end %>
+</p>
+
+<p>
+  <b>Call Numbers:</b>
+  <% @book.call_num.each do |c| %>
+    <%= c.call_num %><br />
+  <% end %>
+</p>
+
+<p>
+  <b>Subjects:</b>
+  <%= @book.subjects %>
+</p>
+
+<p>
+  <b>Pages:</b>
+  <%= @book.pages %>
+</p>
+
+
+
+<p>
   <b>Description:</b>
   <%=h @book.description %>
 </p>
@@ -57,6 +83,20 @@
 </div>
 <div class="book_results">
 
+
+<p>
+  <b>Contributors:</b>
+  <%= @book.contributors %>
+</p>
+
+
+<p>
+  <b>Languages:</b>
+  <%= @book.languages %>
+</p>
+
+
+
 <p>
   <b>Characteristics:</b>
   <%=h @book.characteristics %>
@@ -95,6 +135,10 @@
 <p>
   <b>Images:</b>
   <%=h @book.has_images %>
+
+  <% @book.upload.each do |u| %>
+    <%= link_to image_tag(u.public_filename(:thumb)), u.public_filename %><br />
+  <% end %>
 </p>
 </div>
 
