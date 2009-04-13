@@ -38,13 +38,10 @@
   <%= @book.pages %>
 </p>
 
-
-
 <p>
   <b>Description:</b>
   <%=h @book.description %>
 </p>
-
 
 <p>
   <b>Publication year:</b>
@@ -78,6 +75,11 @@
 <p>
   <b>Has index:</b>
   <%=h @book.has_index %>
+</p>
+
+<p>
+  <b>Has maps:</b>
+  <%=h @book.has_maps %>
 </p>
 
 </div>
@@ -128,6 +130,15 @@
   <%=h @book.dig_book %>
 </p>
 
+<p>
+  <b>Quotations:</b>
+  <%=h @book.quotations %>
+</p>
+
+<p>
+  <b>NYPL Link:</b>
+  <%=h @book.nypl_link%>
+</p>
 
 </div>
 <div class="book_results">
@@ -137,7 +148,7 @@
   <%=h @book.has_images %>
 
   <% @book.upload.each do |u| %>
-    <%= link_to image_tag(u.public_filename(:thumb)), u.public_filename %><br />
+    <%= link_to image_tag(u.public_filename(:thumb)), u.public_filename %> - <%= u.upload_type %><br />
   <% end %>
 </p>
 </div>

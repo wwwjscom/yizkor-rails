@@ -53,7 +53,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        flash[:notice] = 'Book was successfully created.'
+        flash[:success] = 'Book was successfully created.'
         format.html { redirect_to(@book) }
         format.xml  { render :xml => @book, :status => :created, :location => @book }
       else
@@ -70,7 +70,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        flash[:notice] = 'Book was successfully updated.'
+        flash[:success] = 'Book was successfully updated.'
         format.html { redirect_to(@book) }
         format.xml  { head :ok }
       else
@@ -109,7 +109,7 @@ class BooksController < ApplicationController
   def add_alt_title
     @alt_title = AltTitle.new(params[:alt_title])
     if @alt_title.save
-      flash[:notice] = 'Title added!'
+      flash[:success] = 'Title added!'
       redirect_to add_details_path
     else
       flash[:warning] = 'Error'
@@ -196,8 +196,9 @@ class BooksController < ApplicationController
 
   def add_upload
     @upload = Upload.new(params[:upload])
+    @upload['upload_type'] = params[:upload][:upload_type]
     if @upload.save
-      flash[:notice] = 'Upload was successfully created.'
+      flash[:success] = 'Upload was successfully created.'
       redirect_to add_details_path
     else
       render add_details_path
@@ -206,7 +207,7 @@ class BooksController < ApplicationController
 
   def delete_upload
     if Upload.destroy(params[:book_id])
-      flash[:notice] = 'File deleted'
+      flash[:success] = 'File deleted'
     else
       flash[:error] = 'Error deleting file'
     end

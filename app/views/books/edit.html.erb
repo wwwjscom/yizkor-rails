@@ -64,7 +64,22 @@
     <%= f.text_field :dig_book %>
   </p>
   <p>
+    <%= f.label :quotations %><br />
+    <%= f.text_field :quotations %>
+  </p>
+  <p>
+    <%= f.label :nypl_link %><br />
+    <%= f.text_field :nypl_link %>
+  </p>
+  <p>
+    <%= f.label :has_maps %><br />
+    <%= f.check_box :has_maps %>
+  </p>
+
+  <p>
     <%= f.submit "Update" %>
   </p>
+
+
 </fieldset>
 <% end %>

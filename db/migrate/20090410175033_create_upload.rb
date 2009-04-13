@@ -9,6 +9,7 @@ class CreateUpload < ActiveRecord::Migration
       t.integer :width
       t.integer :parent_id
       t.string :thumbnail
+      t.string :upload_type
     end
   end
 

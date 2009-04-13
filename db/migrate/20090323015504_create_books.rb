@@ -17,6 +17,10 @@ class CreateBooks < ActiveRecord::Migration
       t.string :keywords
       t.string :dig_book
       t.boolean :deleted
+      t.string :quotations
+      t.string :nypl_link
+      t.boolean :has_maps
+
       t.timestamps
     end
     Book.create(:title => 'test', :has_index => true, :publication_year => '2009')
