@@ -1,5 +1,5 @@
-<h1>Editing book</h1>
-
+<fieldset>
+  <legend>Edit Book</legend>
 <% form_for(@book) do |f| %>
   <%= f.error_messages %>
 
@@ -64,13 +64,7 @@
     <%= f.text_field :dig_book %>
   </p>
   <p>
-    <%= f.label :deleted %><br />
-    <%= f.check_box :deleted %>
-  </p>
-  <p>
     <%= f.submit "Update" %>
   </p>
+</fieldset>
 <% end %>
-
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>

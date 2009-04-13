@@ -1,4 +1,6 @@
 <% form_for(@alt_title) do |f| %>
+  <fieldset>
+    <legend>Alternate Title</legend>
   <%= f.error_messages %>
 
   <input type="hidden" id="alt_title_book_id" name="alt_title[book_id]" value="<%= params[:id] %>" />
@@ -9,11 +11,14 @@
   <p>
     <%= f.submit 'Add Title' %>
   </p>
+  </fieldset>
 <% end %>
 
-<hr />
+
 
 <% form_for(@call_num) do |f| %>
+  <fieldset>
+    <legend>Call Number</legend>
   <%= f.error_messages %>
 
   <input type="hidden" id="call_num_book_id" name="call_num[book_id]" value="<%= params[:id] %>" />
@@ -24,11 +29,14 @@
 
   <%= f.submit 'Add call number' %>
 
+  </fieldset>
 <% end %>
 
-<hr />
+
 
 <% form_for(@page) do |f| %>
+  <fieldset>
+    <legend>Page</legend>
   <%= f.error_messages %>
 
   <input type="hidden" id="page_book_id" name="page[book_id]" value="<%= params[:id] %>" />
@@ -39,11 +47,14 @@
   <p>
     <%= f.submit 'Add Page' %>
   </p>
+  </fieldset>
 <% end %>
 
-<hr />
+
 
 <% form_for(@contributor) do |f| %>
+  <fieldset>
+    <legend>Contributor</legend>
   <%= f.error_messages %>
 
   <input type="hidden" id="contributor_book_id" name="contributor[book_id]" value="<%= params[:id] %>" />
@@ -62,11 +73,14 @@
   <p>
     <%= f.submit 'Add contributor' %>
   </p>
+  </fieldset>
 <% end %>
 
-<hr />
+
 
 <% form_for(@subject) do |f| %>
+  <fieldset>
+    <legend>Subject</legend>
 
   <input type="hidden" id="subject_book_id" name="subject[book_id]" value="<%= params[:id] %>" />
   <p>
@@ -76,11 +90,14 @@
     <%= f.submit 'Add Subject' %>
   </p>
 
+  </fieldset>
 <% end %>
 
-<hr />
+
 
 <% form_for(@language) do |f| %>
+  <fieldset>
+    <legend>Language</legend>
 
   <input type="hidden" id="language_book_id" name="language[book_id]" value="<%= params[:id] %>" />
 
@@ -91,32 +108,35 @@
     <%= f.submit 'Add language' %>
   </p>
 
+  </fieldset>
 <% end %>
 
-<hr />
+
 
 <% form_for(@location) do |f| %>
+  <fieldset>
+    <legend>Location</legend>
 
   <input type="hidden" id="location_book_id" name="location[book_id]" value="<%= params[:id] %>" />
 
   <p>
-    <%= f.label :name, 'Name' %>:
+    <%= f.label :name, 'Name' %>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :population, 'Population' %>:
+    <%= f.label :population, 'Population' %>
     <%= f.text_field :population %>
   </p>
   <p>
-    <%= f.label :pre_wwii_population, 'Pre WWII Population' %>:
+    <%= f.label :pre_wwii_population, 'Pre WWII Population' %>
     <%= f.text_field :pre_wwii_population %>
   </p>
   <p>
-    <%= f.label :coordinates, 'Coordinates' %>:
+    <%= f.label :coordinates, 'Coordinates' %>
     <%= f.text_field :coordinates %>
   </p>
   <p>
-    <%= f.label :country, 'Country' %>:
+    <%= f.label :country, 'Country' %>
     <%= f.text_field :country %>
   </p>
 
@@ -124,18 +144,21 @@
     <%= f.submit 'Add location' %>
   </p>
 
+  </fieldset>
 <% end %>
 
-<hr />
+
 
 <% form_for(@location_variation) do |f| %>
+  <fieldset>
+    <legend>Location Variation</legend>
 
   <p>
-    <%= f.label :location, 'Location' %>:
+    <%= f.label :location, 'Location' %>
     <%= select :book, :title, Location.find(:all).collect { |b| [b.name, b.id] } %>
   </p>
   <p>
-    <%= f.label :name, 'Variation' %>:
+    <%= f.label :name, 'Variation' %>
     <%= f.text_field :name %>
   </p>
 
@@ -143,16 +166,19 @@
     <%= f.submit 'Add Variation' %>
   </p>
 
+  </fieldset>
 <% end %>
 
-<hr />
+
 
 <%= error_messages_for :upload %>
 
 <% form_for(:upload, :url => uploads_path, :html => { :multipart => true }) do |f| -%>
+  <fieldset>
+    <legend>Upload</legend>
   <input type="hidden" id="upload_book_id" name="upload[book_id]" value="<%= params[:id] %>" />
   <p>
-    <%= f.label :uploaded_data, 'Upload' %>:
+    <%= f.label :uploaded_data, 'Upload' %>
     <%= f.file_field :uploaded_data %>
   </p>
   <p>
@@ -166,4 +192,5 @@
     <li><%= link_to image_tag(image.public_filename(:thumb), :alt => ''), image.public_filename %> -- <%= link_to('Delete', {:controller => 'books', :action => 'delete_upload', :book_id => image.id}, :confirm => "Are you sure?") %></li>
   <% end %>
   </ul>
+  </fieldset>
 <% end %>

@@ -1,7 +1,10 @@
 <% form_tag :action => 'search' do %>
+  <fieldset>
 
+    <legend><%= params[:find_by].capitalize %> Search</legend>
   <%= render :partial => "find_by_#{params[:find_by]}" %>
   <p>
     <%= submit_tag "Search" %>
   </p>
+</fieldset>
 <% end %>

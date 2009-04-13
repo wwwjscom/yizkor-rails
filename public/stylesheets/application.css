@@ -1,0 +1,71 @@
+body {
+  font: 13px 'Lucida Grande',helvetica,tahoma,arial,clean,sans-serif;
+}
+
+fieldset.submit {  
+  float: none;  
+  width: auto;  
+  border: 0 none #FFF;  
+  padding-left: 12em;
+}
+
+fieldset {
+  float: left;  
+  clear: left;  
+  width: 100%;  
+  margin: 0 0 1.5em 0;  
+  padding: 1em; 
+  background-color: #F2EFE9;
+}
+
+input {
+  font-size: 120%;
+  padding: 0.2em;
+}
+
+legend {
+  font-size: 120%;
+}
+
+
+label {
+  display: block;
+}
+
+ul {
+  margin: 0 auto;
+}
+
+ul.horizontal_list li {
+  text-align: left;
+  float: left;
+  list-style: none;
+  padding: 3px 10px 3px 10px;
+  margin: 5px;
+  border: 1px solid #FFFFFF;
+}
+
+a {
+  color: #666666;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.book_results {
+  font-size: 120%;
+  border: 1px solid #FFFFFF;
+  background-color: #F2EFE9;
+  width: 100%;
+  margin: 15px;
+  padding: 10px;
+  clear: left;
+}
+
+.book_title {
+  font-size: 175%;
+  font-weight: bold;
+  color: #330000;
+}

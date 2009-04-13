@@ -1,8 +1,18 @@
-<p><%= link_to 'Add details', add_details_path(@book) %></p>
+<ul class="horizontal_list">
+  <li><%= link_to 'Add details', add_details_path(@book) %></li>
+  <li><%= link_to 'Edit', edit_book_path(@book) %></li>
+  <li><%= link_to 'New book', new_book_path %></li>
+  <li><%= link_to 'All', books_path %></li>
+</ul>
+
+<div class="book_results">
+<center><h1 class="book_title"><%=h @book.title.capitalize %></h1></center>
+
 <p>
-  <b>Title:</b>
-  <%=h @book.title %>
+  <b>Description:</b>
+  <%=h @book.description %>
 </p>
+
 
 <p>
   <b>Publication year:</b>
@@ -19,6 +29,10 @@
   <%=h @book.historical_period %>
 </p>
 
+
+
+</div>
+<div class="book_results">
 <p>
   <b>Has necrology:</b>
   <%=h @book.has_necrology %>
@@ -34,10 +48,8 @@
   <%=h @book.has_index %>
 </p>
 
-<p>
-  <b>Description:</b>
-  <%=h @book.description %>
-</p>
+</div>
+<div class="book_results">
 
 <p>
   <b>Characteristics:</b>
@@ -49,10 +61,6 @@
   <%=h @book.table_of_contents %>
 </p>
 
-<p>
-  <b>Has images:</b>
-  <%=h @book.has_images %>
-</p>
 
 <p>
   <b>Other notes:</b>
@@ -74,11 +82,13 @@
   <%=h @book.dig_book %>
 </p>
 
+
+</div>
+<div class="book_results">
+
 <p>
-  <b>Deleted:</b>
-  <%=h @book.deleted %>
+  <b>Images:</b>
+  <%=h @book.has_images %>
 </p>
+</div>
 
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
