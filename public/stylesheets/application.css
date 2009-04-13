@@ -69,3 +69,24 @@ a:hover {
   font-weight: bold;
   color: #330000;
 }
+
+#notice {
+  background-color: #FFCC00;
+  font-size: 150%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#success {
+  background-color: #66CC33;
+  font-size: 150%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#warning{
+  background-color: #CC0000;
+  font-size: 150%;
+  text-align: center;
+  font-weight: bold;
+}

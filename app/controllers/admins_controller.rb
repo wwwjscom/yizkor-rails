@@ -10,10 +10,10 @@ class AdminsController < ApplicationController
       p = params[:password]
       if u == 'admin' and p == 'admin'
         session[:admin] = true
-        flash[:notice] = 'Logged in'
+        flash[:success] = 'Logged in'
         redirect_to books_path
       else
-        flash[:notice] = "Please login"
+        flash[:warning] = "Incorrect login"
       end
     end
   end
@@ -29,13 +29,6 @@ class AdminsController < ApplicationController
 
 
   private #---------------
-
-  def authorized
-    if session[:admin].blank?
-      flash[:notice] = "Please login"
-      redirect_to :action => 'index'
-    end
-  end
 
   def already_admin?
     unless session[:admin].blank?

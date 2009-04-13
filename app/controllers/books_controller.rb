@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
 
+  before_filter :authorized, :except => [:index, :show]
+
   def search
   end
 
