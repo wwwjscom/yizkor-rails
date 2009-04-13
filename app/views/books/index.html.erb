@@ -37,12 +37,16 @@
     <td><%=h book.keywords %></td>
     <td><%=h book.dig_book %></td>
     <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% unless session[:admin].blank? %>
+      <td><%= link_to 'Edit', edit_book_path(book) %></td>
+      <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New book', new_book_path %>
+<% unless session[:admin].blank? %>
+  <%= link_to 'New book', new_book_path %>
+<% end %>

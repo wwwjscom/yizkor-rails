@@ -1,8 +1,14 @@
 <ul class="horizontal_list">
-  <li><%= link_to 'Add details', add_details_path(@book) %></li>
-  <li><%= link_to 'Edit', edit_book_path(@book) %></li>
-  <li><%= link_to 'New book', new_book_path %></li>
   <li><%= link_to 'All', books_path %></li>
+  <% if session[:admin].blank? %>
+    <li><%= link_to 'Login to do more', :controller => 'admins', :action => 'index' %></li>
+  <% else %>
+    <li><%= link_to 'Add details', add_details_path(@book) %></li>
+    <li><%= link_to 'Edit', edit_book_path(@book) %></li>
+    <li><%= link_to 'New book', new_book_path %></li>
+    <li><%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %></li>
+    <li><%= link_to 'Logout', :controller => 'admins', :action => 'logout' %></li>
+  <% end %>
 </ul>
 
 <div class="book_results">

@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :books
+  #map.resources :admins
   #map.resources :searches
 
   map.search 'search', :controller => 'searches', :action => 'index'
