@@ -16,6 +16,8 @@ ActionController::Routing::Routes.draw do |map|
   map.location_variations 'books/:id/add_location_variations', :controller => 'books', :action => 'add_location_variation'
   map.uploads 'books/:id/add_upload', :controller => 'books', :action => 'add_upload'
   map.delete_uploads_path 'books/:id/delete_upload/', :controller => 'books', :action => 'delete_upload'
+  map.digitized_links 'books/:id/add_digitized_link', :controller => 'books', :action => 'add_digitized_link'
+  map.council_members 'books/:id/add_council_member', :controller => 'books', :action => 'add_council_member'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

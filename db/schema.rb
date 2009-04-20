@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090410175033) do
+ActiveRecord::Schema.define(:version => 20090420055222) do
 
   create_table "alt_titles", :force => true do |t|
     t.integer  "book_id"
@@ -33,9 +33,8 @@ ActiveRecord::Schema.define(:version => 20090410175033) do
     t.text     "other_notes"
     t.text     "abstract"
     t.string   "keywords"
-    t.string   "dig_book"
     t.boolean  "deleted"
-    t.string   "quotations"
+    t.text     "quotations"
     t.string   "nypl_link"
     t.boolean  "has_maps"
     t.datetime "created_at"
@@ -52,6 +51,21 @@ ActiveRecord::Schema.define(:version => 20090410175033) do
     t.string   "first"
     t.string   "last"
     t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "council_members", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "first"
+    t.string   "last"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "digitized_links", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

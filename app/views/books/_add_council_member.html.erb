@@ -1,0 +1,19 @@
+<% form_for(@council_member) do |f| %>
+  <fieldset>
+    <legend>Council Members</legend>
+  <%= f.error_messages %>
+
+  <input type="hidden" id="council_member_book_id" name="council_member[book_id]" value="<%= params[:id] %>" />
+  <p>
+    <%= f.label :first, 'First Name' %>
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.label :last, 'Last Name' %>
+    <%= f.text_field :last %>
+  </p>
+  <p>
+    <%= f.submit 'Add Name' %>
+  </p>
+  </fieldset>
+<% end %>

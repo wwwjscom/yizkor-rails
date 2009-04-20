@@ -127,7 +127,16 @@
 
 <p>
   <b>Digital book:</b>
-  <%=h @book.dig_book %>
+  <% @book.digitized_link.each do |d| %>
+    <%= link_to d.link, d.link %><br />
+  <% end %>
+</p>
+
+<p>
+  <b>Council Members:</b>
+  <% @book.council_member.each do |c| %>
+    <%= "#{c.first} #{c.last}, " %>
+  <% end %>
 </p>
 
 <p>

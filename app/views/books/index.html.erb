@@ -16,7 +16,6 @@
     <th>Other notes</th>
     <th>Abstract</th>
     <th>Keywords</th>
-    <th>Dig book</th>
   </tr>
 
 <% for book in @books %>
@@ -35,7 +34,6 @@
     <td><%=h book.other_notes %></td>
     <td><%=h book.abstract %></td>
     <td><%=h book.keywords %></td>
-    <td><%=h book.dig_book %></td>
     <td><%= link_to 'Show', book %></td>
     <% unless session[:admin].blank? %>
       <td><%= link_to 'Edit', edit_book_path(book) %></td>

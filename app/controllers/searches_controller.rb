@@ -71,6 +71,9 @@ class SearchesController < ApplicationController
           end
         end
         books = Book.find(:first, :conditions => ["#{conditions}"])
+
+      when 'population':
+        books = Location.find_by_population(params[:population])
       end
     return books
   end

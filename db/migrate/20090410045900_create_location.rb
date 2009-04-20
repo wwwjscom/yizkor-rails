@@ -14,6 +14,7 @@ class CreateLocation < ActiveRecord::Migration
       t.string :name
       t.timestamps
     end
+    Location.create(:book_id => 1, :population => 200, :pre_wwii_population => 100)
   end
 
   def self.down

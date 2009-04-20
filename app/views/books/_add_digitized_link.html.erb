@@ -1,0 +1,19 @@
+
+<% form_for(@digitized_link) do |f| %>
+  <fieldset>
+    <legend>Digitized Link</legend>
+
+  <input type="hidden" id="digitized_link_book_id" name="digitized_link[book_id]" value="<%= params[:id] %>" />
+
+  <p>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </p>
+  <p>
+    <%= f.submit :Submit %>
+  </p>
+
+  </fieldset>
+<% end %>
+
+

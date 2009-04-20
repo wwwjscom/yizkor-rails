@@ -15,9 +15,8 @@ class CreateBooks < ActiveRecord::Migration
       t.text :other_notes
       t.text :abstract
       t.string :keywords
-      t.string :dig_book
       t.boolean :deleted
-      t.string :quotations
+      t.text :quotations
       t.string :nypl_link
       t.boolean :has_maps
 

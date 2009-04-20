@@ -103,6 +103,8 @@ class BooksController < ApplicationController
     @location_variation = LocationVariation.new
     @upload = Upload.new
     @images = Upload.find(:all, :conditions => ["book_id = ?", params[:id]])
+    @digitized_link = DigitizedLink.new
+    @council_member = CouncilMember.new
   end
 
   def add_alt_title
@@ -219,6 +221,26 @@ class BooksController < ApplicationController
       flash[:error] = 'Error deleting file'
     end
     redirect_to add_details_path
+  end
+
+  def add_digitized_link
+    @digitized_link = DigitizedLink.new(params[:digitized_link])
+    if @digitized_link.save
+      flash[:success] = 'Digitized Link was successfully created.'
+      redirect_to add_details_path
+    else
+      render add_details_path
+    end
+  end
+
+  def add_council_member
+    @council_member = CouncilMember.new(params[:council_member])
+    if @council_member.save
+      flash[:success] = 'Council Member was successfully created.'
+      redirect_to add_details_path
+    else
+      render add_details_path
+    end
   end
 
 end

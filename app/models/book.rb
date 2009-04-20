@@ -7,6 +7,8 @@ class Book < ActiveRecord::Base
   has_many :contributor
   has_many :language
   has_many :location
+  has_many :digitized_link
+  has_many :council_member
 
   def subjects
     subjects = Array.new
