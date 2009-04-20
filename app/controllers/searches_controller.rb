@@ -1,5 +1,25 @@
 class SearchesController < ApplicationController
 
+  auto_complete_for :book, :title
+
+  def auto_complete_for_book_title
+    @titles = ['tag1', 'tag2', 'tag3', 'abc', 'def', 'hkl']
+    render :partial => 'title_list', :object => @titles
+  end
+
+
+  def set_tags
+    respond_to do |format|
+      format.html
+      format.js do
+        render :update do |page|
+          page.replace_html('book_title_auto_complete', params[:title])
+        end
+      end
+    end
+  end
+
+
   def index
   end
 

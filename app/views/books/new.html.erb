@@ -36,6 +36,10 @@
     <%= f.check_box :has_maps %>
   </p>
   <p>
+    <%= f.label :has_images %><br />
+    <%= f.check_box :has_images %>
+  </p>
+  <p>
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </p>
@@ -46,10 +50,6 @@
   <p>
     <%= f.label :table_of_contents %><br />
     <%= f.text_area :table_of_contents %>
-  </p>
-  <p>
-    <%= f.label :has_images %><br />
-    <%= f.check_box :has_images %>
   </p>
   <p>
     <%= f.label :other_notes %><br />
@@ -64,7 +64,7 @@
     <%= f.text_field :keywords %>
   </p>
   <p>
-    <%= f.label :dig_book %><br />
+    <%= f.label :dig_book, 'Digital Book' %><br />
     <%= f.text_field :dig_book %>
   </p>
   <p>
