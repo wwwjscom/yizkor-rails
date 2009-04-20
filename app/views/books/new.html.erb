@@ -5,7 +5,7 @@
     <legend>New Book</legend>
   <p>
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :size => 50 %>
   </p>
   <p>
     <%= f.label :publication_year %><br />
@@ -13,11 +13,11 @@
   </p>
   <p>
     <%= f.label :publication_place %><br />
-    <%= f.text_field :publication_place %>
+    <%= f.text_field :publication_place, :size => 50 %>
   </p>
   <p>
     <%= f.label :historical_period %><br />
-    <%= f.text_field :historical_period %>
+    <%= f.text_field :historical_period, :size => 50 %>
   </p>
   <p>
     <%= f.label :has_necrology %><br />
@@ -41,35 +41,35 @@
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, { :cols => 60, :rows => 8 } %>
   </p>
   <p>
     <%= f.label :characteristics %><br />
-    <%= f.text_area :characteristics %>
+    <%= f.text_area :characteristics, { :cols => 60, :rows => 8 }  %>
   </p>
   <p>
     <%= f.label :table_of_contents %><br />
-    <%= f.text_area :table_of_contents %>
+    <%= f.text_area :table_of_contents, { :cols => 60, :rows => 8 }  %>
   </p>
   <p>
     <%= f.label :other_notes %><br />
-    <%= f.text_area :other_notes %>
+    <%= f.text_area :other_notes, { :cols => 60, :rows => 8 }  %>
   </p>
   <p>
     <%= f.label :abstract %><br />
-    <%= f.text_area :abstract %>
+    <%= f.text_area :abstract, { :cols => 60, :rows => 8 }  %>
   </p>
   <p>
     <%= f.label :keywords %><br />
-    <%= f.text_field :keywords %>
+    <%= f.text_field :keywords, :size => 50 %>
   </p>
   <p>
     <%= f.label :nypl_link, 'New York Public Library' %><br />
-    <%= f.text_field :nypl_link %>
+    <%= f.text_field :nypl_link, :size => 50 %>
   </p>
   <p>
     <%= f.label :quotations %><br />
-    <%= f.text_area :quotations %>
+    <%= f.text_area :quotations, { :cols => 60, :rows => 8 }  %>
   </p>
   <p>
     <%= f.submit "Create" %>
