@@ -90,6 +90,9 @@ class BooksController < ApplicationController
 
   def add_details
     @book = Book.find(params[:id])
+  end
+
+  def create_details
     @alt_title = AltTitle.new
     @call_num = CallNum.new
     @page = Page.new
@@ -148,6 +151,14 @@ class BooksController < ApplicationController
 
   def add_subject
     @subject = Subject.new(params[:subject])
+
+    if not params[:create_subject].blank?
+      s_type = SubjectType.new 
+      s_type.title = params[:create_subject]
+      s_type.save
+      @subject.subject_type_id = s_type.id
+    end
+
     if @subject.save
       flash[:success] = 'Subject added'
       redirect_to add_details_path

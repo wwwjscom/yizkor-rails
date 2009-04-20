@@ -1,0 +1,15 @@
+<% form_for(@alt_title) do |f| %>
+  <fieldset>
+    <legend>Alternate Title</legend>
+  <%= f.error_messages %>
+
+  <input type="hidden" id="alt_title_book_id" name="alt_title[book_id]" value="<%= params[:id] %>" />
+  <p>
+    <%= f.label :title, 'Alt Title' %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit 'Add Title' %>
+  </p>
+  </fieldset>
+<% end %>

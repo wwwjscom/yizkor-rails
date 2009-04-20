@@ -1,0 +1,27 @@
+
+<%= error_messages_for :upload %>
+
+<% form_for(:upload, :url => uploads_path, :html => { :multipart => true }) do |f| -%>
+  <fieldset>
+    <legend>Upload</legend>
+  <input type="hidden" id="upload_book_id" name="upload[book_id]" value="<%= params[:id] %>" />
+  <p>
+    <%= f.label :uploaded_data, 'Upload' %>
+    <%= f.file_field :uploaded_data %>
+  </p>
+  <p>
+    <%= select :upload, :upload_type, { 'Map' => 'Map', 'Photograph' => 'Photograph', 'Drawing' => 'Drawing', 'Document' => 'Document' } %>
+  </p>
+  <p>
+    <%= submit_tag 'Upload' %>
+  </p>
+<% end -%>
+
+<% if !@images.blank? %>
+  <ul>
+  Current images: <% @images.each do |image| %>
+    <li><%= link_to image_tag(image.public_filename(:thumb), :alt => ''), image.public_filename %> -- <%= link_to('Delete', {:controller => 'books', :action => 'delete_upload', :book_id => image.id}, :confirm => "Are you sure?") %></li>
+  <% end %>
+  </ul>
+  </fieldset>
+<% end %>

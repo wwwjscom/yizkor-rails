@@ -1,0 +1,18 @@
+
+<% form_for(@language) do |f| %>
+  <fieldset>
+    <legend>Language</legend>
+
+  <input type="hidden" id="language_book_id" name="language[book_id]" value="<%= params[:id] %>" />
+
+  <p>
+    Language: <%= select :language, :language_type_id, LanguageType.find(:all).collect { |l| [l.title, l.id] } %>
+  </p>
+  <p>
+    <%= f.submit 'Add language' %>
+  </p>
+
+  </fieldset>
+<% end %>
+
+

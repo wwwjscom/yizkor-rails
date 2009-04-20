@@ -1,0 +1,24 @@
+
+<% form_for(@location_variation) do |f| %>
+  <fieldset>
+    <legend>Location Variation</legend>
+
+    <p><i>You cannot add a variation to a location if it does not exist.  Please create new locations above, then add their variations here.</i></p>
+
+  <p>
+    <%= f.label :location, 'Location' %>
+    <%= select :book, :title, Location.find(:all).collect { |b| [b.name, b.id] } %>
+  </p>
+  <p>
+    <%= f.label :name, 'Variation' %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit 'Add Variation' %>
+  </p>
+
+  </fieldset>
+<% end %>
+
+

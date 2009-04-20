@@ -1,0 +1,18 @@
+
+<% form_for(@page) do |f| %>
+  <fieldset>
+    <legend>Page</legend>
+  <%= f.error_messages %>
+
+  <input type="hidden" id="page_book_id" name="page[book_id]" value="<%= params[:id] %>" />
+  <p>
+    <%= f.label :page %>
+    <%= f.text_field :page %>
+  </p>
+  <p>
+    <%= f.submit 'Add Page' %>
+  </p>
+  </fieldset>
+<% end %>
+
+

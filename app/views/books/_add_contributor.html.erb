@@ -1,0 +1,26 @@
+
+<% form_for(@contributor) do |f| %>
+  <fieldset>
+    <legend>Contributor</legend>
+  <%= f.error_messages %>
+
+  <input type="hidden" id="contributor_book_id" name="contributor[book_id]" value="<%= params[:id] %>" />
+  <p>
+    <%= f.label :first %>
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.label :last %>
+    <%= f.text_field :last %>
+  </p>
+  <p>
+    <%= select :contributor, :role, { 'Author' => 'Author', 'Editor' => 'Editor', 'Translator' => 'Translator' } %>
+  </p>
+
+  <p>
+    <%= f.submit 'Add contributor' %>
+  </p>
+  </fieldset>
+<% end %>
+
+
