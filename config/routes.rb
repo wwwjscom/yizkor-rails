@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   #map.resources :admins
   #map.resources :searches
 
+  map.suggestions 'search/suggestions', :controller => 'searches', :action => 'suggestions'
   map.search 'search', :controller => 'searches', :action => 'index'
   map.add_details 'books/:id/add_details', :controller => 'books', :action => 'add_details'
   map.create_details 'books/:id/create_details/:field', :controller => 'books', :action => 'create_details'

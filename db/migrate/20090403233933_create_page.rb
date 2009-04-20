@@ -7,6 +7,7 @@ class CreatePage < ActiveRecord::Migration
     end
     Page.create(:page => 'this is a page', :book_id => 1)
     Page.create(:page => 'page 2', :book_id => 1)
+    Page.create(:page => 164, :book_id => 2)
   end
 
   def self.down

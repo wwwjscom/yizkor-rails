@@ -20,6 +20,9 @@ class SearchesController < ApplicationController
   end
 
 
+  def suggestions
+  end
+
   def index
   end
 
