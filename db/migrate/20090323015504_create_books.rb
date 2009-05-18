@@ -23,7 +23,8 @@ class CreateBooks < ActiveRecord::Migration
       t.timestamps
     end
     Book.create(:title => 'test', :has_index => true, :publication_year => '2009')
-    Book.create(:title => ' Antopol : mi-toldoteha shel kehilah ahat be-Polesyah', :publication_place => 'Isreal', :publication_year => 1966)
+    Book.create(:title => 'Antopol : mi-toldoteha shel kehilah ahat be-Polesyah', :publication_place => 'Isreal', :publication_year => 1966)
+    Book.create(:title => "Sefer Z'eludok ve-Orlovah : gal`ed le-zikaron", :publication_place => 'Israel', :publication_year => 1967)
   end
 
   def self.down

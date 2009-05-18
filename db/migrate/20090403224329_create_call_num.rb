@@ -7,6 +7,7 @@ class CreateCallNum < ActiveRecord::Migration
     end
     CallNum.create(:call_num => '1', :book_id => 1)
     CallNum.create(:call_num => 'A66 DS135.B38 ', :book_id => 2)
+    CallNum.create(:call_num => 'DS135.R93 Z471', :book_id => 3)
   end
 
   def self.down

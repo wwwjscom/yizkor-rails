@@ -12,7 +12,7 @@
 </ul>
 
 <div class="book_results">
-<center><h1 class="book_title"><%=h @book.title.capitalize %></h1></center>
+<center><h1 class="book_title"><%=h @book.title %></h1></center>
 
 <p>
   <b>Alternative Titles:</b>
@@ -35,7 +35,7 @@
 
 <p>
   <b>Pages:</b>
-  <%= @book.pages %>
+  <%= @book.pages.to_s[0..-3] %>
 </p>
 
 <p>

@@ -9,6 +9,8 @@ class CreateLocation < ActiveRecord::Migration
       t.string :country
       t.timestamps
     end
+    Location.create(:book_id => 3, :name => 'Orlovo', :country => 'Belarus')
+
     create_table :location_variations do |t|
       t.integer :location_id
       t.string :name
