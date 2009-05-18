@@ -10,6 +10,14 @@ class Book < ActiveRecord::Base
   has_many :digitized_link
   has_many :council_member
 
+  def approved
+    Book.find(:all, :conditions => ["approved = 1"])
+  end
+
+  def pending
+    Book.find(:all, :conditions => ["approved = 0"])
+  end
+
   def subjects
     subjects = Array.new
     self.subject.each do |s|

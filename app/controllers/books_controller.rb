@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_filter :authorized, :except => [:index, :show]
+  before_filter :authorized, :only => [:destroy, :reject, :edit, :update, :approve]
 
   def search
   end
@@ -11,7 +11,9 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.find(:all)
+    @admin = admin?
+    @books = Book.new.approved
+    @pending = Book.new.pending
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +43,20 @@ class BooksController < ApplicationController
     end
   end
 
+  # DELETE /books/1/reject
+  def reject
+    Book.delete(params[:id])
+    flash[:success] = 'Book rejected'
+    redirect_to books_path
+  end
+
+  # PUT /books/1/approve
+  def approve
+    Book.update(params[:id], { :approved => true})
+    flash[:success] = 'Book approved'
+    redirect_to books_path
+  end
+
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
@@ -50,6 +66,8 @@ class BooksController < ApplicationController
   # POST /books.xml
   def create
     @book = Book.new(params[:book])
+
+    @book['approved'] = 1 if admin?
 
     if @book.save
       flash[:success] = 'Book was successfully created.'
@@ -208,17 +226,17 @@ class BooksController < ApplicationController
     @upload['upload_type'] = params[:upload][:upload_type]
     if @upload.save
       flash[:success] = 'Upload was successfully created.'
-      redirect_to add_details_path
     else
-      render add_details_path
+      flash[:warning] = "Couldn't upload file."
     end
+    redirect_to add_details_path
   end
 
   def delete_upload
     if Upload.destroy(params[:book_id])
       flash[:success] = 'File deleted'
     else
-      flash[:error] = 'Error deleting file'
+      flash[:warning] = 'Error deleting file'
     end
     redirect_to add_details_path
   end

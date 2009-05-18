@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :books
+  map.resources :books, :member => { :reject => :delete, :approve => :put }
   #map.resources :admins
   #map.resources :searches
 

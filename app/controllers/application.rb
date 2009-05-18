@@ -15,9 +15,13 @@ class ApplicationController < ActionController::Base
 
   private #--------
 
+  def admin?
+    not session[:admin].blank?
+  end
+
   def authorized
-    if session[:admin].blank?
-      flash[:notice] = "Please login"
+    if not admin?
+      flash[:warning] = "Please login"
       redirect_to :controller => 'admins', :action => 'index'
     end
   end

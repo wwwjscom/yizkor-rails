@@ -1,24 +1,41 @@
-<h1>Listing books</h1>
+<% if @admin %>
+  <% if @pending.blank? %>
+    <p><i>No books pending approval</i></p>
+  <% else %>
+    <h4>Awaiting approval</h4>
+
+    <table>
+      <tr>
+        <th>Title</th>
+      </tr>
+
+      <% for book in @pending %>
+        <tr>
+          <td><%= link_to(h(book.title.titleize), book) %> - </td>
+          <td><%= link_to 'Approve', approve_book_path(book), :confirm => 'Are you sure?', :method => :put %></td>
+          <td><%= link_to 'Reject', reject_book_path(book), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+
+
+    <hr />
+  <% end %>
+<% end %>
+
 
 <table>
   <tr>
     <th>Title</th>
   </tr>
 
-<% for book in @books %>
-  <tr>
-    <td><%=h book.title.titleize %></td>
-    <td><%= link_to 'Show', book %></td>
-    <% unless session[:admin].blank? %>
-      <td><%= link_to 'Edit', edit_book_path(book) %></td>
-      <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end %>
-  </tr>
-<% end %>
+  <% for book in @books %>
+    <tr>
+      <td><%= link_to(h(book.title.titleize), book) %></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<% unless session[:admin].blank? %>
-  <%= link_to 'New book', new_book_path %>
-<% end %>
+<%= link_to 'New book', new_book_path %>

@@ -12,12 +12,12 @@
 </ul>
 
 <div class="book_results">
-<center><h1 class="book_title"><%=h @book.title %></h1></center>
+<center><h1 class="book_title"><%=h @book.title.titleize %></h1></center>
 
 <p>
   <b>Alternative Titles:</b>
   <% @book.alt_title.each do |t| %>
-    <%= t.title %><br />
+    <%= t.title.titleize %><br />
   <% end %>
 </p>
 

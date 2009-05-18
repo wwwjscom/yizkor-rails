@@ -19,12 +19,13 @@ class CreateBooks < ActiveRecord::Migration
       t.text :quotations
       t.string :nypl_link
       t.boolean :has_maps
+      t.boolean :approved, :default => false
 
       t.timestamps
     end
     Book.create(:title => 'test', :has_index => true, :publication_year => '2009')
-    Book.create(:title => 'Antopol : mi-toldoteha shel kehilah ahat be-Polesyah', :publication_place => 'Isreal', :publication_year => 1966)
-    Book.create(:title => "Sefer Z'eludok ve-Orlovah : gal`ed le-zikaron", :publication_place => 'Israel', :publication_year => 1967)
+    Book.create(:title => 'Antopol : mi-toldoteha shel kehilah ahat be-Polesyah', :publication_place => 'Isreal', :publication_year => 1966, :approved => true)
+    Book.create(:title => "Sefer Z'eludok ve-Orlovah : gal`ed le-zikaron", :publication_place => 'Israel', :publication_year => 1967, :approved => true)
   end
 
   def self.down

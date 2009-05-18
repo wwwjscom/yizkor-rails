@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090505172745) do
+ActiveRecord::Schema.define(:version => 20090518055643) do
 
   create_table "alt_titles", :force => true do |t|
     t.integer  "book_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20090505172745) do
     t.text     "quotations"
     t.string   "nypl_link"
     t.boolean  "has_maps"
+    t.boolean  "approved",          :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
