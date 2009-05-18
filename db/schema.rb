@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
     t.boolean  "deleted"
     t.text     "quotations"
     t.string   "nypl_link"
-    t.boolean  "has_maps"
+    t.boolean  "has_maps",          :default => false
     t.boolean  "approved",          :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
