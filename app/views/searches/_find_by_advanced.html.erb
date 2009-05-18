@@ -1,16 +1,16 @@
 
   <input type="hidden" id="find_by" name="find_by" value="advanced" />
   <p>
-    <%= label_tag 'historical_period', 'Language' %>
-    <%= select_tag 'Role', options_for_select(['English']) %>
+    <%= label_tag 'language', 'Language' %>
+    <%= select_tag 'language', options_for_select(LanguageType.find(:all).collect { |l| [l.title, l.id] } ) %>
   </p>
   <p>
-    <%= label_tag 'historical_period', 'Publication Year' %>
-    <%= text_field_tag 'historical_period', nil, :size => 4 %>
+    <%= label_tag 'publication_year', 'Publication Year' %>
+    <%= text_field_tag 'publication_year', nil, :size => 4 %>
   </p>
   <p>
-    <%= label_tag 'historical_period', 'Publication Town' %>
-    <%= text_field_tag 'historical_period', nil, :size => 50 %>
+    <%= label_tag 'publication_place', 'Publication Place' %>
+    <%= text_field_tag 'publication_place', nil, :size => 50 %>
   </p>  <p>
     <%= label_tag 'historical_period', 'Author' %>
     <%= text_field_tag 'historical_period', nil, :size => 50 %>

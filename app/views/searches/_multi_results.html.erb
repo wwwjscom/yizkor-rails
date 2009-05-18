@@ -1,0 +1,5 @@
+<p>We found <%= @books.size %> matching results.  Please select a record from below.</p>
+
+<% @books.each do |b| %>
+  <%= link_to b.title.titleize, book_path(b) %><br />
+<% end %>

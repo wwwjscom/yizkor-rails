@@ -90,3 +90,19 @@ a:hover {
   text-align: center;
   font-weight: bold;
 }
+
+.broken {
+  background-color: #CC0000;
+  font-size: 150%;
+}
+
+.testing {
+  background-color: #FFCC00;
+  font-size: 150%;
+}
+
+.working {
+  width: 50%;
+  background-color: #66CC33;
+  font-size: 150%;
+}

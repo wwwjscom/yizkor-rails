@@ -97,8 +97,7 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.xml
   def destroy
-    @book = Book.find(params[:id])
-    @book.destroy
+    Book.update(params[:id], { :deleted => true} )
 
     respond_to do |format|
       format.html { redirect_to(books_url) }

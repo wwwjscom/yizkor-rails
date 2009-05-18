@@ -11,11 +11,11 @@ class Book < ActiveRecord::Base
   has_many :council_member
 
   def approved
-    Book.find(:all, :conditions => ["approved = 1"])
+    Book.find(:all, :conditions => ["approved = true AND deleted = false"])
   end
 
   def pending
-    Book.find(:all, :conditions => ["approved = 0"])
+    Book.find(:all, :conditions => ["approved = false AND deleted = false"])
   end
 
   def subjects

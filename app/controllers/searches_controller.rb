@@ -36,6 +36,9 @@ class SearchesController < ApplicationController
       if book.blank?
         flash[:notice] = 'Book not found'
         redirect_to "/searches/search?find_by=#{find_by}"
+      elsif book.size > 1
+        @books = book
+        render :partial => 'multi_results', :layout => 'application'
       else
         redirect_to :controller => 'books', :action => 'show', :id => book.id
       end
@@ -64,16 +67,16 @@ class SearchesController < ApplicationController
       when 'advanced':
         conditions = ""
         # build conditions according to info given
-        params_list = ['historical_period', 'call_num', 'abstract', 'keywords', 'other_notes', 'table_of_contents', 'has_toc', 'has_index', 'has_necrology']
+        params_list = ['publication_year', 'publication_place', 'call_num', 'abstract', 'keywords', 'other_notes', 'table_of_contents', 'has_toc', 'has_index', 'has_necrology']
         params_list.each do |param|
           unless params[param].blank?
             if conditions != ""
               conditions += " AND"
             end
-            conditions += " #{param} = #{params[param]}"
+            conditions += " #{param} = '#{params[param]}'"
           end
         end
-        books = Book.find(:first, :conditions => ["#{conditions}"])
+        books = Book.find(:all, :conditions => ["#{conditions}"])
 
       when 'population':
         books = Location.find_by_population(params[:population])

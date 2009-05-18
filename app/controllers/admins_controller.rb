@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 
-  before_filter :authorized, :except => [:index]
+  before_filter :authorized, :except => [:index, :status]
 
   def index
     already_admin?
@@ -16,6 +16,9 @@ class AdminsController < ApplicationController
         flash[:warning] = "Incorrect login"
       end
     end
+  end
+
+  def status
   end
 
   def show

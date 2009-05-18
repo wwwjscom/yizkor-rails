@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
     t.text     "other_notes"
     t.text     "abstract"
     t.string   "keywords"
-    t.boolean  "deleted"
+    t.boolean  "deleted",           :default => false
     t.text     "quotations"
     t.string   "nypl_link"
     t.boolean  "has_maps",          :default => false
