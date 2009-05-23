@@ -118,6 +118,7 @@
                 <%= link_to 'Admin', { :controller => 'admins'} , { :class => 'arial Text11 MenuLink' } %><br />
                 <%= link_to 'Status', { :controller => 'admins', :action => 'status' } , { :class => 'arial Text11 MenuLink' } %><br />
                 <% if session[:admin] %>
+                  ---<br />
                   <%= link_to 'Logout', logout_admins_path, { :class => 'arial Text11 MenuLink' }, :method => :get %><br />
                   <%= link_to 'Keywords', keywords_admins_path, { :class => 'arial Text11 MenuLink' }, :method => :get %><br />
                 <% end %>
