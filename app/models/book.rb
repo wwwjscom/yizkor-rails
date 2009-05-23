@@ -9,6 +9,7 @@ class Book < ActiveRecord::Base
   has_many :location
   has_many :digitized_link
   has_many :council_member
+  has_many :keyword
 
   def approved
     Book.find(:all, :conditions => ["approved = true AND deleted = false"])
@@ -16,6 +17,14 @@ class Book < ActiveRecord::Base
 
   def pending
     Book.find(:all, :conditions => ["approved = false AND deleted = false"])
+  end
+
+  def keywords
+    a = Array.new
+    self.keyword.each do |k|
+      a.push(KeywordType.find(k.keyword_type_id))
+    end
+    a.collect { |k| "#{k.title}, " }
   end
 
   def subjects
