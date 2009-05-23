@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090518055643) do
+ActiveRecord::Schema.define(:version => 20090523003706) do
 
   create_table "alt_titles", :force => true do |t|
     t.integer  "book_id"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
     t.boolean  "has_images"
     t.text     "other_notes"
     t.text     "abstract"
-    t.string   "keywords"
     t.boolean  "deleted",           :default => false
     t.text     "quotations"
     t.string   "nypl_link"
@@ -67,6 +66,19 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
   create_table "digitized_links", :force => true do |t|
     t.integer  "book_id"
     t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keyword_types", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keywords", :force => true do |t|
+    t.string   "title"
+    t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
