@@ -22,7 +22,7 @@ class Book < ActiveRecord::Base
   def keywords
     a = Array.new
     self.keyword.each do |k|
-      a.push(KeywordType.find(k.keyword_type_id))
+      a.push(KeywordType.find(k.title_id))
     end
     a.collect { |k| "#{k.title}, " }
   end

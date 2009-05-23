@@ -122,6 +122,7 @@ class BooksController < ApplicationController
     @images = Upload.find(:all, :conditions => ["book_id = ?", params[:id]])
     @digitized_link = DigitizedLink.new
     @council_member = CouncilMember.new
+    @keyword = Keyword.new
   end
 
   def add_alt_title
@@ -258,6 +259,16 @@ class BooksController < ApplicationController
     else
       render add_details_path
     end
+  end
+
+  def add_keyword
+    @keyword = Keyword.new(params[:keyword])
+    if @keyword.save
+      flash[:success] = 'Keyword added.'
+    else
+      flash[:warning] = 'Error adding keyword.'
+    end
+    redirect_to add_details_path
   end
 
 end

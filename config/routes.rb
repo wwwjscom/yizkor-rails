@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   #map.resources :searches
   map.resources :keyword_types
 
+  map.keywords 'books/:id/add_keywords', :controller => 'books', :action => 'add_keyword'
   map.keyword_types 'admins/keywords', :controller => 'admins', :action => 'keywords'
   map.suggestions 'search/suggestions', :controller => 'searches', :action => 'suggestions'
   map.search 'search', :controller => 'searches', :action => 'index'
