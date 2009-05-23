@@ -2,7 +2,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :books, :member => { :reject => :delete, :approve => :put }
   map.resources :admins, :collection => { :keywords => :any, :logout => :get }
   #map.resources :searches
+  map.resources :keyword_types
 
+  map.keyword_types 'admins/keywords', :controller => 'admins', :action => 'keywords'
   map.suggestions 'search/suggestions', :controller => 'searches', :action => 'suggestions'
   map.search 'search', :controller => 'searches', :action => 'index'
   map.add_details 'books/:id/add_details', :controller => 'books', :action => 'add_details'

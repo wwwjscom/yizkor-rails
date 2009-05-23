@@ -30,7 +30,32 @@ class AdminsController < ApplicationController
     redirect_to :action => 'index'
   end
 
+
+  # admins/keywords
   def keywords
+    c = params[:commit]
+
+    if c == 'Add'
+
+      k = KeywordType.new(params[:keyword_type])
+      if k.save
+        flash[:success] = 'Keyword added'
+      else
+        flash[:error] = "Couldn't save keyword"
+      end
+
+    elsif c == 'Delete'
+
+      if KeywordType.delete(params[:keyword_type][:id])
+        flash[:success] = 'Keyword deleted'
+      else
+        flash[:error] = "Couldn't delete keyword"
+      end
+
+    end
+
+    @keyword_type = KeywordType.new
+    @all_k = KeywordType.find(:all).collect { |k| [k.title, k.id] }
   end
 
 
