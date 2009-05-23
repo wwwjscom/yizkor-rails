@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :books, :member => { :reject => :delete, :approve => :put }
-  map.resources :admins, :collection => { :keywords => :any, :logout => :get }
+  map.resources :admins, :collection => { :keywords => :any, :logout => :get, :status => :get }
   #map.resources :searches
   map.resources :keyword_types
 
