@@ -30,6 +30,9 @@ class AdminsController < ApplicationController
     redirect_to :action => 'index'
   end
 
+  def keywords
+  end
+
 
   private #---------------
 

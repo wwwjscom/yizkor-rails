@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :books, :member => { :reject => :delete, :approve => :put }
-  #map.resources :admins
+  map.resources :admins, :collection => { :keywords => :any, :logout => :get }
   #map.resources :searches
 
   map.suggestions 'search/suggestions', :controller => 'searches', :action => 'suggestions'

@@ -31,12 +31,22 @@ class SearchesController < ApplicationController
 
   def search
     find_by = params[:find_by]
+
+    begin
+      if book.length > 1
+        single = false
+      end
+    rescue
+      single = true
+    end
+
+
     unless params[:commit].blank?
       book = find_query(find_by)
       if book.blank?
         flash[:notice] = 'Book not found'
         redirect_to "/searches/search?find_by=#{find_by}"
-      elsif book.size > 1
+      elsif not single
         @books = book
         render :partial => 'multi_results', :layout => 'application'
       else
