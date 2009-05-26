@@ -1,0 +1,102 @@
+<fieldset>
+  <legend>Title</legend>
+
+  <input type="hidden" id="find_by" name="find_by" value="title" />
+  <p>
+    <%= label_tag 'title' %>
+    <%= text_field_tag 'title', nil, { :size => 30, :autocomplete => 'off' } %>
+    <div class='auto_complete' id='book_title_auto_complete'></div>
+
+  </p>
+</fieldset>
+
+
+<fieldset>
+  <legend>Advanced</legend>
+  <input type="hidden" id="find_by" name="find_by" value="advanced" />
+  <p>
+    <%= label_tag 'language', 'Language' %>
+    <%= select_tag 'language', options_for_select(LanguageType.find(:all).collect { |l| [l.title, l.id] } ) %>
+  </p>
+  <p>
+    <%= label_tag 'publication_year', 'Publication Year' %>
+    <%= text_field_tag 'publication_year', nil, :size => 4 %>
+  </p>
+  <p>
+    <%= label_tag 'publication_place', 'Publication Place' %>
+    <%= text_field_tag 'publication_place', nil, :size => 50 %>
+  </p>  <p>
+    <%= label_tag 'historical_period', 'Author' %>
+    <%= text_field_tag 'historical_period', nil, :size => 50 %>
+  </p>
+
+  <p>
+    <%= label_tag 'historical_period', 'Historical Period' %>
+    <%= text_field_tag 'historical_period', nil, :size => 50 %>
+  </p>
+
+  <p>
+    <%= label_tag 'abtract', 'Abstract' %>
+    <%= text_field_tag 'abtract', nil, :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= label_tag 'keywords', 'Keywords' %>
+    <%= text_field_tag 'keywords', nil, :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= label_tag 'other_notes', 'Other Notes' %>
+    <%= text_field_tag 'other_notes', nil, :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= label_tag 'table_of_contents', 'Table of Contents' %>
+    <%= text_field_tag 'table_of_contents', nil, :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= label_tag 'has_toc', 'Has Table of Contents' %>
+    <%= check_box_tag 'has_toc' %>
+  </p>
+  <p>
+    <%= label_tag 'has_index', 'Has Index' %>
+    <%= check_box_tag 'has_index' %>
+  </p>
+  <p>
+    <%= label_tag 'has_necrology', 'Has Necrology' %>
+    <%= check_box_tag 'has_necrology' %>
+  </p>
+</fieldset>
+
+
+<fieldset>
+  <legend>Contributor</legend>
+  <input type="hidden" id="find_by" name="find_by" value="contributor" />
+  <p>
+    <%= label_tag 'First' %>
+    <%= text_field_tag 'first', nil, :size => 50 %>
+  </p>
+  <p>
+    <%= label_tag 'Last' %>
+    <%= text_field_tag 'last', nil, :size => 50 %>
+  </p>
+  <p>
+  <%= select_tag 'Role', options_for_select(['Author', 'Translator', 'Editor']) %>
+  </p>
+</fieldset>
+
+
+<fieldset>
+  <legend>Population</legend>
+  <input type="hidden" id="find_by" name="find_by" value="population" />
+  <p>
+    <%= label_tag 'population' %>
+    <%= text_field_tag 'population', nil, { :size => 5} %>
+
+  </p>
+</fieldset>
