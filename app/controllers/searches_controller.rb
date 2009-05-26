@@ -24,12 +24,19 @@ class SearchesController < ApplicationController
   end
 
   def index
+    @book = Book.new
   end
 
   def find_by_title
   end
 
   def search
+    #book = Book.new(params[:book])
+    find(params[:book])
+  end
+
+
+  def search_old
     find_by = params[:find_by]
 
     begin
@@ -56,6 +63,16 @@ class SearchesController < ApplicationController
   end
 
   private #------------
+
+  def find(book)
+    q = ''
+    book.each do |a, v|
+      q += " AND " unless q.blank?
+      q += " #{a} = '#{v}'"
+    end
+    books = Book.find(:all, :conditions => q)
+  end
+
 
   def find_query(find_by)
     case find_by

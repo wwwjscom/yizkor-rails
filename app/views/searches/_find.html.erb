@@ -1,15 +1,19 @@
+<% form_for :book, :url => { :controller => 'searches', :action => 'search' } do |f| %>
 <fieldset>
   <legend>Title</legend>
 
-  <input type="hidden" id="find_by" name="find_by" value="title" />
   <p>
-    <%= label_tag 'title' %>
-    <%= text_field_tag 'title', nil, { :size => 30, :autocomplete => 'off' } %>
+    <%= f.label 'title' %>
+    <%= f.text_field 'title', { :size => 30, :autocomplete => 'off' } %>
     <div class='auto_complete' id='book_title_auto_complete'></div>
+  </p>
 
+  <p>
+    <%= f.submit :Search %>
   </p>
 </fieldset>
 
+<% end %>
 
 <fieldset>
   <legend>Advanced</legend>
