@@ -31,34 +31,34 @@ class SearchesController < ApplicationController
   end
 
   def search
-    #book = Book.new(params[:book])
-    find(params[:book])
-  end
-
-
-  def search_old
-    find_by = params[:find_by]
+    books = find(params[:book])
 
     begin
-      if book.length > 1
+      if books.length > 1
         single = false
       end
     rescue
       single = true
     end
 
+      if books.blank?
+        flash[:notice] = 'Book not found'
+        redirect_to "/searches"
+      elsif not single
+        @books = books
+        render :partial => 'multi_results', :layout => 'application'
+      else
+        redirect_to :controller => 'books', :action => 'show', :id => books.id
+      end
+  end
+
+
+  def search_old
+    find_by = params[:find_by]
 
     unless params[:commit].blank?
       book = find_query(find_by)
-      if book.blank?
-        flash[:notice] = 'Book not found'
-        redirect_to "/searches/search?find_by=#{find_by}"
-      elsif not single
-        @books = book
-        render :partial => 'multi_results', :layout => 'application'
-      else
-        redirect_to :controller => 'books', :action => 'show', :id => book.id
-      end
+
     end
   end
 
