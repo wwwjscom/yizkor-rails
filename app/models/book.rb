@@ -57,16 +57,29 @@ class Book < ActiveRecord::Base
 
 
   def match_contributor(books, contributor)
-    f = contributor[:first]                                                                                                                                                          
+    final = []
+    f = contributor[:first]
     l = contributor[:last]
     r = contributor[:role]
 
     books.each do |b| 
       blank = b.contributor.find(:first, :conditions => ["first = ? AND last = ? AND role = ?", f, l, r]).blank?
-      books.delete(b) if blank
+      final.push(b) if not blank
     end 
 
-    return books
+    final & books
+  end
+
+
+  def match_language(books, lang_type)
+    final = []
+
+    books.each do |b| 
+      blank = b.language.find(:first, :conditions => ["language_type_id = ?", lang_type]).blank?
+      final.push(b) if not blank
+    end 
+
+    final & books
   end
 
 end

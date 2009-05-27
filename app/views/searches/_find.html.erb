@@ -84,7 +84,7 @@
     <%= c.text_field 'last', :size => 50 %>
   </p>
   <p>
-  <%= select "book[contributor]", 'role', (['Author', 'Translator', 'Editor']) %>
+  <%= select "book[contributor]", 'role', (['Author', 'Translator', 'Editor']), {:include_blank => true} %>
   </p>
 </fieldset>
 <% end %>
@@ -94,7 +94,7 @@
   <legend>Language</legend>
   <p>
     <%= l.label 'language', 'Language' %>
-    <%= l.select 'language', LanguageType.find(:all).collect { |l| [l.title, l.id] } %>
+    <%= l.select 'language', LanguageType::LANGUAGES, {:include_blank => 'All'} %>
   </p>
 </fieldset>
 <% end %>

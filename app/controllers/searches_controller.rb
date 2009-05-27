@@ -64,9 +64,11 @@ class SearchesController < ApplicationController
 
   private #------------
 
+
   def find(book)
     b = Book.new
     q = ''
+
 
     # first search the one to one relationships
     
@@ -81,10 +83,16 @@ class SearchesController < ApplicationController
 
     books = Book.find(:all, :conditions => q)
 
+
     # Now search the one to many relationships
 
     unless book[:contributor][:last].blank?
       books = b.match_contributor(books, book[:contributor]) 
+    end
+
+    lang_type = book[:language][:language].to_i
+    if LanguageType::LANGUAGES.flatten.include?(lang_type)
+      books = b.match_language(books, lang_type) 
     end
 
 
