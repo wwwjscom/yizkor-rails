@@ -67,7 +67,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(params[:book])
 
-    @book['approved'] = 1 if admin?
+    #@book['approved'] = 1 if admin?
 
     if @book.save
       flash[:success] = 'Book was successfully created.'
