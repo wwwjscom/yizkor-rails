@@ -84,7 +84,6 @@ class AdminsController < ApplicationController
     end
 
     @location_type = LocationType.new
-    @all_k = LocationType.find(:all).collect { |k| [k.name, k.id] }
   end
 
   private #---------------
