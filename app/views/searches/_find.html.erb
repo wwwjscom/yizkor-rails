@@ -104,6 +104,17 @@
 <% end %>
 
 
+<% f.fields_for :location do |l| %>
+<fieldset>
+  <legend>Language</legend>
+  <p>
+    <%= l.label 'location' %>
+    <%= l.select 'location', Location::LOCATIONS, {:include_blank => 'All'} %>
+  </p>
+</fieldset>
+<% end %>
+
+
 
 
 <fieldset>

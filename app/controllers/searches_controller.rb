@@ -73,7 +73,7 @@ class SearchesController < ApplicationController
     # first search the one to one relationships
     
     book.each do |a, v|
-      if a == "contributor" or a == 'language'
+      if a == "contributor" or a == 'language' or a == 'location'
         # ignore these one to many relationships till later
       elsif not v.blank? and v != '0'
         q += " AND " unless q.blank?
@@ -90,7 +90,7 @@ class SearchesController < ApplicationController
       books = b.match_contributor(books, book[:contributor]) 
     end
 
-    lang_type = book[:language][:language].to_i
+    loc = book[:location][:location].to_i
     if LanguageType::LANGUAGES.flatten.include?(lang_type)
       books = b.match_language(books, lang_type) 
     end
