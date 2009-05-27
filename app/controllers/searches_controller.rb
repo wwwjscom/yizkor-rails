@@ -65,18 +65,33 @@ class SearchesController < ApplicationController
   private #------------
 
   def find(book)
-    logger.warn "Book: #{book}"
+    b = Book.new
     q = ''
+
+    # first search the one to one relationships
+    
     book.each do |a, v|
       if a == "contributor" or a == 'language'
-        # do nothing at the moemnt
+        # ignore these one to many relationships till later
       elsif not v.blank? and v != '0'
         q += " AND " unless q.blank?
         q += " #{a} = '#{v}'"
       end
     end
+
     books = Book.find(:all, :conditions => q)
+
+    # Now search the one to many relationships
+
+    unless book[:contributor][:last].blank?
+      books = b.match_contributor(books, book[:contributor]) 
+    end
+
+
+    # all done here
+    return books
   end
+
 
 
   def find_query(find_by)

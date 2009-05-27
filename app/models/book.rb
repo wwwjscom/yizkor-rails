@@ -55,4 +55,18 @@ class Book < ActiveRecord::Base
     self.location.collect { |l| "#{l.name}, " }
   end
 
+
+  def match_contributor(books, contributor)
+    f = contributor[:first]                                                                                                                                                          
+    l = contributor[:last]
+    r = contributor[:role]
+
+    books.each do |b| 
+      blank = b.contributor.find(:first, :conditions => ["first = ? AND last = ? AND role = ?", f, l, r]).blank?
+      books.delete(b) if blank
+    end 
+
+    return books
+  end
+
 end
