@@ -115,6 +115,16 @@
 <% end %>
 
 
+<% f.fields_for :location do |l| %>
+<fieldset>
+  <legend>Population</legend>
+  <p>
+    <%= l.label 'population' %>
+    <%= l.text_field 'population', { :size => 5} %>
+
+  </p>
+</fieldset>
+<% end %>
 
 
 <fieldset>
@@ -124,15 +134,3 @@
 </fieldset>
 
 <% end %>
-
-
-
-<fieldset>
-  <legend>Population</legend>
-  <input type="hidden" id="find_by" name="find_by" value="population" />
-  <p>
-    <%= label_tag 'population' %>
-    <%= text_field_tag 'population', nil, { :size => 5} %>
-
-  </p>
-</fieldset>

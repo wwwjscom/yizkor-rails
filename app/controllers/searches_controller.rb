@@ -100,6 +100,10 @@ class SearchesController < ApplicationController
       books = b.match_location(books, loc) 
     end
 
+    pop = book[:location][:population]
+    unless pop.blank?
+      books = b.match_population(books, pop) 
+    end
 
 
     # all done here
