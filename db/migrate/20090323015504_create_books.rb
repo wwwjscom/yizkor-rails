@@ -19,6 +19,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :nypl_link
       t.boolean :has_maps, :default => false
       t.boolean :approved, :default => false
+      t.string :holder
 
       t.timestamps
     end

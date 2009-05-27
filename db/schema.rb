@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20090523003706) do
     t.string   "nypl_link"
     t.boolean  "has_maps",          :default => false
     t.boolean  "approved",          :default => false
+    t.string   "holder"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20090523003706) do
   create_table "digitized_links", :force => true do |t|
     t.integer  "book_id"
     t.string   "link"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

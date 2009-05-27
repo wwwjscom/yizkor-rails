@@ -3,6 +3,7 @@ class CreateDigitizedLink < ActiveRecord::Migration
     create_table :digitized_links do |t|
       t.integer :book_id
       t.string :link
+      t.text :description
       t.timestamps
     end
   end
