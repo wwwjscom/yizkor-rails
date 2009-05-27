@@ -86,7 +86,7 @@ class SearchesController < ApplicationController
 
     # Now search the one to many relationships
 
-    unless book[:contributor][:last].blank?
+    unless book[:contributor][:role].blank?
       books = b.match_contributor(books, book[:contributor]) 
     end
 
