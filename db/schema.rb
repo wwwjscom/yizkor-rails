@@ -23,13 +23,13 @@ ActiveRecord::Schema.define(:version => 20090523003706) do
     t.integer  "publication_year"
     t.string   "publication_place"
     t.string   "historical_period"
-    t.boolean  "has_necrology"
-    t.boolean  "has_toc"
-    t.boolean  "has_index"
+    t.boolean  "has_necrology",     :default => false
+    t.boolean  "has_toc",           :default => false
+    t.boolean  "has_index",         :default => false
     t.text     "description"
     t.text     "characteristics"
     t.text     "table_of_contents"
-    t.boolean  "has_images"
+    t.boolean  "has_images",        :default => false
     t.text     "other_notes"
     t.text     "abstract"
     t.boolean  "deleted",           :default => false

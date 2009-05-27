@@ -10,6 +10,67 @@
 
 </fieldset>
 
+<fieldset>
+  <legend>Advanced</legend>
+  <input type="hidden" id="find_by" name="find_by" value="advanced" />
+
+  <p>
+    <%= f.label 'publication_year', 'Publication Year' %>
+    <%= f.text_field 'publication_year', :size => 4 %>
+  </p>
+  <p>
+    <%= f.label 'publication_place', 'Publication Place' %>
+    <%= f.text_field 'publication_place', :size => 50 %>
+  </p>  <p>
+    <%= f.label 'historical_period', 'Author' %>
+    <%= f.text_field 'historical_period', :size => 50 %>
+  </p>
+
+  <p>
+    <%= f.label 'historical_period', 'Historical Period' %>
+    <%= f.text_field 'historical_period', :size => 50 %>
+  </p>
+
+  <p>
+    <%= f.label 'abstract', 'Abstract' %>
+    <%= f.text_field 'abstract', :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= label 'keywords', 'Keywords' %>
+    <%= text_field 'keywords', :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= f.label 'other_notes', 'Other Notes' %>
+    <%= f.text_field 'other_notes', :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= f.label 'table_of_contents', 'Table of Contents' %>
+    <%= f.text_field 'table_of_contents', :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= f.label 'has_toc', 'Has Table of Contents' %>
+    <%= f.check_box 'has_toc' %>
+  </p>
+  <p>
+    <%= f.label 'has_index', 'Has Index' %>
+    <%= f.check_box 'has_index' %>
+  </p>
+  <p>
+    <%= f.label 'has_necrology', 'Has Necrology' %>
+    <%= f.check_box 'has_necrology' %>
+  </p>
+</fieldset>
+
+
+
 
 <% f.fields_for :contributor do |c| %>
 <fieldset>
@@ -28,6 +89,19 @@
 </fieldset>
 <% end %>
 
+<% f.fields_for :language do |l| %>
+<fieldset>
+  <legend>Language</legend>
+  <p>
+    <%= l.label 'language', 'Language' %>
+    <%= l.select 'language', LanguageType.find(:all).collect { |l| [l.title, l.id] } %>
+  </p>
+</fieldset>
+<% end %>
+
+
+
+
 <fieldset>
   <p>
     <%= f.submit :Search %>
@@ -35,69 +109,6 @@
 </fieldset>
 
 <% end %>
-
-
-<fieldset>
-  <legend>Advanced</legend>
-  <input type="hidden" id="find_by" name="find_by" value="advanced" />
-  <p>
-    <%= label_tag 'language', 'Language' %>
-    <%= select_tag 'language', options_for_select(LanguageType.find(:all).collect { |l| [l.title, l.id] } ) %>
-  </p>
-  <p>
-    <%= label_tag 'publication_year', 'Publication Year' %>
-    <%= text_field_tag 'publication_year', nil, :size => 4 %>
-  </p>
-  <p>
-    <%= label_tag 'publication_place', 'Publication Place' %>
-    <%= text_field_tag 'publication_place', nil, :size => 50 %>
-  </p>  <p>
-    <%= label_tag 'historical_period', 'Author' %>
-    <%= text_field_tag 'historical_period', nil, :size => 50 %>
-  </p>
-
-  <p>
-    <%= label_tag 'historical_period', 'Historical Period' %>
-    <%= text_field_tag 'historical_period', nil, :size => 50 %>
-  </p>
-
-  <p>
-    <%= label_tag 'abtract', 'Abstract' %>
-    <%= text_field_tag 'abtract', nil, :size => 50 %>
-  </p>
-
-
-  <p>
-    <%= label_tag 'keywords', 'Keywords' %>
-    <%= text_field_tag 'keywords', nil, :size => 50 %>
-  </p>
-
-
-  <p>
-    <%= label_tag 'other_notes', 'Other Notes' %>
-    <%= text_field_tag 'other_notes', nil, :size => 50 %>
-  </p>
-
-
-  <p>
-    <%= label_tag 'table_of_contents', 'Table of Contents' %>
-    <%= text_field_tag 'table_of_contents', nil, :size => 50 %>
-  </p>
-
-
-  <p>
-    <%= label_tag 'has_toc', 'Has Table of Contents' %>
-    <%= check_box_tag 'has_toc' %>
-  </p>
-  <p>
-    <%= label_tag 'has_index', 'Has Index' %>
-    <%= check_box_tag 'has_index' %>
-  </p>
-  <p>
-    <%= label_tag 'has_necrology', 'Has Necrology' %>
-    <%= check_box_tag 'has_necrology' %>
-  </p>
-</fieldset>
 
 
 
