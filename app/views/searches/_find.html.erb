@@ -1,4 +1,4 @@
-<% form_for :book, :url => { :controller => 'searches', :action => 'search' } do |f| %>
+<% form_for @book, :url => { :controller => 'searches', :action => 'search' } do |f| %>
 <fieldset>
   <legend>Title</legend>
 
@@ -8,12 +8,34 @@
     <div class='auto_complete' id='book_title_auto_complete'></div>
   </p>
 
+</fieldset>
+
+
+<% f.fields_for :contributor do |c| %>
+<fieldset>
+  <legend>Contributor</legend>
+  <p>
+    <%= c.label 'First' %>
+    <%= c.text_field :first, :size => 50 %>
+  </p>
+  <p>
+    <%= c.label 'Last' %>
+    <%= c.text_field 'last', :size => 50 %>
+  </p>
+  <p>
+  <%= select "book[contributor]", 'Role', (['Author', 'Translator', 'Editor']) %>
+  </p>
+</fieldset>
+<% end %>
+
+<fieldset>
   <p>
     <%= f.submit :Search %>
   </p>
 </fieldset>
 
 <% end %>
+
 
 <fieldset>
   <legend>Advanced</legend>
@@ -77,22 +99,6 @@
   </p>
 </fieldset>
 
-
-<fieldset>
-  <legend>Contributor</legend>
-  <input type="hidden" id="find_by" name="find_by" value="contributor" />
-  <p>
-    <%= label_tag 'First' %>
-    <%= text_field_tag 'first', nil, :size => 50 %>
-  </p>
-  <p>
-    <%= label_tag 'Last' %>
-    <%= text_field_tag 'last', nil, :size => 50 %>
-  </p>
-  <p>
-  <%= select_tag 'Role', options_for_select(['Author', 'Translator', 'Editor']) %>
-  </p>
-</fieldset>
 
 
 <fieldset>

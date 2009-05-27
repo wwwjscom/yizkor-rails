@@ -65,10 +65,21 @@ class SearchesController < ApplicationController
   private #------------
 
   def find(book)
+    logger.warn "Book: #{book}"
     q = ''
     book.each do |a, v|
+      if a == "contributor"
+        table = a
+        v.each do |a, v|
+          logger.warn "#{a}::#{a.class}"
+          logger.warn "#{v}::#{v.class}"
+        q += " AND " unless q.blank?
+        q += " #{table}.#{a} = '#{v}'"
+        end
+      else
       q += " AND " unless q.blank?
       q += " #{a} = '#{v}'"
+      end
     end
     books = Book.find(:all, :conditions => q)
   end
