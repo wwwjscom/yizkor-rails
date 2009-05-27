@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090518055643) do
+ActiveRecord::Schema.define(:version => 20090523003706) do
 
   create_table "alt_titles", :force => true do |t|
     t.integer  "book_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
     t.string   "nypl_link"
     t.boolean  "has_maps",          :default => false
     t.boolean  "approved",          :default => false
+    t.string   "holder"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
   create_table "digitized_links", :force => true do |t|
     t.integer  "book_id"
     t.string   "link"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -118,6 +120,38 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
     t.integer  "location_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "page"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subject_types", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subjects", :force => true do |t|
+    t.integer  "book_id"
+    t.integer  "subject_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.integer "book_id"
+    t.integer "size"
+    t.string  "content_type"
+    t.string  "filename"
+    t.integer "height"
+    t.integer "width"
+    t.integer "parent_id"
+    t.string  "thumbnail"
+    t.string  "upload_type"
   end
 
 end
