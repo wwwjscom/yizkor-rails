@@ -90,10 +90,16 @@ class SearchesController < ApplicationController
       books = b.match_contributor(books, book[:contributor]) 
     end
 
-    loc = book[:location][:location].to_i
+    lang_type = book[:language][:language].to_i
     if LanguageType::LANGUAGES.flatten.include?(lang_type)
       books = b.match_language(books, lang_type) 
     end
+
+    loc = book[:location][:location].to_i
+    if LocationType::LOCATIONS.flatten.include?(loc)
+      books = b.match_location(books, loc) 
+    end
+
 
 
     # all done here

@@ -82,4 +82,17 @@ class Book < ActiveRecord::Base
     final & books
   end
 
+
+  def match_location(books, loc)
+    final = []
+
+    books.each do |b| 
+      blank = b.location.find(:first, :conditions => ["location_type_id = ?", loc]).blank?
+      final.push(b) if not blank
+    end 
+
+    final & books
+  end
+
+
 end
