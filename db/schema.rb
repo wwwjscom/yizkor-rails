@@ -96,6 +96,16 @@ ActiveRecord::Schema.define(:version => 20090523003706) do
     t.datetime "updated_at"
   end
 
+  create_table "location_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "population"
+    t.integer  "pre_wwii_population"
+    t.string   "coordinates"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "location_variations", :force => true do |t|
     t.integer  "location_id"
     t.string   "name"
@@ -105,11 +115,7 @@ ActiveRecord::Schema.define(:version => 20090523003706) do
 
   create_table "locations", :force => true do |t|
     t.integer  "book_id"
-    t.string   "name"
-    t.integer  "population"
-    t.integer  "pre_wwii_population"
-    t.string   "coordinates"
-    t.string   "country"
+    t.integer  "location_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
