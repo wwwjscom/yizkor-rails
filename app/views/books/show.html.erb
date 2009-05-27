@@ -149,6 +149,13 @@
   <%=h @book.nypl_link%>
 </p>
 
+<p>
+<b>Locations:</b>
+<% @book.location.each do |l| %>
+  <%= "#{l.get_hash(l.location_type_id).name}, " %>
+<% end %>
+</p>
+
 </div>
 <div class="book_results">
 

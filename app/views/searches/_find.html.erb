@@ -38,12 +38,6 @@
 
 
   <p>
-    <%= label 'keywords', 'Keywords' %>
-    <%= text_field 'keywords', :size => 50 %>
-  </p>
-
-
-  <p>
     <%= f.label 'other_notes', 'Other Notes' %>
     <%= f.text_field 'other_notes', :size => 50 %>
   </p>
@@ -104,6 +98,27 @@
 <% end %>
 
 
+<% f.fields_for :location do |l| %>
+<fieldset>
+  <legend>Location</legend>
+  <p>
+    <%= l.label 'location' %>
+    <%= l.select 'location', LocationType::LOCATIONS, {:include_blank => 'All'} %>
+  </p>
+</fieldset>
+<% end %>
+
+
+<% f.fields_for :location do |l| %>
+<fieldset>
+  <legend>Population</legend>
+  <p>
+    <%= l.label 'population' %>
+    <%= l.text_field 'population', { :size => 5} %>
+
+  </p>
+</fieldset>
+<% end %>
 
 
 <fieldset>
@@ -113,15 +128,3 @@
 </fieldset>
 
 <% end %>
-
-
-
-<fieldset>
-  <legend>Population</legend>
-  <input type="hidden" id="find_by" name="find_by" value="population" />
-  <p>
-    <%= label_tag 'population' %>
-    <%= text_field_tag 'population', nil, { :size => 5} %>
-
-  </p>
-</fieldset>

@@ -1,0 +1,44 @@
+<h3>Locations</h3>
+
+<fieldset>
+  <legend>Add Location</legend>
+  <% form_for @location_type do |f| %>
+    <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </p>
+    <p>
+    <%= f.label :population, 'Population' %>
+    <%= f.text_field :population %>
+    </p>
+    <p>
+    <%= f.label :pre_wwii_population, 'Pre WWII Population' %>
+    <%= f.text_field :pre_wwii_population %>
+    </p>
+    <p>
+    <%= f.label :coordinates, 'Coordinates' %>
+    <%= f.text_field :coordinates %>
+    </p>
+    <p>
+    <%= f.label :country, 'Country' %>
+    <%= f.text_field :country %>
+    </p>
+
+    <p>
+    <%= f.submit :Add %>
+    </p>
+  <% end %>
+</fieldset>
+
+
+<fieldset>
+  <legend>Delete Location</legend>
+  <% form_for @location_type do |f| %>
+    <p>
+    <%= select :location_type, :id, LocationType::LOCATIONS %>
+    </p>
+    <p>
+    <%= f.submit :Delete %>
+    </p>
+  <% end %>
+</fieldset>

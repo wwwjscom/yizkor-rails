@@ -59,6 +59,33 @@ class AdminsController < ApplicationController
   end
 
 
+
+  # admins/locations
+  def locations
+    c = params[:commit]
+
+    if c == 'Add'
+
+      k = LocationType.new(params[:location_type])
+      if k.save
+        flash[:success] = 'Location added'
+      else
+        flash[:error] = "Couldn't save location"
+      end
+
+    elsif c == 'Delete'
+
+      if LocationType.delete(params[:location_type][:id])
+        flash[:success] = 'Location deleted'
+      else
+        flash[:error] = "Couldn't delete location"
+      end
+
+    end
+
+    @location_type = LocationType.new
+  end
+
   private #---------------
 
   def already_admin?

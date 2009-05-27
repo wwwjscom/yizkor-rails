@@ -11,12 +11,111 @@
 
 ActiveRecord::Schema.define(:version => 20090518055643) do
 
+  create_table "alt_titles", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "books", :force => true do |t|
+    t.string   "title"
+    t.integer  "publication_year"
+    t.string   "publication_place"
+    t.string   "historical_period"
+    t.boolean  "has_necrology",     :default => false
+    t.boolean  "has_toc",           :default => false
+    t.boolean  "has_index",         :default => false
+    t.text     "description"
+    t.text     "characteristics"
+    t.text     "table_of_contents"
+    t.boolean  "has_images",        :default => false
+    t.text     "other_notes"
+    t.text     "abstract"
+    t.boolean  "deleted",           :default => false
+    t.text     "quotations"
+    t.string   "nypl_link"
+    t.boolean  "has_maps",          :default => false
+    t.boolean  "approved",          :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "call_nums", :force => true do |t|
+    t.integer "book_id"
+    t.string  "call_num"
+  end
+
+  create_table "contributors", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "first"
+    t.string   "last"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "council_members", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "first"
+    t.string   "last"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "digitized_links", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keyword_types", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keywords", :force => true do |t|
+    t.integer  "title_id"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "language_types", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "languages", :force => true do |t|
+    t.integer  "book_id"
+    t.integer  "language_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "location_types", :force => true do |t|
     t.string   "name"
     t.integer  "population"
     t.integer  "pre_wwii_population"
     t.string   "coordinates"
     t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "location_variations", :force => true do |t|
+    t.integer  "location_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.integer  "book_id"
+    t.integer  "location_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
