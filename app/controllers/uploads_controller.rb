@@ -44,8 +44,8 @@ class UploadsController < ApplicationController
 
     respond_to do |format|
       if @upload.save
-        flash[:notice] = 'Upload was successfully created.'
-        format.html { redirect_to(@upload) }
+        flash[:success] = 'Upload was successfully created.'
+        format.html { redirect_to add_details_path(params[:upload][:book_id]) }
         format.xml  { render :xml => @upload, :status => :created, :location => @upload }
       else
         format.html { render :action => "new" }
