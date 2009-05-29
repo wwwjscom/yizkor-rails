@@ -79,7 +79,7 @@ class UploadsController < ApplicationController
     @upload.destroy
 
     respond_to do |format|
-      format.html { redirect_to(uploads_url) }
+      format.html { redirect_to(add_details_path) }
       format.xml  { head :ok }
     end
   end
