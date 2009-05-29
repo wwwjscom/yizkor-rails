@@ -17,16 +17,7 @@
     <%= f.submit "Upload" %>
     </p>
 
-
-    <!-- Currently broken -->
-    <% if !@images.blank? %>
-      <ul>
-        Current images: <% @images.each do |image| %>
-          <li><%= link_to image_tag(image.public_filename(:thumb), :alt => ''), image.public_filename %> -- <%= link_to('Delete', {:controller => 'books', :action => 'delete_upload', :book_id => image.id}, :confirm => "Are you sure?") %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
+    <%= render :partial => 'show_all' %>
 
   </fieldset>
 <% end %>

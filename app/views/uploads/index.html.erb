@@ -1,21 +1,3 @@
 <h1>Listing uploads</h1>
-
-<table>
-  <tr>
-  </tr>
-
-  <% for upload in @uploads %>
-    <% unless upload.thumbnail == 'thumb' %>
-      <tr>
-        <td><%= link_to image_tag(upload.public_filename(:thumb), :alt => ''), upload %></td>
-        <td><%= link_to 'Show', upload %></td>
-        <td><%= link_to 'Edit', edit_upload_path(upload) %></td>
-        <td><%= link_to 'Destroy', upload, :confirm => 'Are you sure?', :method => :delete %></td>
-      </tr>
-    <% end %>
-  <% end %>
-</table>
-
+<%= render :partial => 'show_all' %>
 <br />
-
-<%= link_to 'New upload', new_upload_path %>

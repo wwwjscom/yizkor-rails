@@ -30,6 +30,7 @@ class UploadsController < ApplicationController
   # GET /uploads/new.xml
   def new
     @upload = Upload.new
+    @uploads = Book.find(params[:book_id]).upload
 
     respond_to do |format|
       format.html # new.html.erb
