@@ -1,12 +1,14 @@
-<h1>Editing alternate_title</h1>
-
-<% form_for(@alternate_title) do |f| %>
+<% form_for(@alternate_title, :url => book_alternate_title_path) do |f| %>
   <%= f.error_messages %>
 
-  <p>
+  <fieldset>
+    <legend>Edit Alternate Title</legend>
+    <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </p>
+    <p>
     <%= f.submit "Update" %>
-  </p>
+    </p>
+  </fieldset>
 <% end %>
-
-<%= link_to 'Show', @alternate_title %> |
-<%= link_to 'Back', alternate_titles_path %>

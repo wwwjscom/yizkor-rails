@@ -16,7 +16,6 @@ ActionController::Routing::Routes.draw do |map|
   map.search 'search', :controller => 'searches', :action => 'index'
   map.add_details 'books/:book_id/add_details', :controller => 'books', :action => 'add_details'
   map.create_details 'books/:id/create_details/:field', :controller => 'books', :action => 'create_details'
-  map.alt_titles 'books/:id/add_alt_title', :controller => 'books', :action => 'add_alt_title'
   map.call_nums 'books/:id/add_call_num', :controller => 'books', :action => 'add_call_num'
   map.pages 'books/:id/add_page', :controller => 'books', :action => 'add_page'
   map.contributors 'books/:id/add_contributor', :controller => 'books', :action => 'add_contributor'

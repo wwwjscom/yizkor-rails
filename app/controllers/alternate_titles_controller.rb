@@ -65,7 +65,7 @@ class AlternateTitlesController < ApplicationController
     respond_to do |format|
       if @alternate_title.update_attributes(params[:alternate_title])
         flash[:success] = 'AlternateTitle was successfully updated.'
-        format.html { redirect_to(@alternate_title) }
+        format.html { redirect_to(add_details_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
