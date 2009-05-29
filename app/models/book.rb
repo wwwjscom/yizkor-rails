@@ -40,7 +40,7 @@ class Book < ActiveRecord::Base
   end
 
   def contributors
-    self.contributor.collect { |c| "#{c.first} #{c.last} - #{c.role}, " }
+    self.contributor.collect{ |c| ["#{c.first} #{c.last} - #{c.role}"] }.sort
   end
 
   def languages
