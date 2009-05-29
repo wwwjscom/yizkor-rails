@@ -80,8 +80,9 @@ class DigitizedLinksController < ApplicationController
     @digitized_link = DigitizedLink.find(params[:id])
     @digitized_link.destroy
 
+    flash[:success] = 'Link deleted.'
     respond_to do |format|
-      format.html { redirect_to(digitized_links_url) }
+      format.html { redirect_to(add_details_path) }
       format.xml  { head :ok }
     end
   end
