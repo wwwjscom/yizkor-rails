@@ -1,4 +1,7 @@
 class UploadsController < ApplicationController
+
+  before_filter :authorized, :only => [:create, :destroy]
+
   # GET /uploads
   # GET /uploads.xml
   def index
