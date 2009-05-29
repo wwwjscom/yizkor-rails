@@ -2,7 +2,8 @@ class AlternateTitlesController < ApplicationController
   # GET /alternate_titles
   # GET /alternate_titles.xml
   def index
-    @alternate_titles = AlternateTitle.find(:all)
+    @book = Book.find(params[:book_id])
+    @alternate_titles = @book.alternate_title
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +26,7 @@ class AlternateTitlesController < ApplicationController
   # GET /alternate_titles/new.xml
   def new
     @book = Book.find(params[:book_id])
+    @alternate_titles = @book.alternate_title
     @alternate_title = AlternateTitle.new
 
     respond_to do |format|
