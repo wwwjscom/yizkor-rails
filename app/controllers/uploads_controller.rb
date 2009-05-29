@@ -33,7 +33,8 @@ class UploadsController < ApplicationController
   # GET /uploads/new.xml
   def new
     @upload = Upload.new
-    @uploads = Book.find(params[:book_id]).upload
+    @book = Book.find(params[:book_id])
+    @uploads = @book.upload
 
     respond_to do |format|
       format.html # new.html.erb
@@ -84,7 +85,6 @@ class UploadsController < ApplicationController
   # DELETE /uploads/1.xml
   def destroy
     @upload = Upload.find(params[:id])
-    Upload.destroy(++@upload.id)
     @upload.destroy
 
     respond_to do |format|

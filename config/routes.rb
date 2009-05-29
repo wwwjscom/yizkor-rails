@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :admins, :collection => { :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches
   map.resources :keyword_types
-  map.resources :uploads
+  #map.resources :uploads
 
   map.keywords 'books/:id/add_keywords', :controller => 'books', :action => 'add_keyword'
   map.keyword_types 'admins/keywords', :controller => 'admins', :action => 'keywords'

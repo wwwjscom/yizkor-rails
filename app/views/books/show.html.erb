@@ -161,8 +161,7 @@
 
 <p>
   <b>Images:</b>
-  <%=h @book.has_images %>
-
+  <br />
   <% @book.upload.each do |u| %>
     <%= link_to image_tag(u.public_filename(:thumb)), u.public_filename %> - <%= u.upload_type %><br />
   <% end %>
