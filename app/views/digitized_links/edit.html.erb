@@ -1,0 +1,12 @@
+<h1>Editing digitized_link</h1>
+
+<% form_for(@digitized_link) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @digitized_link %> |
+<%= link_to 'Back', digitized_links_path %>
