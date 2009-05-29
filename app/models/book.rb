@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  has_many :alt_title
+  has_many :alternate_title
   has_many :call_num
   has_many :upload
   has_many :subject

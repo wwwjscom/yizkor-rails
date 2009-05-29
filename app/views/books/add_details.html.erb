@@ -7,7 +7,7 @@
 
 <p>What details would you like to add?</p>
 <ul>
-  <li><%= link_to 'Alternate Title', "/books/#{params[:id]}/create_details/add_alt_title" %></li>
+  <li><%= link_to 'Alternate Title', new_book_alternate_title_path(@book) %></li>
   <li><%= link_to 'Call Number', "/books/#{params[:id]}/create_details/add_call_num" %></li>
   <li><%= link_to 'Contributor', "/books/#{params[:id]}/create_details/add_contributor" %></li>
   <li><%= link_to 'Council Member', "/books/#{params[:id]}/create_details/add_council_member" %></li>
