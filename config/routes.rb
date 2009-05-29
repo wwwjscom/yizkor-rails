@@ -23,7 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.languages 'books/:id/add_languages', :controller => 'books', :action => 'add_language'
   map.locations 'books/:id/add_locations', :controller => 'books', :action => 'add_location'
   map.location_variations 'books/:id/add_location_variations', :controller => 'books', :action => 'add_location_variation'
-  map.uploads 'books/:id/add_upload', :controller => 'books', :action => 'add_upload'
+  #map.uploads 'books/:id/add_upload', :controller => 'books', :action => 'add_upload'
   map.delete_uploads_path 'books/:id/delete_upload/', :controller => 'books', :action => 'delete_upload'
   map.digitized_links 'books/:id/add_digitized_link', :controller => 'books', :action => 'add_digitized_link'
   map.council_members 'books/:id/add_council_member', :controller => 'books', :action => 'add_council_member'
