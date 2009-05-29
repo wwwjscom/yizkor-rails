@@ -1,7 +1,7 @@
 class Upload < ActiveRecord::Base
 
   belongs_to :book
-  attr_accessible :book_id
+  attr_accessible :book_id, :upload_type
   
   has_attachment :content_type => :image, 
                  :storage => :file_system, 
