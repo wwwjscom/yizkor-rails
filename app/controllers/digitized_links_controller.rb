@@ -25,6 +25,7 @@ class DigitizedLinksController < ApplicationController
   # GET /digitized_links/new.xml
   def new
     @digitized_link = DigitizedLink.new
+    @book = Book.find(params[:book_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,8 +45,8 @@ class DigitizedLinksController < ApplicationController
 
     respond_to do |format|
       if @digitized_link.save
-        flash[:notice] = 'DigitizedLink was successfully created.'
-        format.html { redirect_to(@digitized_link) }
+        flash[:success] = 'Digitized Link was successfully created.'
+        format.html { redirect_to add_details_path }
         format.xml  { render :xml => @digitized_link, :status => :created, :location => @digitized_link }
       else
         format.html { render :action => "new" }

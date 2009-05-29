@@ -1,11 +1,20 @@
-<h1>New digitized_link</h1>
-
-<% form_for(@digitized_link) do |f| %>
+<% form_for(@digitized_link, :url => book_digitized_links_path) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+  <fieldset>
+    <legend>New Upload</legend>
+    <input type="hidden" id="digitized_link_book_id" name="digitized_link[book_id]" value="<%= params[:book_id] %>" />
 
-<%= link_to 'Back', digitized_links_path %>
+    <p>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+    </p>
+    <p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    </p>
+    <p>
+    <%= f.submit "Create" %>
+    </p>
+  </fieldset>
+<% end %>
