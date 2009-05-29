@@ -37,6 +37,7 @@ class DigitizedLinksController < ApplicationController
 
   # GET /digitized_links/1/edit
   def edit
+    @book = Book.find(params[:book_id])
     @digitized_link = DigitizedLink.find(params[:id])
   end
 
@@ -64,8 +65,8 @@ class DigitizedLinksController < ApplicationController
 
     respond_to do |format|
       if @digitized_link.update_attributes(params[:digitized_link])
-        flash[:notice] = 'DigitizedLink was successfully updated.'
-        format.html { redirect_to(@digitized_link) }
+        flash[:success] = 'Digitized Link was successfully updated.'
+        format.html { redirect_to(add_details_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

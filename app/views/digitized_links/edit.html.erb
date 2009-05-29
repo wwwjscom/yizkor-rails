@@ -1,12 +1,18 @@
-<h1>Editing digitized_link</h1>
-
-<% form_for(@digitized_link) do |f| %>
+<% form_for(@digitized_link, :url => book_digitized_link_path(@book, @digitized_link)) do |f| %>
   <%= f.error_messages %>
 
-  <p>
+  <fieldset>
+    <legend>Edit Digitized Link</legend>
+    <p>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+    </p>
+    <p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    </p>
+    <p>
     <%= f.submit "Update" %>
-  </p>
+    </p>
+  </fieldset>
 <% end %>
-
-<%= link_to 'Show', @digitized_link %> |
-<%= link_to 'Back', digitized_links_path %>
