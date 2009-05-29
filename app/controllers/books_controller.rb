@@ -118,8 +118,6 @@ class BooksController < ApplicationController
     @language = Language.new
     @location = Location.new
     @location_variation = LocationVariation.new
-    @upload = Upload.new
-    @images = Upload.find(:all, :conditions => ["book_id = ?", params[:id]])
     @digitized_link = DigitizedLink.new
     @council_member = CouncilMember.new
     @keyword = Keyword.new
@@ -219,26 +217,6 @@ class BooksController < ApplicationController
       flash[:warning] = 'Unable to add location variation'
       render add_details_path
     end
-  end
-
-  def add_upload
-    @upload = Upload.new(params[:upload])
-    @upload['upload_type'] = params[:upload][:upload_type]
-    if @upload.save
-      flash[:success] = 'Upload was successfully created.'
-    else
-      flash[:warning] = "Couldn't upload file."
-    end
-    redirect_to add_details_path
-  end
-
-  def delete_upload
-    if Upload.destroy(params[:book_id])
-      flash[:success] = 'File deleted'
-    else
-      flash[:warning] = 'Error deleting file'
-    end
-    redirect_to add_details_path
   end
 
   def add_digitized_link
