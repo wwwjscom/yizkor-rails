@@ -3,6 +3,7 @@ class DigitizedLinksController < ApplicationController
   # GET /digitized_links.xml
   def index
     @digitized_links = DigitizedLink.find(:all)
+    @book = Book.find(params[:book_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,6 +27,7 @@ class DigitizedLinksController < ApplicationController
   def new
     @digitized_link = DigitizedLink.new
     @book = Book.find(params[:book_id])
+    @digitized_links = @book.digitized_link
 
     respond_to do |format|
       format.html # new.html.erb

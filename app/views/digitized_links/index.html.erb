@@ -1,18 +1,2 @@
-<h1>Listing digitized_links</h1>
-
-<table>
-  <tr>
-  </tr>
-
-<% for digitized_link in @digitized_links %>
-  <tr>
-    <td><%= link_to 'Show', digitized_link %></td>
-    <td><%= link_to 'Edit', edit_digitized_link_path(digitized_link) %></td>
-    <td><%= link_to 'Destroy', digitized_link, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New digitized_link', new_digitized_link_path %>
+<h1>Listing digitized links</h1>
+<%= render :partial => 'show_all' %>

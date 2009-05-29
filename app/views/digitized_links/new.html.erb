@@ -2,7 +2,7 @@
   <%= f.error_messages %>
 
   <fieldset>
-    <legend>New Upload</legend>
+    <legend>New Digitized Link</legend>
     <input type="hidden" id="digitized_link_book_id" name="digitized_link[book_id]" value="<%= params[:book_id] %>" />
 
     <p>
@@ -18,3 +18,8 @@
     </p>
   </fieldset>
 <% end %>
+
+<fieldset>
+  <legend>Current Digitized Links</legend>
+  <%= render :partial => 'show_all' %>
+</fieldset>
