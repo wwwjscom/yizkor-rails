@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :books, :member => { :reject => :delete, :approve => :put } do |b|
     b.resources :uploads
     b.resources :digitized_links
+    b.resources :alternate_titles
   end
   map.resources :admins, :collection => { :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches

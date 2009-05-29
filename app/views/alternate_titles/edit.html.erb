@@ -1,0 +1,12 @@
+<h1>Editing alternate_title</h1>
+
+<% form_for(@alternate_title) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @alternate_title %> |
+<%= link_to 'Back', alternate_titles_path %>
