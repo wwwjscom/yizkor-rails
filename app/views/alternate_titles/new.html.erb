@@ -1,6 +1,7 @@
 <% form_for(@alternate_title, :url => book_alternate_titles_path(@book)) do |f| %>
   <%= f.error_messages %>
 
+  <input type="hidden" id="alternate_title_book_id" name="alternate_title[book_id]" value="<%= params[:book_id] %>" />
   <fieldset>
     <legend>New Alternate Title</legend>
     <p>

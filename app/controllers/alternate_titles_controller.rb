@@ -81,7 +81,7 @@ class AlternateTitlesController < ApplicationController
     @alternate_title.destroy
 
     respond_to do |format|
-      format.html { redirect_to(alternate_titles_url) }
+      format.html { redirect_to(add_details_path) }
       format.xml  { head :ok }
     end
   end
