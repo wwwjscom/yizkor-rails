@@ -2,7 +2,12 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.xml
   def index
-    @uploads = Upload.find(:all)
+    if params[:book_id].blank?
+      @uploads = Upload.find(:all)
+    else
+      @book = Book.find(params[:book_id])
+      @uploads = @book.upload
+    end
 
     respond_to do |format|
       format.html # index.html.erb
