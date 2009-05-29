@@ -24,6 +24,7 @@ class AlternateTitlesController < ApplicationController
   # GET /alternate_titles/new
   # GET /alternate_titles/new.xml
   def new
+    @book = Book.find(params[:book_id])
     @alternate_title = AlternateTitle.new
 
     respond_to do |format|
@@ -44,8 +45,8 @@ class AlternateTitlesController < ApplicationController
 
     respond_to do |format|
       if @alternate_title.save
-        flash[:notice] = 'AlternateTitle was successfully created.'
-        format.html { redirect_to(@alternate_title) }
+        flash[:success] = 'AlternateTitle was successfully created.'
+        format.html { redirect_to(add_details_path) }
         format.xml  { render :xml => @alternate_title, :status => :created, :location => @alternate_title }
       else
         format.html { render :action => "new" }
@@ -61,7 +62,7 @@ class AlternateTitlesController < ApplicationController
 
     respond_to do |format|
       if @alternate_title.update_attributes(params[:alternate_title])
-        flash[:notice] = 'AlternateTitle was successfully updated.'
+        flash[:success] = 'AlternateTitle was successfully updated.'
         format.html { redirect_to(@alternate_title) }
         format.xml  { head :ok }
       else
