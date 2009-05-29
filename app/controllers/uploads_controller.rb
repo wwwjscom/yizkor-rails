@@ -75,6 +75,7 @@ class UploadsController < ApplicationController
   # DELETE /uploads/1.xml
   def destroy
     @upload = Upload.find(params[:id])
+    Upload.destroy(++@upload.id)
     @upload.destroy
 
     respond_to do |format|
