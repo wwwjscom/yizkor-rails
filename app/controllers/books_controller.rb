@@ -118,7 +118,6 @@ class BooksController < ApplicationController
     @language = Language.new
     @location = Location.new
     @location_variation = LocationVariation.new
-    @digitized_link = DigitizedLink.new
     @council_member = CouncilMember.new
     @keyword = Keyword.new
   end
@@ -215,16 +214,6 @@ class BooksController < ApplicationController
       redirect_to add_details_path
     else
       flash[:warning] = 'Unable to add location variation'
-      render add_details_path
-    end
-  end
-
-  def add_digitized_link
-    @digitized_link = DigitizedLink.new(params[:digitized_link])
-    if @digitized_link.save
-      flash[:success] = 'Digitized Link was successfully created.'
-      redirect_to add_details_path
-    else
       render add_details_path
     end
   end
