@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.location_types 'admins/locations', :controller => 'admins', :action => 'locations'
   map.suggestions 'search/suggestions', :controller => 'searches', :action => 'suggestions'
   map.search 'search', :controller => 'searches', :action => 'index'
-  map.add_details 'books/:id/add_details', :controller => 'books', :action => 'add_details'
+  map.add_details 'books/:book_id/add_details', :controller => 'books', :action => 'add_details'
   map.create_details 'books/:id/create_details/:field', :controller => 'books', :action => 'create_details'
   map.alt_titles 'books/:id/add_alt_title', :controller => 'books', :action => 'add_alt_title'
   map.call_nums 'books/:id/add_call_num', :controller => 'books', :action => 'add_call_num'

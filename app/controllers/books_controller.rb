@@ -106,7 +106,7 @@ class BooksController < ApplicationController
   end
 
   def add_details
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:book_id])
   end
 
   def create_details
