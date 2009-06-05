@@ -1,0 +1,13 @@
+<table>
+  <tr>
+  </tr>
+
+<% for contributor in @contributors %>
+  <tr>
+    <td><%= contributor.first %> <%= contributor.last%></td>
+    <td><%= contributor.role %></td>
+    <td><%= link_to 'Edit', edit_book_contributor_path(@book, contributor) %></td>
+    <td><%= link_to 'Destroy', book_contributor_path(@book, contributor), :confirm => 'Are you sure?', :method => :delete if session[:admin] %></td>
+  </tr>
+<% end %>
+</table>

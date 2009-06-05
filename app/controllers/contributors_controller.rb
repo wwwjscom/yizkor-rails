@@ -25,6 +25,8 @@ class ContributorsController < ApplicationController
   # GET /contributors/new.xml
   def new
     @contributor = Contributor.new
+    @book = Book.find(params[:book_id])
+    @contributors = Contributor.find(:all, :conditions => ['book_id = ?', @book])
 
     respond_to do |format|
       format.html # new.html.erb
