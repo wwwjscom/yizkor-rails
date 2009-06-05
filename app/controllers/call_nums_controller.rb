@@ -36,6 +36,7 @@ class CallNumsController < ApplicationController
 
   # GET /call_nums/1/edit
   def edit
+    @book = Book.find(params[:book_id])
     @call_num = CallNum.find(params[:id])
   end
 
@@ -64,7 +65,7 @@ class CallNumsController < ApplicationController
     respond_to do |format|
       if @call_num.update_attributes(params[:call_num])
         flash[:success] = 'Call number was successfully updated.'
-        format.html { redirect_to(@call_num) }
+        format.html { redirect_to add_details_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
