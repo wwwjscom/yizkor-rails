@@ -1,0 +1,23 @@
+<p>
+  <b>Book:</b>
+  <%=h @contributor.book_id %>
+</p>
+
+<p>
+  <b>First:</b>
+  <%=h @contributor.first %>
+</p>
+
+<p>
+  <b>Last:</b>
+  <%=h @contributor.last %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%=h @contributor.role %>
+</p>
+
+
+<%= link_to 'Edit', edit_contributor_path(@contributor) %> |
+<%= link_to 'Back', contributors_path %>
