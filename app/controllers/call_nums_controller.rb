@@ -44,7 +44,7 @@ class CallNumsController < ApplicationController
 
     respond_to do |format|
       if @call_num.save
-        flash[:notice] = 'CallNum was successfully created.'
+        flash[:success] = 'Call number was successfully created.'
         format.html { redirect_to add_details_path }
         format.xml  { render :xml => @call_num, :status => :created, :location => @call_num }
       else
@@ -61,7 +61,7 @@ class CallNumsController < ApplicationController
 
     respond_to do |format|
       if @call_num.update_attributes(params[:call_num])
-        flash[:notice] = 'CallNum was successfully updated.'
+        flash[:success] = 'Call number was successfully updated.'
         format.html { redirect_to(@call_num) }
         format.xml  { head :ok }
       else
