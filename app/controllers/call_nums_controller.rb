@@ -25,6 +25,8 @@ class CallNumsController < ApplicationController
   # GET /call_nums/new.xml
   def new
     @call_num = CallNum.new
+    @book = Book.find(params[:book_id])
+    @call_nums = CallNum.find(:all, :conditions => ['book_id = ?', @book])
 
     respond_to do |format|
       format.html # new.html.erb
