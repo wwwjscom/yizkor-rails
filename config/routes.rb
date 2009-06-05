@@ -1,11 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :call_nums
-
 
   map.resources :books, :member => { :reject => :delete, :approve => :put } do |b|
     b.resources :uploads
     b.resources :digitized_links
     b.resources :alternate_titles
+    b.resources :call_nums
   end
   map.resources :admins, :collection => { :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches
@@ -18,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   map.search 'search', :controller => 'searches', :action => 'index'
   map.add_details 'books/:book_id/add_details', :controller => 'books', :action => 'add_details'
   map.create_details 'books/:id/create_details/:field', :controller => 'books', :action => 'create_details'
-  map.call_nums 'books/:id/add_call_num', :controller => 'books', :action => 'add_call_num'
+  #map.call_nums 'books/:id/add_call_num', :controller => 'books', :action => 'add_call_num'
   map.pages 'books/:id/add_page', :controller => 'books', :action => 'add_page'
   map.contributors 'books/:id/add_contributor', :controller => 'books', :action => 'add_contributor'
   map.subjects 'books/:id/add_subjects', :controller => 'books', :action => 'add_subject'
