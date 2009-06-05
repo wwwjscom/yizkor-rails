@@ -80,8 +80,9 @@ class ContributorsController < ApplicationController
     @contributor = Contributor.find(params[:id])
     @contributor.destroy
 
+    flash[:success] = 'Contributor was successfully deleted.'
     respond_to do |format|
-      format.html { redirect_to(contributors_url) }
+      format.html { redirect_to add_details_path}
       format.xml  { head :ok }
     end
   end
