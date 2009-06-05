@@ -81,7 +81,8 @@ class CallNumsController < ApplicationController
     @call_num.destroy
 
     respond_to do |format|
-      format.html { redirect_to(call_nums_url) }
+      flash[:success] = 'Call number was successfully deleted.'
+      format.html { redirect_to add_details_path }
       format.xml  { head :ok }
     end
   end
