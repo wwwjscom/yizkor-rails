@@ -1,12 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :contributors
-
 
   map.resources :books, :member => { :reject => :delete, :approve => :put } do |b|
     b.resources :uploads
     b.resources :digitized_links
     b.resources :alternate_titles
     b.resources :call_nums
+    b.resources :contributors 
   end
   map.resources :admins, :collection => { :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches

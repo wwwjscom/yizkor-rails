@@ -44,8 +44,8 @@ class ContributorsController < ApplicationController
 
     respond_to do |format|
       if @contributor.save
-        flash[:notice] = 'Contributor was successfully created.'
-        format.html { redirect_to(@contributor) }
+        flash[:success] = 'Contributor was successfully created.'
+        format.html { redirect_to add_details_path }
         format.xml  { render :xml => @contributor, :status => :created, :location => @contributor }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class ContributorsController < ApplicationController
 
     respond_to do |format|
       if @contributor.update_attributes(params[:contributor])
-        flash[:notice] = 'Contributor was successfully updated.'
+        flash[:success] = 'Contributor was successfully updated.'
         format.html { redirect_to(@contributor) }
         format.xml  { head :ok }
       else
