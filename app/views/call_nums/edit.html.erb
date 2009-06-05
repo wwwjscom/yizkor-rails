@@ -1,0 +1,20 @@
+<h1>Editing call_num</h1>
+
+<% form_for(@call_num) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :book_id %><br />
+    <%= f.text_field :book_id %>
+  </p>
+  <p>
+    <%= f.label :call_num %><br />
+    <%= f.text_field :call_num %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @call_num %> |
+<%= link_to 'Back', call_nums_path %>

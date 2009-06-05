@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :call_nums
+
 
   map.resources :books, :member => { :reject => :delete, :approve => :put } do |b|
     b.resources :uploads
