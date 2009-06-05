@@ -45,7 +45,7 @@ class CallNumsController < ApplicationController
     respond_to do |format|
       if @call_num.save
         flash[:notice] = 'CallNum was successfully created.'
-        format.html { redirect_to(@call_num) }
+        format.html { redirect_to add_details_path }
         format.xml  { render :xml => @call_num, :status => :created, :location => @call_num }
       else
         format.html { render :action => "new" }
