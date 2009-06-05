@@ -36,6 +36,7 @@ class ContributorsController < ApplicationController
 
   # GET /contributors/1/edit
   def edit
+    @book = Book.find(params[:book_id])
     @contributor = Contributor.find(params[:id])
   end
 
@@ -64,7 +65,7 @@ class ContributorsController < ApplicationController
     respond_to do |format|
       if @contributor.update_attributes(params[:contributor])
         flash[:success] = 'Contributor was successfully updated.'
-        format.html { redirect_to(@contributor) }
+        format.html { redirect_to add_details_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

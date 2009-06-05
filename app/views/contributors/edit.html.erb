@@ -1,12 +1,7 @@
-<h1>Editing contributor</h1>
-
-<% form_for(@contributor) do |f| %>
+<fieldset>
+  <legend>Edit Contributor</legend>
+  <% form_for(@contributor, :url => book_contributor_path(@book, @contributor)) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :book_id %><br />
-    <%= f.text_field :book_id %>
-  </p>
   <p>
     <%= f.label :first %><br />
     <%= f.text_field :first %>
@@ -23,6 +18,4 @@
     <%= f.submit "Update" %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @contributor %> |
-<%= link_to 'Back', contributors_path %>
+</fieldset>
