@@ -16,7 +16,7 @@
 
 <p>
   <b>Alternative Titles:</b>
-  <% @book.alt_title.each do |t| %>
+  <% @book.alternate_title.each do |t| %>
     <%= t.title.titleize %><br />
   <% end %>
 </p>
