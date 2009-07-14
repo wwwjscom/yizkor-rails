@@ -95,6 +95,28 @@ class Book < ActiveRecord::Base
   end
 
 
+  # This method is different from the others because they may not be found
+  # by simply searching for the main title.  Thus, we must also search the
+  # alternate titles table for matches.
+  def match_alternate_title(books, title)
+    final = []
+
+    matches = AlternateTitle.find(:all, :conditions => ["title = ?", title])
+    #if matches.size == 1
+    #  final.push(matches.book)
+    #else
+      matches.each do |b|
+        final << b.book
+      end
+    #end
+
+    logger.info "!!!!: #{books}"
+    logger.info "!!!!: #{final}"
+    logger.info "!!!!: #{final + books}"
+    final + books
+  end
+
+
   def match_population(books, pop)
     final = []
 
