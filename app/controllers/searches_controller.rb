@@ -77,7 +77,7 @@ class SearchesController < ApplicationController
         # ignore these one to many relationships till later
       elsif not v.blank? and v != '0'
         q += " AND " unless q.blank?
-        q += " #{a} = '#{v}'"
+        q += " #{a} RLIKE '#{v}'"
       end
     end
 
@@ -114,7 +114,7 @@ class SearchesController < ApplicationController
 
   def find_query(find_by)
     case find_by
-      when 'title': books = Book.find_by_title(params[:title])
+      when 'title': books = Book.find(:all, :conditions => ["title RLIKE '#{params[:title]}'"])
 
       when 'contributor': 
         books = Contributor.find(:all, 
