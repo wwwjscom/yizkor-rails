@@ -1,4 +1,4 @@
-class CreateAltTitle < ActiveRecord::Migration
+class CreateAlternateTitle < ActiveRecord::Migration
   def self.up
     create_table :alternate_titles do |t|
       t.integer :book_id
