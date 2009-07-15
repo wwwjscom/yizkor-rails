@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
     b.resources :alternate_titles
     b.resources :call_nums
     b.resources :contributors 
+    b.resources :council_members
   end
   map.resources :admins, :collection => { :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches
@@ -25,7 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   map.languages 'books/:id/add_languages', :controller => 'books', :action => 'add_language'
   map.locations 'books/:id/add_locations', :controller => 'books', :action => 'add_location'
   map.location_variations 'books/:id/add_location_variations', :controller => 'books', :action => 'add_location_variation'
-  map.council_members 'books/:id/add_council_member', :controller => 'books', :action => 'add_council_member'
+  #map.council_members 'books/:id/add_council_member', :controller => 'books', :action => 'add_council_member'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
