@@ -1,0 +1,24 @@
+<h1>Editing counsil_member</h1>
+
+<% form_for(@counsil_member) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :book_id %><br />
+    <%= f.text_field :book_id %>
+  </p>
+  <p>
+    <%= f.label :first %><br />
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.label :last %><br />
+    <%= f.text_field :last %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @counsil_member %> |
+<%= link_to 'Back', counsil_members_path %>

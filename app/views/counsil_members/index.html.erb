@@ -1,0 +1,24 @@
+<h1>Listing counsil_members</h1>
+
+<table>
+  <tr>
+    <th>Book</th>
+    <th>First</th>
+    <th>Last</th>
+  </tr>
+
+<% for counsil_member in @counsil_members %>
+  <tr>
+    <td><%=h counsil_member.book_id %></td>
+    <td><%=h counsil_member.first %></td>
+    <td><%=h counsil_member.last %></td>
+    <td><%= link_to 'Show', counsil_member %></td>
+    <td><%= link_to 'Edit', edit_counsil_member_path(counsil_member) %></td>
+    <td><%= link_to 'Destroy', counsil_member, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New counsil_member', new_counsil_member_path %>
