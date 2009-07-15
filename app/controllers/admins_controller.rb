@@ -31,6 +31,61 @@ class AdminsController < ApplicationController
   end
 
 
+  # admins/keywords
+  def keywords
+    c = params[:commit]
+
+    if c == 'Add'
+
+      k = KeywordType.new(params[:keyword_type])
+      if k.save
+        flash[:success] = 'Keyword added'
+      else
+        flash[:error] = "Couldn't save keyword"
+      end
+
+    elsif c == 'Delete'
+
+      if KeywordType.delete(params[:keyword_type][:id])
+        flash[:success] = 'Keyword deleted'
+      else
+        flash[:error] = "Couldn't delete keyword"
+      end
+
+    end
+
+    @keyword_type = KeywordType.new
+    @all_k = KeywordType.find(:all).collect { |k| [k.title, k.id] }
+  end
+
+
+
+  # admins/locations
+  def locations
+    c = params[:commit]
+
+    if c == 'Add'
+
+      k = LocationType.new(params[:location_type])
+      if k.save
+        flash[:success] = 'Location added'
+      else
+        flash[:error] = "Couldn't save location"
+      end
+
+    elsif c == 'Delete'
+
+      if LocationType.delete(params[:location_type][:id])
+        flash[:success] = 'Location deleted'
+      else
+        flash[:error] = "Couldn't delete location"
+      end
+
+    end
+
+    @location_type = LocationType.new
+  end
+
   private #---------------
 
   def already_admin?

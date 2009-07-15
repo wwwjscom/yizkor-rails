@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090518055643) do
+ActiveRecord::Schema.define(:version => 20090523003706) do
 
   create_table "alt_titles", :force => true do |t|
     t.integer  "book_id"
@@ -23,21 +23,21 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
     t.integer  "publication_year"
     t.string   "publication_place"
     t.string   "historical_period"
-    t.boolean  "has_necrology"
-    t.boolean  "has_toc"
-    t.boolean  "has_index"
+    t.boolean  "has_necrology",     :default => false
+    t.boolean  "has_toc",           :default => false
+    t.boolean  "has_index",         :default => false
     t.text     "description"
     t.text     "characteristics"
     t.text     "table_of_contents"
-    t.boolean  "has_images"
+    t.boolean  "has_images",        :default => false
     t.text     "other_notes"
     t.text     "abstract"
-    t.string   "keywords"
     t.boolean  "deleted",           :default => false
     t.text     "quotations"
     t.string   "nypl_link"
     t.boolean  "has_maps",          :default => false
     t.boolean  "approved",          :default => false
+    t.string   "holder"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +67,20 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
   create_table "digitized_links", :force => true do |t|
     t.integer  "book_id"
     t.string   "link"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keyword_types", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keywords", :force => true do |t|
+    t.integer  "title_id"
+    t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,6 +98,16 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
     t.datetime "updated_at"
   end
 
+  create_table "location_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "population"
+    t.integer  "pre_wwii_population"
+    t.string   "coordinates"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "location_variations", :force => true do |t|
     t.integer  "location_id"
     t.string   "name"
@@ -93,11 +117,7 @@ ActiveRecord::Schema.define(:version => 20090518055643) do
 
   create_table "locations", :force => true do |t|
     t.integer  "book_id"
-    t.string   "name"
-    t.integer  "population"
-    t.integer  "pre_wwii_population"
-    t.string   "coordinates"
-    t.string   "country"
+    t.integer  "location_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

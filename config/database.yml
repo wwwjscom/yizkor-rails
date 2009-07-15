@@ -7,6 +7,7 @@ development:
   username: root
   password: root
   server: localhost
+  encoding: utf8
 
 test:
   adapter: mysql
@@ -22,3 +23,4 @@ production:
   username: yizkor
   password: dJksuiwjsaZJSls
   server: localhost
+  encoding: utf8

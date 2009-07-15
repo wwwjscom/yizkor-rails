@@ -1,34 +1,52 @@
-set :application, "yizkor_books"
-set :repository,  "git@github.com:wwwjscom/yizkor-rails.git"
-set :scm, :git
-set :deploy_to, '/www/yizkor_books'
-set :runner, 'root'
-#set :use_sudo, false
+# Please install the Engine Yard Capistrano gem
+# gem install eycap --source http://gems.engineyard.com
+require "eycap/recipes"
 
-# If you aren't deploying to /u/apps/#{application} on the target
-# servers (which is the default), you can specify the actual location
-# via the :deploy_to variable:
-# set :deploy_to, "/var/www/#{application}"
+set :keep_releases, 5
+set :application,   'Yizkor'
+set :repository,    'git@github.com:wwwjscom/yizkor-rails.git'
+set :deploy_to,     "/data/#{application}"
+set :deploy_via,    :export
+set :monit_group,   "#{application}"
+set :scm,           :git
+set :git_enable_submodules, 1
+# This is the same database name for all environments
+set :production_database,'Yizkor_production'
 
-# If you aren't using Subversion to manage your source code, specify
-# your SCM below:
-# set :scm, :subversion
+set :environment_host, 'localhost'
+set :deploy_via, :remote_cache
 
-server "vividsounds", :app, :web, :db, :primary => true
+# uncomment the following to have a database backup done before every migration
+# before "deploy:migrate", "db:dump"
 
-#namespace :deploy do
-#  namespace :web do
-#    task :disable, :roles => :web do
-#      # invoke with  
-#      # UNTIL="16:00 MST" REASON="a database upgrade" cap deploy:web:disable
-#
-#      on_rollback { rm "#{shared_path}/system/maintenance.html" }
-#
-#      require 'erb'
-#      deadline, reason = ENV['UNTIL'], ENV['REASON']
-#      maintenance = ERB.new(File.read("./app/views/layouts/maintenance.html.erb")).result(binding)
-#
-#      put maintenance, "#{shared_path}/system/maintenance.html", :mode => 0644
-#    end
-#  end
-#end
+# comment out if it gives you trouble. newest net/ssh needs this set.
+ssh_options[:paranoid] = false
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
+default_run_options[:pty] = true # required for svn+ssh:// andf git:// sometimes
+
+# This will execute the Git revision parsing on the *remote* server rather than locally
+set :real_revision, 			lambda { source.query_revision(revision) { |cmd| capture(cmd) } }
+
+
+task :production do
+  role :web, '174.129.10.160'
+  role :app, '174.129.10.160'
+  role :db, '174.129.10.160', :primary => true
+  set :environment_database, Proc.new { production_database }
+  set :dbuser,        'deploy'
+  set :dbpass,        'lgffQVpnfg'
+  set :user,          'deploy'
+  set :password,      'lgffQVpnfg'
+  set :runner,        'deploy'
+  set :rails_env,     'production'
+end
+
+
+# TASKS
+# Don't change unless you know what you are doing!
+
+after "deploy", "deploy:cleanup"
+after "deploy:migrations", "deploy:cleanup"
+after "deploy:update_code","deploy:symlink_configs"
+

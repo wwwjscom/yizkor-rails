@@ -24,28 +24,93 @@ class SearchesController < ApplicationController
   end
 
   def index
+    @book = Book.new
   end
 
   def find_by_title
   end
 
   def search
-    find_by = params[:find_by]
-    unless params[:commit].blank?
-      book = find_query(find_by)
-      if book.blank?
+    books = find(params[:book])
+
+    begin
+      if books.length > 1
+        single = false
+      end
+    rescue
+      single = true
+    end
+
+      if books.blank?
         flash[:notice] = 'Book not found'
-        redirect_to "/searches/search?find_by=#{find_by}"
-      elsif book.size > 1
-        @books = book
+        redirect_to "/searches"
+      elsif not single
+        @books = books
         render :partial => 'multi_results', :layout => 'application'
       else
-        redirect_to :controller => 'books', :action => 'show', :id => book.id
+        redirect_to :controller => 'books', :action => 'show', :id => books.id
       end
+  end
+
+
+  def search_old
+    find_by = params[:find_by]
+
+    unless params[:commit].blank?
+      book = find_query(find_by)
+
     end
   end
 
   private #------------
+
+
+  def find(book)
+    b = Book.new
+    q = ''
+
+
+    # first search the one to one relationships
+    
+    book.each do |a, v|
+      if a == "contributor" or a == 'language' or a == 'location'
+        # ignore these one to many relationships till later
+      elsif not v.blank? and v != '0'
+        q += " AND " unless q.blank?
+        q += " #{a} = '#{v}'"
+      end
+    end
+
+    books = Book.find(:all, :conditions => q)
+
+
+    # Now search the one to many relationships
+
+    unless book[:contributor][:role].blank?
+      books = b.match_contributor(books, book[:contributor]) 
+    end
+
+    lang_type = book[:language][:language].to_i
+    if LanguageType::LANGUAGES.flatten.include?(lang_type)
+      books = b.match_language(books, lang_type) 
+    end
+
+    loc = book[:location][:location].to_i
+    if LocationType::LOCATIONS.flatten.include?(loc)
+      books = b.match_location(books, loc) 
+    end
+
+    pop = book[:location][:population]
+    unless pop.blank?
+      books = b.match_population(books, pop) 
+    end
+
+
+    # all done here
+    return books
+  end
+
+
 
   def find_query(find_by)
     case find_by

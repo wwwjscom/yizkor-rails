@@ -9,6 +9,7 @@ class Book < ActiveRecord::Base
   has_many :location
   has_many :digitized_link
   has_many :council_member
+  has_many :keyword
 
   def approved
     Book.find(:all, :conditions => ["approved = true AND deleted = false"])
@@ -16,6 +17,14 @@ class Book < ActiveRecord::Base
 
   def pending
     Book.find(:all, :conditions => ["approved = false AND deleted = false"])
+  end
+
+  def keywords
+    a = Array.new
+    self.keyword.each do |k|
+      a.push(KeywordType.find(k.title_id))
+    end
+    a.collect { |k| "#{k.title}, " }
   end
 
   def subjects
@@ -44,6 +53,65 @@ class Book < ActiveRecord::Base
 
   def locations
     self.location.collect { |l| "#{l.name}, " }
+  end
+
+
+  def match_contributor(books, contributor)
+    final = []
+    f = contributor[:first]
+    l = contributor[:last]
+    r = contributor[:role]
+
+    books.each do |b| 
+      blank = b.contributor.find(:first, :conditions => ["first = ? AND last = ? AND role = ?", f, l, r]).blank?
+      final.push(b) if not blank
+    end 
+
+    final & books
+  end
+
+
+  def match_language(books, lang_type)
+    final = []
+
+    books.each do |b| 
+      blank = b.language.find(:first, :conditions => ["language_type_id = ?", lang_type]).blank?
+      final.push(b) if not blank
+    end 
+
+    final & books
+  end
+
+
+  def match_location(books, loc)
+    final = []
+
+    books.each do |b| 
+      blank = b.location.find(:first, :conditions => ["location_type_id = ?", loc]).blank?
+      final.push(b) if not blank
+    end 
+
+    final & books
+  end
+
+
+  def match_population(books, pop)
+    final = []
+
+    books.each do |b| 
+      blank = true
+      b.location.each do |l|
+        begin
+          blank = LocationType.find(l.location_type_id, :conditions => ["population = ?", pop]).blank?
+        rescue
+          blank = true
+        end
+        break if not blank
+      end
+      final.push(b) if not blank
+    end 
+
+    final & books
   end
 
 end

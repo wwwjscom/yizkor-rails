@@ -14,8 +14,6 @@ one:
   has_images: false
   other_notes: MyText
   abstract: MyText
-  keywords: MyString
-  dig_book: MyString
   deleted: false
 
 two:
@@ -32,6 +30,4 @@ two:
   has_images: false
   other_notes: MyText
   abstract: MyText
-  keywords: MyString
-  dig_book: MyString
   deleted: false

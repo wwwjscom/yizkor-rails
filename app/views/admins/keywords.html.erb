@@ -1,0 +1,27 @@
+<h3>Keywords</h3>
+
+<fieldset>
+  <legend>Add Keyword</legend>
+  <% form_for @keyword_type do |f| %>
+    <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </p>
+    <p>
+    <%= f.submit :Add %>
+    </p>
+  <% end %>
+</fieldset>
+
+
+<fieldset>
+  <legend>Delete Keyword</legend>
+  <% form_for @keyword_type do |f| %>
+    <p>
+    <%= select :keyword_type, :id, @all_k %>
+    </p>
+    <p>
+    <%= f.submit :Delete %>
+    </p>
+  <% end %>
+</fieldset>

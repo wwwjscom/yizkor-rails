@@ -1,0 +1,130 @@
+<% form_for @book, :url => { :controller => 'searches', :action => 'search' } do |f| %>
+<fieldset>
+  <legend>Title</legend>
+
+  <p>
+    <%= f.label 'title' %>
+    <%= f.text_field 'title', { :size => 30, :autocomplete => 'off' } %>
+    <div class='auto_complete' id='book_title_auto_complete'></div>
+  </p>
+
+</fieldset>
+
+<fieldset>
+  <legend>Advanced</legend>
+  <input type="hidden" id="find_by" name="find_by" value="advanced" />
+
+  <p>
+    <%= f.label 'publication_year', 'Publication Year' %>
+    <%= f.text_field 'publication_year', :size => 4 %>
+  </p>
+  <p>
+    <%= f.label 'publication_place', 'Publication Place' %>
+    <%= f.text_field 'publication_place', :size => 50 %>
+  </p>  <p>
+    <%= f.label 'historical_period', 'Author' %>
+    <%= f.text_field 'historical_period', :size => 50 %>
+  </p>
+
+  <p>
+    <%= f.label 'historical_period', 'Historical Period' %>
+    <%= f.text_field 'historical_period', :size => 50 %>
+  </p>
+
+  <p>
+    <%= f.label 'abstract', 'Abstract' %>
+    <%= f.text_field 'abstract', :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= f.label 'other_notes', 'Other Notes' %>
+    <%= f.text_field 'other_notes', :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= f.label 'table_of_contents', 'Table of Contents' %>
+    <%= f.text_field 'table_of_contents', :size => 50 %>
+  </p>
+
+
+  <p>
+    <%= f.label 'has_toc', 'Has Table of Contents' %>
+    <%= f.check_box 'has_toc' %>
+  </p>
+  <p>
+    <%= f.label 'has_index', 'Has Index' %>
+    <%= f.check_box 'has_index' %>
+  </p>
+  <p>
+    <%= f.label 'has_necrology', 'Has Necrology' %>
+    <%= f.check_box 'has_necrology' %>
+  </p>
+  <p>
+    <%= f.label 'has_maps', 'Has Maps' %>
+    <%= f.check_box 'has_maps' %>
+  </p>
+</fieldset>
+
+
+
+
+<% f.fields_for :contributor do |c| %>
+<fieldset>
+  <legend>Contributor</legend>
+  <p>
+    <%= c.label 'First' %>
+    <%= c.text_field :first, :size => 50 %>
+  </p>
+  <p>
+    <%= c.label 'Last' %>
+    <%= c.text_field 'last', :size => 50 %>
+  </p>
+  <p>
+  <%= select "book[contributor]", 'role', (['Author', 'Translator', 'Editor']), {:include_blank => true} %>
+  </p>
+</fieldset>
+<% end %>
+
+<% f.fields_for :language do |l| %>
+<fieldset>
+  <legend>Language</legend>
+  <p>
+    <%= l.label 'language', 'Language' %>
+    <%= l.select 'language', LanguageType::LANGUAGES, {:include_blank => 'All'} %>
+  </p>
+</fieldset>
+<% end %>
+
+
+<% f.fields_for :location do |l| %>
+<fieldset>
+  <legend>Location</legend>
+  <p>
+    <%= l.label 'location' %>
+    <%= l.select 'location', LocationType::LOCATIONS, {:include_blank => 'All'} %>
+  </p>
+</fieldset>
+<% end %>
+
+
+<% f.fields_for :location do |l| %>
+<fieldset>
+  <legend>Population</legend>
+  <p>
+    <%= l.label 'population' %>
+    <%= l.text_field 'population', { :size => 5} %>
+
+  </p>
+</fieldset>
+<% end %>
+
+
+<fieldset>
+  <p>
+    <%= f.submit :Search %>
+  </p>
+</fieldset>
+
+<% end %>

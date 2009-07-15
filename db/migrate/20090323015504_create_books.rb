@@ -1,25 +1,25 @@
 class CreateBooks < ActiveRecord::Migration
   def self.up
-    create_table :books do |t|
+    create_table :books, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.string :title
       t.integer :publication_year
       t.string :publication_place
       t.string :historical_period
-      t.boolean :has_necrology
-      t.boolean :has_toc
-      t.boolean :has_index
+      t.boolean :has_necrology, :default => false
+      t.boolean :has_toc, :default => false
+      t.boolean :has_index, :default => false
       t.text :description
       t.text :characteristics
       t.text :table_of_contents
-      t.boolean :has_images
+      t.boolean :has_images, :default => false
       t.text :other_notes
       t.text :abstract
-      t.string :keywords
       t.boolean :deleted, :default => false
       t.text :quotations
       t.string :nypl_link
       t.boolean :has_maps, :default => false
       t.boolean :approved, :default => false
+      t.string :holder
 
       t.timestamps
     end
@@ -33,6 +33,7 @@ Book.create(:title => "Atik : a gedenk bukh nakh a Yidisher kehileh in Besarabye
 Book.create(:title => "Sefer yizkor li-kehilat Ogustov veha-sevivah /", :publication_year => "1966", :publication_place => "Israel", :has_necrology => "N", :has_toc => "N", :has_index => "N", :has_images => "Y", :approved => true)
 Book.create(:title => "Kniga pamiati / Babi Yar book of remembrance", :publication_year => "1983", :publication_place => "United States of America", :has_necrology => "Y", :has_toc => "N", :has_index => "N", :has_images => "Y", :approved => true)
 Book.create(:title => "Bobroysk : sefer zikaron li-kehilat Bobroysk u-venoteha", :publication_year => "1967", :publication_place => "Israel", :has_necrology => "N", :has_toc => "N", :has_index => "N", :has_images => "Y", :approved => true)
+Book.create(:title => "EmlA~Hk kE~Fnyv NagybAnya (NagysomkE~Yt, FelsE~FbAnya, KApolnok Monostor) A~Hs kE~FrnyA~Hke zsidA~[sAgAnak tragA~HdiAjArA~[l /",:publication_year => "1996", :publication_place => "Israel", :has_necrology => "N", :has_toc => "N", :has_index => "N", :has_images => "Y", :approved => true)
 Book.create(:title => "Emlék könyv Nagybánya (Nagysomkút, Felsöbánya, Kápolnok Monostor) és környéke zsidóságának tragédiájáról /",:publication_year => "1996", :publication_place => "Israel", :has_necrology => "N", :has_toc => "N", :has_index => "N", :has_images => "Y", :approved => true)
 Book.create(:title => "Nagybánya és vidéke mártirjainak emlékkönyve /", :publication_year => "1976", :publication_place => "Israel", :has_necrology => "N", :has_toc => "N", :has_index => "N", :has_images => "Y", :approved => true)
 Book.create(:title => "Sefer kehilat Suvalk u-venoteha : Baklorovah, Viz'an, Saini, Punsk, Filipovah, Psheroshlah, Ratsk /",:publication_year => "1989", :publication_place => "Israel", :has_necrology => "N", :has_toc => "N", :has_index => "N", :has_images => "Y", :approved => true)
