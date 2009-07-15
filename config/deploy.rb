@@ -29,6 +29,20 @@ default_run_options[:pty] = true # required for svn+ssh:// andf git:// sometimes
 set :real_revision, 			lambda { source.query_revision(revision) { |cmd| capture(cmd) } }
 
 
+task :staging do
+  role :web, '174.129.10.127'
+  role :app, '174.129.10.127'
+  role :db, '174.129.10.127', :primary => true
+  set :environment_database, Proc.new { production_database }
+  set :dbuser,        'deploy'
+  set :dbpass,        'HwlvVBfVYs'
+  set :user,          'deploy'
+  set :password,      'HwlvVBfVYs'
+  set :runner,        'deploy'
+  set :rails_env,     'production'
+end
+
+
 task :production do
   role :web, '174.129.10.160'
   role :app, '174.129.10.160'
