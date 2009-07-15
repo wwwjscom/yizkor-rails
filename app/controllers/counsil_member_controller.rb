@@ -1,2 +1,0 @@
-class CounsilMemberController < ApplicationController
-end
