@@ -30,6 +30,7 @@ set :real_revision, 			lambda { source.query_revision(revision) { |cmd| capture(
 
 
 task :staging do
+  set :branch, "development"
   role :web, '174.129.10.127'
   role :app, '174.129.10.127'
   role :db, '174.129.10.127', :primary => true
@@ -44,6 +45,7 @@ end
 
 
 task :production do
+  set :branch, "master"
   role :web, '174.129.10.160'
   role :app, '174.129.10.160'
   role :db, '174.129.10.160', :primary => true
