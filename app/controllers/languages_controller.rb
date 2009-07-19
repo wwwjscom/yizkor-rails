@@ -44,8 +44,8 @@ class LanguagesController < ApplicationController
 
     respond_to do |format|
       if @language.save
-        flash[:notice] = 'Language was successfully created.'
-        format.html { redirect_to(@language) }
+        flash[:success] = 'Language was successfully created.'
+        format.html { redirect_to(add_details_path) }
         format.xml  { render :xml => @language, :status => :created, :location => @language }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class LanguagesController < ApplicationController
 
     respond_to do |format|
       if @language.update_attributes(params[:language])
-        flash[:notice] = 'Language was successfully updated.'
+        flash[:success] = 'Language was successfully updated.'
         format.html { redirect_to(@language) }
         format.xml  { head :ok }
       else
