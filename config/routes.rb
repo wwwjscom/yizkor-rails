@@ -1,5 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :keywords
 
 
   map.resources :books, :member => { :reject => :delete, :approve => :put } do |b|
@@ -9,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
     b.resources :call_nums
     b.resources :contributors 
     b.resources :council_members
+    b.resources :keywords
   end
   map.resources :admins, :collection => { :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches
@@ -21,14 +21,12 @@ ActionController::Routing::Routes.draw do |map|
   map.search 'search', :controller => 'searches', :action => 'index'
   map.add_details 'books/:book_id/add_details', :controller => 'books', :action => 'add_details'
   map.create_details 'books/:id/create_details/:field', :controller => 'books', :action => 'create_details'
-  #map.call_nums 'books/:id/add_call_num', :controller => 'books', :action => 'add_call_num'
   map.pages 'books/:id/add_page', :controller => 'books', :action => 'add_page'
   map.contributors 'books/:id/add_contributor', :controller => 'books', :action => 'add_contributor'
   map.subjects 'books/:id/add_subjects', :controller => 'books', :action => 'add_subject'
   map.languages 'books/:id/add_languages', :controller => 'books', :action => 'add_language'
   map.locations 'books/:id/add_locations', :controller => 'books', :action => 'add_location'
   map.location_variations 'books/:id/add_location_variations', :controller => 'books', :action => 'add_location_variation'
-  #map.council_members 'books/:id/add_council_member', :controller => 'books', :action => 'add_council_member'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
