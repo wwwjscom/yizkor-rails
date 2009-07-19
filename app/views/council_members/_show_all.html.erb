@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>First</th>
+    <th>Last</th>
+  </tr>
+
+<% for council_member in @council_members %>
+  <tr>
+    <td><%=h council_member.first %></td>
+    <td><%=h council_member.last %></td>
+    <td><%= link_to 'Edit', edit_book_council_member_path(@book, council_member) %></td>
+    <td><%= link_to 'Destroy', book_council_member_path(@book, council_member), :confirm => 'Are you sure?', :method => :delete if session[:admin] %></td>
+  </tr>
+<% end %>
+</table>

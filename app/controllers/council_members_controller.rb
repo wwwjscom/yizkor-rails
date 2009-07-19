@@ -26,6 +26,7 @@ class CouncilMembersController < ApplicationController
   def new
     @council_member = CouncilMember.new
     @book = Book.find(params[:book_id])
+    @council_members = CouncilMember.find(:all, :conditions => ['book_id = ?', @book])
 
     respond_to do |format|
       format.html # new.html.erb
