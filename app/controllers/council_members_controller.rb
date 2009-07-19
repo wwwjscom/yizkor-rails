@@ -36,6 +36,7 @@ class CouncilMembersController < ApplicationController
 
   # GET /council_members/1/edit
   def edit
+    @book = Book.find(params[:book_id])
     @council_member = CouncilMember.find(params[:id])
   end
 
@@ -64,7 +65,7 @@ class CouncilMembersController < ApplicationController
     respond_to do |format|
       if @council_member.update_attributes(params[:council_member])
         flash[:success] = 'Council Member was successfully updated.'
-        format.html { redirect_to(@council_member) }
+        format.html { redirect_to(add_details_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

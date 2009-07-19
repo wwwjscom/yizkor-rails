@@ -1,24 +1,18 @@
-<h1>Editing council_member</h1>
+<fieldset>
+  <legend>Edit Council Member</legend>
+  <% form_for(@council_member, :url => book_council_member_path(@book, @council_member)) do |f| %>
+    <%= f.error_messages %>
 
-<% form_for(@council_member) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :book_id %><br />
-    <%= f.text_field :book_id %>
-  </p>
-  <p>
+    <p>
     <%= f.label :first %><br />
     <%= f.text_field :first %>
-  </p>
-  <p>
+    </p>
+    <p>
     <%= f.label :last %><br />
     <%= f.text_field :last %>
-  </p>
-  <p>
+    </p>
+    <p>
     <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @council_member %> |
-<%= link_to 'Back', council_members_path %>
+    </p>
+  <% end %>
+</fieldset>
