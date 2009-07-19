@@ -1,11 +1,7 @@
-# Please install the Engine Yard Capistrano gem
-# gem install eycap --source http://gems.engineyard.com
-require "eycap/recipes"
-
 set :keep_releases, 5
 set :application,   'Yizkor'
 set :repository,    'git@github.com:wwwjscom/yizkor-rails.git'
-set :deploy_to,     "/data/#{application}"
+set :deploy_to,     "/www/#{application}"
 set :deploy_via,    :export
 set :monit_group,   "#{application}"
 set :scm,           :git
@@ -26,7 +22,7 @@ ssh_options[:forward_agent] = true
 default_run_options[:pty] = true # required for svn+ssh:// andf git:// sometimes
 
 # This will execute the Git revision parsing on the *remote* server rather than locally
-set :real_revision, 			lambda { source.query_revision(revision) { |cmd| capture(cmd) } }
+#set :real_revision, 			lambda { source.query_revision(revision) { |cmd| capture(cmd) } }
 
 
 task :staging do
@@ -58,6 +54,20 @@ task :production do
   set :rails_env,     'production'
 end
 
+
+task :slicehost do
+  set :branch, "master"
+  role :web, '67.23.6.217'
+  role :app, '67.23.6.217'
+  role :db, '67.23.6.217', :primary => true
+  set :environment_database, Proc.new { production_database }
+  set :dbuser,        'root'
+  set :dbpass,        'xacut3lit3'
+  set :user,          'wwwjscom'
+  set :password,      'eDw)$Y3|'
+  set :runner,        'wwwjscom'
+  set :rails_env,     'production'
+end
 
 # TASKS
 # Don't change unless you know what you are doing!
