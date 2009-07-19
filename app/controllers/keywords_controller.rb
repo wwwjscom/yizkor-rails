@@ -44,8 +44,8 @@ class KeywordsController < ApplicationController
 
     respond_to do |format|
       if @keyword.save
-        flash[:notice] = 'Keyword was successfully created.'
-        format.html { redirect_to(@keyword) }
+        flash[:success] = 'Keyword was successfully created.'
+        format.html { redirect_to(add_details_path) }
         format.xml  { render :xml => @keyword, :status => :created, :location => @keyword }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class KeywordsController < ApplicationController
 
     respond_to do |format|
       if @keyword.update_attributes(params[:keyword])
-        flash[:notice] = 'Keyword was successfully updated.'
+        flash[:success] = 'Keyword was successfully updated.'
         format.html { redirect_to(@keyword) }
         format.xml  { head :ok }
       else
