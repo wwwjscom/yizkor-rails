@@ -65,7 +65,7 @@ class KeywordsController < ApplicationController
     respond_to do |format|
       if @keyword.update_attributes(params[:keyword])
         flash[:success] = 'Keyword was successfully updated.'
-        format.html { redirect_to(@keyword) }
+        format.html { redirect_to(add_details_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
