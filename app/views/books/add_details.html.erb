@@ -13,7 +13,7 @@
   <li><%= link_to 'Council Member', new_book_council_member_path(@book) %></li>
   <li><%= link_to 'Digitized Link', new_book_digitized_link_path(@book) %></li>
   <li><%= link_to 'Keyword', new_book_keyword_path(@book) %></li>
-  <li><%= link_to 'Language', "/books/#{params[:id]}/create_details/add_language" %></li>
+  <li><%= link_to 'Language', new_book_language_path(@book) %></li>
   <li><%= link_to 'Location', "/books/#{params[:id]}/create_details/add_location" %></li>
   <li><%= link_to 'Location Variation', "/books/#{params[:id]}/create_details/add_location_variation" %></li>
   <li><%= link_to 'Page', "/books/#{params[:id]}/create_details/add_page" %></li>
