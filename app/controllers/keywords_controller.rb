@@ -25,6 +25,8 @@ class KeywordsController < ApplicationController
   # GET /keywords/new.xml
   def new
     @keyword = Keyword.new
+    @book = Book.find(params[:book_id])
+    @keywords = Keyword.find(:all, :conditions => ['book_id = ?', @book])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,6 +36,7 @@ class KeywordsController < ApplicationController
 
   # GET /keywords/1/edit
   def edit
+    @book = Book.find(params[:book_id])
     @keyword = Keyword.find(params[:id])
   end
 
