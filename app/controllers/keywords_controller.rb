@@ -80,8 +80,10 @@ class KeywordsController < ApplicationController
     @keyword = Keyword.find(params[:id])
     @keyword.destroy
 
+    flash[:success] = 'Keyword was successfully deleted.'
+
     respond_to do |format|
-      format.html { redirect_to(keywords_url) }
+      format.html { redirect_to(add_details_path) }
       format.xml  { head :ok }
     end
   end
