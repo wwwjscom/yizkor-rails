@@ -1,0 +1,19 @@
+<h1>New keyword</h1>
+
+<% form_for(@keyword) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title_id %><br />
+    <%= f.text_field :title_id %>
+  </p>
+  <p>
+    <%= f.label :book_id %><br />
+    <%= f.text_field :book_id %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', keywords_path %>
