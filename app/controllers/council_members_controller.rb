@@ -45,8 +45,8 @@ class CouncilMembersController < ApplicationController
 
     respond_to do |format|
       if @council_member.save
-        flash[:notice] = 'CouncilMember was successfully created.'
-        format.html { redirect_to(@council_member) }
+        flash[:success] = 'Council Member was successfully created.'
+        format.html { redirect_to(add_details_path) }
         format.xml  { render :xml => @council_member, :status => :created, :location => @council_member }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class CouncilMembersController < ApplicationController
 
     respond_to do |format|
       if @council_member.update_attributes(params[:council_member])
-        flash[:notice] = 'CouncilMember was successfully updated.'
+        flash[:success] = 'Council Member was successfully updated.'
         format.html { redirect_to(@council_member) }
         format.xml  { head :ok }
       else
