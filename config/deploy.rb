@@ -37,5 +37,4 @@ role :db,  "67.23.6.217", :primary => true
 
 after "deploy", "deploy:cleanup"
 after "deploy:migrations", "deploy:cleanup"
-after "deploy:update_code","deploy:symlink_configs"
-
+#after "deploy:update_code","deploy:symlink_configs"
