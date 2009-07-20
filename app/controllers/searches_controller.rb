@@ -91,12 +91,12 @@ class SearchesController < ApplicationController
     end
 
     lang_type = book[:language][:language].to_i
-    if LanguageType::LANGUAGES.flatten.include?(lang_type)
+    if LanguageType.find(:all).collect { |l| [l.title, l.id] }.flatten.include?(lang_type)
       books = b.match_language(books, lang_type) 
     end
 
     loc = book[:location][:location].to_i
-    if LocationType::LOCATIONS.flatten.include?(loc)
+    if LocationType.find(:all).collect { |l| [l.name, l.id] }.flatten.include?(loc)
       books = b.match_location(books, loc) 
     end
 

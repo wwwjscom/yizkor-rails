@@ -92,7 +92,7 @@
   <legend>Language</legend>
   <p>
     <%= l.label 'language', 'Language' %>
-    <%= l.select 'language', LanguageType::LANGUAGES, {:include_blank => 'All'} %>
+    <%= l.select 'language', LanguageType.find(:all).collect { |l| [l.title, l.id] }, {:include_blank => 'All'} %>
   </p>
 </fieldset>
 <% end %>
@@ -103,7 +103,7 @@
   <legend>Location</legend>
   <p>
     <%= l.label 'location' %>
-    <%= l.select 'location', LocationType::LOCATIONS, {:include_blank => 'All'} %>
+    <%= l.select 'location', LocationType.find(:all).collect { |l| [l.name, l.id] }, {:include_blank => 'All'} %>
   </p>
 </fieldset>
 <% end %>
