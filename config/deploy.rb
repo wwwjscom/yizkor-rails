@@ -3,15 +3,19 @@
 require "eycap/recipes"
 
 set :keep_releases, 5
-set :application,   'Yizkor'
+set :application,   'yizkor_books'
 set :repository,    'git@github.com:wwwjscom/yizkor-rails.git'
-set :deploy_to,     "/data/#{application}"
+set :deploy_to,     "/www/#{application}"
 set :deploy_via,    :export
 set :monit_group,   "#{application}"
 set :scm,           :git
+set :branch, "master"
 set :git_enable_submodules, 1
+set :user, "wwwjscom"
+ssh_options[:port] = 6969
+
 # This is the same database name for all environments
-set :production_database,'Yizkor_production'
+#set :production_database,'Yizkor_production'
 
 set :environment_host, 'localhost'
 set :deploy_via, :remote_cache
@@ -25,36 +29,17 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true # required for svn+ssh:// andf git:// sometimes
 
-# This will execute the Git revision parsing on the *remote* server rather than locally
-set :real_revision, 			lambda { source.query_revision(revision) { |cmd| capture(cmd) } }
 
 
-task :staging do
-  role :web, '174.129.10.127'
-  role :app, '174.129.10.127'
-  role :db, '174.129.10.127', :primary => true
-  set :environment_database, Proc.new { production_database }
-  set :dbuser,        'deploy'
-  set :dbpass,        'HwlvVBfVYs'
-  set :user,          'deploy'
-  set :password,      'HwlvVBfVYs'
-  set :runner,        'deploy'
-  set :rails_env,     'production'
-end
+# Deployment servers
+role :app, "67.23.6.217"
+role :web, "67.23.6.217"
+role :db,  "67.23.6.217", :primary => true
 
 
-task :production do
-  role :web, '174.129.10.160'
-  role :app, '174.129.10.160'
-  role :db, '174.129.10.160', :primary => true
-  set :environment_database, Proc.new { production_database }
-  set :dbuser,        'deploy'
-  set :dbpass,        'lgffQVpnfg'
-  set :user,          'deploy'
-  set :password,      'lgffQVpnfg'
-  set :runner,        'deploy'
-  set :rails_env,     'production'
-end
+
+
+
 
 
 # TASKS
