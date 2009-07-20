@@ -3,7 +3,7 @@
   <% form_for(@subject, :url => book_subjects_path) do |f| %>
     <%= f.error_messages %>
 
-    <input type="hidden" id="keyword_book_id" name="keyword[book_id]" value="<%= params[:book_id] %>" />
+    <input type="hidden" id="subject_book_id" name="subject[book_id]" value="<%= params[:book_id] %>" />
 
     <p>
     <%= select ("subject", "subject_type_id", SubjectType.find(:all).map {|k| [k.title,k.id]}) %>
