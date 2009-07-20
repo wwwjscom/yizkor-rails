@@ -5,7 +5,6 @@ class CreateAlternateTitle < ActiveRecord::Migration
       t.string :title
       t.timestamps
     end
-    AlternateTitle.create(:title => 'alt test', :book_id => 1)
   end
 
   def self.down

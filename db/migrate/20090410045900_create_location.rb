@@ -8,15 +8,12 @@ class CreateLocation < ActiveRecord::Migration
       t.string :country
       t.timestamps
     end
-    LocationType.create(:name => 'Orlovo', :country => 'Belarus')
-    LocationType.create(:name => 'Somewhere', :population => 200, :pre_wwii_population => 100)
 
     create_table :locations do |t|
       t.integer :book_id
       t.integer :location_type_id
       t.timestamps
     end
-    Location.create(:book_id => 3, :location_type_id => 1)
 
     create_table :location_variations do |t|
       t.integer :location_id

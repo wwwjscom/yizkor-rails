@@ -114,15 +114,17 @@
               <td align="right" style="padding: 19 13 20 7;">
 
                 <%= link_to 'Search', search_path, { :class => 'arial Text11 MenuLink' } %><br />
+                <%= link_to 'All books',  books_path, { :class => 'arial Text11 MenuLink' }   %><br />
                 <%= link_to 'Add Book', new_book_path, { :class => 'arial Text11 MenuLink' } %><br />
-                <%= link_to 'Admin', { :controller => 'admins'} , { :class => 'arial Text11 MenuLink' } %><br />
                 <%= link_to 'Status', { :controller => 'admins', :action => 'status' } , { :class => 'arial Text11 MenuLink' } %><br />
+                ---<br />
                 <% if session[:admin] %>
-                  ---<br />
                   <%= link_to 'Logout', logout_admins_path, { :class => 'arial Text11 MenuLink' }, :method => :get %><br />
                   <%= link_to 'Keywords', keywords_admins_path, { :class => 'arial Text11 MenuLink' }, :method => :get %><br />
                   <%= link_to 'Locations', locations_admins_path, { :class => 'arial Text11 MenuLink' }, :method => :get %><br />
                   <%= link_to 'Subjects', subjects_admins_path, { :class => 'arial Text11 MenuLink' }, :method => :get %><br />
+                <% else %>
+                <%= link_to 'Login', { :controller => 'admins'} , { :class => 'arial Text11 MenuLink' } %><br />
                 <% end %>
               </td>
             </tr>

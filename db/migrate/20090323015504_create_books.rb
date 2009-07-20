@@ -679,7 +679,6 @@ Book.create(:title => "Sefer ha-zikaron shel Yehude Vatrah-Dorne veha-sevivah", 
 Book.create(:title => "The Volkovysk Memorial Book.", :publication_year => "2002", :publication_place => "United States of America", :has_necrology => "N", :has_toc => "N", :has_index => "N", :has_images => "Y", :approved => true)
 Book.create(:title => "Zuromin, Polin :sipurah shel kehilah she-nikretah.",:publication_year => "2002", :publication_place => "United States of America", :has_necrology => "Y", :has_toc => "N", :has_index => "N", :has_images => "Y", :approved => true)
 
-    Book.create(:title => 'test', :has_index => true, :publication_year => '2009')
     Book.create(:title => 'Antopol : mi-toldoteha shel kehilah ahat be-Polesyah', :publication_place => 'Isreal', :publication_year => 1966, :approved => true)
   end
 
