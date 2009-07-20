@@ -11,11 +11,12 @@ ActionController::Routing::Routes.draw do |map|
     b.resources :languages
     b.resources :locations
   end
-  map.resources :admins, :collection => { :keywords => :any, :logout => :get, :status => :get, :locations => :any }
+  map.resources :admins, :collection => { :subjects => :any, :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches
   map.resources :keyword_types
 
   map.keywords 'books/:id/add_keywords', :controller => 'books', :action => 'add_keyword'
+  map.subject_types 'admins/subjects', :controller => 'admins', :action => 'subjects'
   map.keyword_types 'admins/keywords', :controller => 'admins', :action => 'keywords'
   map.location_types 'admins/locations', :controller => 'admins', :action => 'locations'
   map.suggestions 'search/suggestions', :controller => 'searches', :action => 'suggestions'
