@@ -35,7 +35,7 @@
   <legend>Delete Location</legend>
   <% form_for @location_type do |f| %>
     <p>
-    <%= select :location_type, :id, LocationType::LOCATIONS %>
+    <%= select :location_type, :id, LocationType.find(:all).collect { |l| [l.name, l.id] } %>
     </p>
     <p>
     <%= f.submit :Delete %>
