@@ -36,6 +36,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @book = Book.find(params[:book_id])
     @location = Location.find(params[:id])
   end
 
@@ -64,7 +65,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       if @location.update_attributes(params[:location])
         flash[:success] = 'Location was successfully updated.'
-        format.html { redirect_to(@location) }
+        format.html { redirect_to(add_details_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
