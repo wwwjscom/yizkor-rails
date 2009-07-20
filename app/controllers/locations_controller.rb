@@ -25,6 +25,8 @@ class LocationsController < ApplicationController
   # GET /locations/new.xml
   def new
     @location = Location.new
+    @book = Book.find(params[:book_id])
+    @locations = Location.find(:all, :conditions => ['book_id = ?', @book])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,8 +46,8 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        flash[:notice] = 'Location was successfully created.'
-        format.html { redirect_to(@location) }
+        flash[:success] = 'Location was successfully created.'
+        format.html { redirect_to(add_details_path) }
         format.xml  { render :xml => @location, :status => :created, :location => @location }
       else
         format.html { render :action => "new" }
@@ -61,7 +63,7 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.update_attributes(params[:location])
-        flash[:notice] = 'Location was successfully updated.'
+        flash[:success] = 'Location was successfully updated.'
         format.html { redirect_to(@location) }
         format.xml  { head :ok }
       else
