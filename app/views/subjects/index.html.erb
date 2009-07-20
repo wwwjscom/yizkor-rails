@@ -1,0 +1,22 @@
+<h1>Listing subjects</h1>
+
+<table>
+  <tr>
+    <th>Book</th>
+    <th>Subject type</th>
+  </tr>
+
+<% for subject in @subjects %>
+  <tr>
+    <td><%=h subject.book_id %></td>
+    <td><%=h subject.subject_type_id %></td>
+    <td><%= link_to 'Show', subject %></td>
+    <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
+    <td><%= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New subject', new_subject_path %>

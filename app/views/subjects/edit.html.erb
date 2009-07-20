@@ -1,0 +1,20 @@
+<h1>Editing subject</h1>
+
+<% form_for(@subject) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :book_id %><br />
+    <%= f.text_field :book_id %>
+  </p>
+  <p>
+    <%= f.label :subject_type_id %><br />
+    <%= f.text_field :subject_type_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @subject %> |
+<%= link_to 'Back', subjects_path %>

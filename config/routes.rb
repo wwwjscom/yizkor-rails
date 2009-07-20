@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
     b.resources :keywords
     b.resources :languages
     b.resources :locations
+    b.resources :subjects
   end
   map.resources :admins, :collection => { :subjects => :any, :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches
@@ -25,7 +26,6 @@ ActionController::Routing::Routes.draw do |map|
   map.create_details 'books/:id/create_details/:field', :controller => 'books', :action => 'create_details'
   map.pages 'books/:id/add_page', :controller => 'books', :action => 'add_page'
   map.contributors 'books/:id/add_contributor', :controller => 'books', :action => 'add_contributor'
-  map.subjects 'books/:id/add_subjects', :controller => 'books', :action => 'add_subject'
   map.location_variations 'books/:id/add_location_variations', :controller => 'books', :action => 'add_location_variation'
 
   # The priority is based upon order of creation: first created -> highest priority.
