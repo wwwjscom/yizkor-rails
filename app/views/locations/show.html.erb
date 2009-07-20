@@ -1,0 +1,13 @@
+<p>
+  <b>Book:</b>
+  <%=h @location.book_id %>
+</p>
+
+<p>
+  <b>Location type:</b>
+  <%=h @location.location_type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
