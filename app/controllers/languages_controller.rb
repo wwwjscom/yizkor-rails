@@ -25,6 +25,8 @@ class LanguagesController < ApplicationController
   # GET /languages/new.xml
   def new
     @language = Language.new
+    @book = Book.find(params[:book_id])
+    @languages = Language.find(:all, :conditions => ['book_id = ?', @book])
 
     respond_to do |format|
       format.html # new.html.erb
