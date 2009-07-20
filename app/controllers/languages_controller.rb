@@ -36,6 +36,7 @@ class LanguagesController < ApplicationController
 
   # GET /languages/1/edit
   def edit
+    @book = Book.find(params[:book_id])
     @language = Language.find(params[:id])
   end
 
@@ -64,7 +65,7 @@ class LanguagesController < ApplicationController
     respond_to do |format|
       if @language.update_attributes(params[:language])
         flash[:success] = 'Language was successfully updated.'
-        format.html { redirect_to(@language) }
+        format.html { redirect_to(add_details_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -79,8 +80,10 @@ class LanguagesController < ApplicationController
     @language = Language.find(params[:id])
     @language.destroy
 
+    flash[:success] = 'Language was successfully deleted.'
+
     respond_to do |format|
-      format.html { redirect_to(languages_url) }
+      format.html { redirect_to(add_details_path) }
       format.xml  { head :ok }
     end
   end

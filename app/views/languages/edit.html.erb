@@ -1,20 +1,13 @@
-<h1>Editing language</h1>
+<fieldset>
+  <legend>Edit Language</legend>
+  <% form_for(@language, :url => book_language_path(@book, @language)) do |f| %>
+    <%= f.error_messages %>
 
-<% form_for(@language) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :book_id %><br />
-    <%= f.text_field :book_id %>
-  </p>
-  <p>
-    <%= f.label :language_type_id %><br />
-    <%= f.text_field :language_type_id %>
-  </p>
-  <p>
+    <p>
+    <%= select ("language", "language_type_id", LanguageType.find(:all).map {|k| [k.title,k.id]}) %>
+    </p>
+    <p>
     <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @language %> |
-<%= link_to 'Back', languages_path %>
+    </p>
+  <% end %>
+</fieldset>
