@@ -1,14 +1,20 @@
 <fieldset>
   <legend>New Location</legend>
   <% form_for(@location, :url => book_locations_path) do |f| %>
-  <%= f.error_messages %>
+    <%= f.error_messages %>
 
-  <input type="hidden" id="location_book_id" name="location[book_id]" value="<%= params[:book_id] %>" />
+    <input type="hidden" id="location_book_id" name="location[book_id]" value="<%= params[:book_id] %>" />
 
-  <p>
+    <p>
     <%= select ("location", "location_type_id", LocationType.find(:all).map {|k| [k.name,k.id]}) %>
-  </p>
-  <p>
+    </p>
+    <p>
     <%= f.submit "Create" %>
-  </p>
-<% end %>
+    </p>
+  <% end %>
+</fieldset>
+
+<fieldset>
+  <legend>Current Locations</legend>
+  <%= render :partial => 'show_all' %>
+</fieldset>
