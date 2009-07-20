@@ -36,6 +36,7 @@ class SubjectsController < ApplicationController
 
   # GET /subjects/1/edit
   def edit
+    @book = Book.find(params[:book_id])
     @subject = Subject.find(params[:id])
   end
 
@@ -64,7 +65,7 @@ class SubjectsController < ApplicationController
     respond_to do |format|
       if @subject.update_attributes(params[:subject])
         flash[:success] = 'Subject was successfully updated.'
-        format.html { redirect_to(@subject) }
+        format.html { redirect_to(add_details_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
