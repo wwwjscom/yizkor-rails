@@ -1,11 +1,11 @@
 <ul class="horizontal_list">
-  <li><%= link_to 'Book summary', book_path(@book) %></li>
+  <li><%= link_to '<< Book summary', book_path(@book) %></li>
 </ul>
 
 <br />
 <br />
 
-<p>What details would you like to add?</p>
+<p>What features would you like to add/edit?</p>
 <ul>
   <li><%= link_to 'Alternate Title', new_book_alternate_title_path(@book) %></li>
   <li><%= link_to 'Call Number', new_book_call_num_path(@book) %></li>
