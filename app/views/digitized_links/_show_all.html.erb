@@ -1,0 +1,13 @@
+<table>
+  <tr>
+  </tr>
+
+<% for digitized_link in @digitized_links %>
+  <tr>
+    <td><%= link_to digitized_link.link, digitized_link.link %></td>
+    <td><%= digitized_link.description %></td>
+    <td><%= link_to 'Edit', edit_book_digitized_link_path(@book, digitized_link) %></td>
+    <td><%= link_to 'Destroy', book_digitized_link_path(@book, digitized_link), :confirm => 'Are you sure?', :method => :delete if session[:admin] %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,12 @@
+<table>
+  <tr>
+  </tr>
+
+<% for call_num in @call_nums %>
+  <tr>
+    <td><%= call_num.call_num %></td>
+    <td><%= link_to 'Edit', edit_book_call_num_path(@book, call_num) %></td>
+    <td><%= link_to 'Destroy', book_call_num_path(@book, call_num), :confirm => 'Are you sure?', :method => :delete if session[:admin] %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,25 @@
+<fieldset>
+  <legend>New Council Member</legend>
+<% form_for(@council_member, :url => book_council_members_path) do |f| %>
+  <%= f.error_messages %>
+
+  <input type="hidden" id="council_member_book_id" name="council_member[book_id]" value="<%= params[:book_id] %>" />
+
+  <p>
+    <%= f.label :first %><br />
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.label :last %><br />
+    <%= f.text_field :last %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+</fieldset>
+
+<fieldset>
+  <legend>Current Council Members</legend>
+  <%= render :partial => 'show_all' %>
+</fieldset>

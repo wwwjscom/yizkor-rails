@@ -1,0 +1,18 @@
+<fieldset>
+  <legend>Edit Council Member</legend>
+  <% form_for(@council_member, :url => book_council_member_path(@book, @council_member)) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+    <%= f.label :first %><br />
+    <%= f.text_field :first %>
+    </p>
+    <p>
+    <%= f.label :last %><br />
+    <%= f.text_field :last %>
+    </p>
+    <p>
+    <%= f.submit "Update" %>
+    </p>
+  <% end %>
+</fieldset>

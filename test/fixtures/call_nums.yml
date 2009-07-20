@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  book_id: 1
+  call_num: MyString
+
+two:
+  book_id: 1
+  call_num: MyString

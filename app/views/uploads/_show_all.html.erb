@@ -1,0 +1,13 @@
+<table>
+  <tr>
+  </tr>
+
+  <% for upload in @uploads %>
+    <% unless upload.thumbnail == 'thumb' %>
+      <tr>
+        <td width='150'><%= link_to image_tag(upload.public_filename(:thumb), :alt => ''), book_upload_path(@book, upload) %></td>
+        <td><%= link_to 'Destroy', book_upload_path(@book, upload), :confirm => 'Are you sure?', :method => :delete if session[:admin] %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

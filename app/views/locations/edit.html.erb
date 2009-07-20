@@ -1,0 +1,13 @@
+<fieldset>
+  <legend>Edit Location</legend>
+  <% form_for(@location, :url => book_location_path(@book, @location)) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+    <%= select ("location", "location_type_id", LocationType.find(:all).map {|k| [k.name,k.id]}) %>
+    </p>
+    <p>
+    <%= f.submit "Update" %>
+    </p>
+  <% end %>
+</fieldset>

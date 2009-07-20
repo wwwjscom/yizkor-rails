@@ -1,0 +1,13 @@
+<p>
+  <b>Book:</b>
+  <%=h @call_num.book_id %>
+</p>
+
+<p>
+  <b>Call num:</b>
+  <%=h @call_num.call_num %>
+</p>
+
+
+<%= link_to 'Edit', edit_call_num_path(@call_num) %> |
+<%= link_to 'Back', call_nums_path %>

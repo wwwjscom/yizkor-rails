@@ -1,0 +1,21 @@
+<fieldset>
+  <legend>Edit Contributor</legend>
+  <% form_for(@contributor, :url => book_contributor_path(@book, @contributor)) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :first %><br />
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.label :last %><br />
+    <%= f.text_field :last %>
+  </p>
+  <p>
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</fieldset>

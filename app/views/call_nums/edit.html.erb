@@ -1,0 +1,13 @@
+<fieldset>
+  <legend>Edit Call Number</legend>
+  <% form_for(@call_num, :url => book_call_num_path(@book, @call_num)) do |f| %>
+    <%= f.error_messages %>
+    <p>
+    <%= f.label :call_num %><br />
+    <%= f.text_field :call_num %>
+    </p>
+    <p>
+    <%= f.submit "Update" %>
+    </p>
+  <% end %>
+</fieldset>

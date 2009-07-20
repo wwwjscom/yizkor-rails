@@ -1,28 +1,32 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :books, :member => { :reject => :delete, :approve => :put }
-  map.resources :admins, :collection => { :keywords => :any, :logout => :get, :status => :get, :locations => :any }
+
+  map.resources :books, :member => { :reject => :delete, :approve => :put } do |b|
+    b.resources :uploads
+    b.resources :digitized_links
+    b.resources :alternate_titles
+    b.resources :call_nums
+    b.resources :contributors 
+    b.resources :council_members
+    b.resources :keywords
+    b.resources :languages
+    b.resources :locations
+    b.resources :subjects
+  end
+  map.resources :admins, :collection => { :subjects => :any, :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches
   map.resources :keyword_types
 
   map.keywords 'books/:id/add_keywords', :controller => 'books', :action => 'add_keyword'
+  map.subject_types 'admins/subjects', :controller => 'admins', :action => 'subjects'
   map.keyword_types 'admins/keywords', :controller => 'admins', :action => 'keywords'
   map.location_types 'admins/locations', :controller => 'admins', :action => 'locations'
   map.suggestions 'search/suggestions', :controller => 'searches', :action => 'suggestions'
   map.search 'search', :controller => 'searches', :action => 'index'
-  map.add_details 'books/:id/add_details', :controller => 'books', :action => 'add_details'
+  map.add_details 'books/:book_id/add_details', :controller => 'books', :action => 'add_details'
   map.create_details 'books/:id/create_details/:field', :controller => 'books', :action => 'create_details'
-  map.alt_titles 'books/:id/add_alt_title', :controller => 'books', :action => 'add_alt_title'
-  map.call_nums 'books/:id/add_call_num', :controller => 'books', :action => 'add_call_num'
   map.pages 'books/:id/add_page', :controller => 'books', :action => 'add_page'
   map.contributors 'books/:id/add_contributor', :controller => 'books', :action => 'add_contributor'
-  map.subjects 'books/:id/add_subjects', :controller => 'books', :action => 'add_subject'
-  map.languages 'books/:id/add_languages', :controller => 'books', :action => 'add_language'
-  map.locations 'books/:id/add_locations', :controller => 'books', :action => 'add_location'
   map.location_variations 'books/:id/add_location_variations', :controller => 'books', :action => 'add_location_variation'
-  map.uploads 'books/:id/add_upload', :controller => 'books', :action => 'add_upload'
-  map.delete_uploads_path 'books/:id/delete_upload/', :controller => 'books', :action => 'delete_upload'
-  map.digitized_links 'books/:id/add_digitized_link', :controller => 'books', :action => 'add_digitized_link'
-  map.council_members 'books/:id/add_council_member', :controller => 'books', :action => 'add_council_member'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Language type</th>
+  </tr>
+
+  <% for language in @languages %>
+    <tr>
+      <td><%=h language.language_type.title %></td>
+      <td><%= link_to 'Edit', edit_book_language_path(@book, language) %></td>
+      <td><%= link_to 'Destroy', book_language_path(@book, language), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>

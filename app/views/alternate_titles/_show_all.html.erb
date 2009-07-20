@@ -1,0 +1,12 @@
+<table>
+  <tr>
+  </tr>
+
+<% for alternate_title in @alternate_titles %>
+  <tr>
+    <td><%= alternate_title.title %></td>
+    <td><%= link_to 'Edit', edit_book_alternate_title_path(@book, alternate_title) %></td>
+    <td><%= link_to 'Destroy', book_alternate_title_path(@book, alternate_title), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
