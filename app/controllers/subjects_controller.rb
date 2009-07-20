@@ -25,6 +25,8 @@ class SubjectsController < ApplicationController
   # GET /subjects/new.xml
   def new
     @subject = Subject.new
+    @book = Book.find(params[:book_id])
+    @subjects = Subject.find(:all, :conditions => ['book_id = ?', @book])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,8 +46,8 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.save
-        flash[:notice] = 'Subject was successfully created.'
-        format.html { redirect_to(@subject) }
+        flash[:success] = 'Subject was successfully created.'
+        format.html { redirect_to(add_details_path) }
         format.xml  { render :xml => @subject, :status => :created, :location => @subject }
       else
         format.html { render :action => "new" }
@@ -61,7 +63,7 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.update_attributes(params[:subject])
-        flash[:notice] = 'Subject was successfully updated.'
+        flash[:success] = 'Subject was successfully updated.'
         format.html { redirect_to(@subject) }
         format.xml  { head :ok }
       else

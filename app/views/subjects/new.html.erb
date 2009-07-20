@@ -1,19 +1,15 @@
-<h1>New subject</h1>
+<fieldset>
+  <legend>New Subject</legend>
+  <% form_for(@subject, :url => book_subjects_path) do |f| %>
+    <%= f.error_messages %>
 
-<% form_for(@subject) do |f| %>
-  <%= f.error_messages %>
+    <input type="hidden" id="keyword_book_id" name="keyword[book_id]" value="<%= params[:book_id] %>" />
 
-  <p>
-    <%= f.label :book_id %><br />
-    <%= f.text_field :book_id %>
-  </p>
-  <p>
-    <%= f.label :subject_type_id %><br />
-    <%= f.text_field :subject_type_id %>
-  </p>
-  <p>
+    <p>
+    <%= select ("subject", "subject_type_id", SubjectType.find(:all).map {|k| [k.title,k.id]}) %>
+    </p>
+    <p>
     <%= f.submit "Create" %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', subjects_path %>
+    </p>
+  <% end %>
+</fieldset>
