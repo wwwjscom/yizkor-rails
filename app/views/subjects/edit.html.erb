@@ -1,0 +1,13 @@
+<fieldset>
+  <legend>Edit Subject</legend>
+  <% form_for(@subject, :url => book_subject_path(@book, @subject)) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= select ("subject", "subject_type_id", SubjectType.find(:all).map {|k| [k.title,k.id]}) %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</fieldset>

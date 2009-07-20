@@ -1,0 +1,20 @@
+<fieldset>
+  <legend>New Subject</legend>
+  <% form_for(@subject, :url => book_subjects_path) do |f| %>
+    <%= f.error_messages %>
+
+    <input type="hidden" id="subject_book_id" name="subject[book_id]" value="<%= params[:book_id] %>" />
+
+    <p>
+    <%= select ("subject", "subject_type_id", SubjectType.find(:all).map {|k| [k.title,k.id]}) %>
+    </p>
+    <p>
+    <%= f.submit "Create" %>
+    </p>
+  <% end %>
+</fieldset>
+
+<fieldset>
+  <legend>Current Subjects</legend>
+  <%= render :partial => 'show_all' %>
+</fieldset>

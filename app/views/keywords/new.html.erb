@@ -1,0 +1,21 @@
+<fieldset>
+  <legend>New Keyword</legend>
+  <% form_for(@keyword, :url => book_keywords_path) do |f| %>
+    <%= f.error_messages %>
+
+    <input type="hidden" id="keyword_book_id" name="keyword[book_id]" value="<%= params[:book_id] %>" />
+
+    <p>
+    <%= select ("keyword", "title_id", KeywordType.find(:all).map {|k| [k.title,k.id]}) %>
+    </p>
+
+    <p>
+    <%= f.submit "Create" %>
+    </p>
+  <% end %>
+</fieldset>
+
+<fieldset>
+  <legend>Current Keywords</legend>
+  <%= render :partial => 'show_all' %>
+</fieldset>

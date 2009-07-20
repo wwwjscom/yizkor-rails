@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+
+<% for keyword in @keywords %>
+  <tr>
+    <td><%=h keyword.title %></td>
+    <td><%= link_to 'Edit', edit_book_keyword_path(@book, keyword) %></td>
+    <td><%= link_to 'Destroy', book_keyword_path(@book, keyword), :confirm => 'Are you sure?', :method => :delete if session[:admin] %></td>
+  </tr>
+<% end %>
+</table>

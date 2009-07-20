@@ -1,0 +1,22 @@
+<h1>Listing call_nums</h1>
+
+<table>
+  <tr>
+    <th>Book</th>
+    <th>Call num</th>
+  </tr>
+
+<% for call_num in @call_nums %>
+  <tr>
+    <td><%=h call_num.book_id %></td>
+    <td><%=h call_num.call_num %></td>
+    <td><%= link_to 'Show', call_num %></td>
+    <td><%= link_to 'Edit', edit_call_num_path(call_num) %></td>
+    <td><%= link_to 'Destroy', call_num, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New call_num', new_call_num_path %>

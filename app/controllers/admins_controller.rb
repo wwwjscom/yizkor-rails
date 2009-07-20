@@ -31,6 +31,34 @@ class AdminsController < ApplicationController
   end
 
 
+  # admins/subjects
+  def subjects
+    c = params[:commit]
+
+    if c == 'Add'
+
+      k = SubjectType.new(params[:subject_type])
+      if k.save
+        flash[:success] = 'Subject added'
+      else
+        flash[:error] = "Couldn't save subject"
+      end
+
+    elsif c == 'Delete'
+
+      if SubjectType.delete(params[:subject_type][:id])
+        flash[:success] = 'Subject deleted'
+      else
+        flash[:error] = "Couldn't delete subject"
+      end
+
+    end
+
+    @subject_type = SubjectType.new
+    @all_k = SubjectType.find(:all).collect { |k| [k.title, k.id] }
+  end
+
+
   # admins/keywords
   def keywords
     c = params[:commit]

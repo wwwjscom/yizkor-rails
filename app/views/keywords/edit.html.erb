@@ -1,0 +1,14 @@
+<fieldset>
+  <legend>Edit Keyword</legend>
+  <% form_for(@keyword, :url => book_keyword_path(@book, @keyword)) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+    <%= select ("keyword", "title_id", KeywordType.find(:all).map {|k| [k.title,k.id]}) %>
+    </p>
+
+    <p>
+    <%= f.submit "Update" %>
+    </p>
+  <% end %>
+</fieldset>

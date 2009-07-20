@@ -1,0 +1,18 @@
+<p>
+  <b>Book:</b>
+  <%=h @council_member.book_id %>
+</p>
+
+<p>
+  <b>First:</b>
+  <%=h @council_member.first %>
+</p>
+
+<p>
+  <b>Last:</b>
+  <%=h @council_member.last %>
+</p>
+
+
+<%= link_to 'Edit', edit_council_member_path(@council_member) %> |
+<%= link_to 'Back', council_members_path %>

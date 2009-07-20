@@ -1,0 +1,27 @@
+<fieldset>
+  <legend>New contributor</legend>
+  <% form_for(@contributor, :url => book_contributors_path) do |f| %>
+  <%= f.error_messages %>
+  <input type="hidden" id="contributor_book_id" name="contributor[book_id]" value="<%= params[:book_id] %>" />
+  <p>
+    <%= f.label :first %><br />
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.label :last %><br />
+    <%= f.text_field :last %>
+  </p>
+  <p>
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+</fieldset>
+
+<fieldset>
+  <legend>Current Contributors</legend>
+  <%= render :partial => 'show_all' %>
+</fieldset>

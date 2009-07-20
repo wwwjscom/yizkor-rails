@@ -1,0 +1,25 @@
+<% form_for(@upload, :url => book_uploads_path, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <fieldset>
+    <legend>New Upload</legend>
+    <input type="hidden" id="upload_book_id" name="upload[book_id]" value="<%= params[:book_id] %>" />
+    <p>
+    <%= f.label :uploaded_data, 'File' %>
+    <%= f.file_field :uploaded_data %>
+    </p>
+    <p>
+    <%= f.label :upload_type %>
+    <%= f.select :upload_type, { 'Map' => 'Map', 'Photograph' => 'Photograph', 'Drawing' => 'Drawing', 'Document' => 'Document' } %>
+    </p>
+    <p>
+    <%= f.submit "Upload" %>
+    </p>
+
+  </fieldset>
+  <% end %>
+
+<p>
+  <h1>Current Uploads</h1>
+  <%= render :partial => 'show_all' %>
+</p>

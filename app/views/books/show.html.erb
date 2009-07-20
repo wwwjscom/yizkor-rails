@@ -88,7 +88,7 @@
 
 <p>
   <b>Contributors:</b>
-  <%= @book.contributors %>
+  <%= @book.contributors.to_sentence %>
 </p>
 
 
@@ -161,10 +161,9 @@
 
 <p>
   <b>Images:</b>
-  <%=h @book.has_images %>
-
+  <br />
   <% @book.upload.each do |u| %>
-    <%= link_to image_tag(u.public_filename(:thumb)), u.public_filename %> - <%= u.upload_type %><br />
+    <%= link_to image_tag(u.public_filename(:thumb), :alt => ''), book_upload_path(@book, u) %> - <%= u.upload_type %><br />
   <% end %>
 </p>
 </div>

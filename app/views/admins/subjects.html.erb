@@ -1,0 +1,27 @@
+<h3>Subjects</h3>
+
+<fieldset>
+  <legend>Add Subject</legend>
+  <% form_for @subject_type do |f| %>
+    <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </p>
+    <p>
+    <%= f.submit :Add %>
+    </p>
+  <% end %>
+</fieldset>
+
+
+<fieldset>
+  <legend>Delete Subject</legend>
+  <% form_for @subject_type do |f| %>
+    <p>
+    <%= select :subject_type, :id, @all_k %>
+    </p>
+    <p>
+    <%= f.submit :Delete %>
+    </p>
+  <% end %>
+</fieldset>

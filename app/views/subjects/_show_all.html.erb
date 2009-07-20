@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Subject type</th>
+  </tr>
+
+  <% for subject in @subjects %>
+    <tr>
+      <td><%=h subject.subject_type.title %></td>
+      <td><%= link_to 'Edit', edit_book_subject_path(@book, subject) %></td>
+      <td><%= link_to 'Destroy', book_subject_path(@book, subject), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>

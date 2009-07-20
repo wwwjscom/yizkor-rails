@@ -1,0 +1,20 @@
+<fieldset>
+  <legend>New Language</legend>
+<% form_for(@language, :url => book_languages_path) do |f| %>
+  <%= f.error_messages %>
+
+  <input type="hidden" id="language_book_id" name="language[book_id]" value="<%= params[:book_id] %>" />
+
+  <p>
+    <%= select ("language", "language_type_id", LanguageType.find(:all).map {|l| [l.title,l.id]}) %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+</fieldset>
+
+<fieldset>
+  <legend>Current Keywords</legend>
+  <%= render :partial => 'show_all' %>
+</fieldset>

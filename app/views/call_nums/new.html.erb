@@ -1,0 +1,21 @@
+<fieldset>
+  <legend>New Call Number</legend>
+  <% form_for(@call_num, :url => book_call_nums_path)  do |f| %>
+    <%= f.error_messages %>
+
+    <input type="hidden" id="call_num_book_id" name="call_num[book_id]" value="<%= params[:book_id] %>" />
+
+    <p>
+    <%= f.label :call_num %><br />
+    <%= f.text_field :call_num %>
+    </p>
+    <p>
+    <%= f.submit "Create" %>
+    </p>
+  <% end %>
+</fieldset>
+
+<fieldset>
+  <legend>Current Call Numbers</legend>
+  <%= render :partial => 'show_all' %>
+</fieldset>
