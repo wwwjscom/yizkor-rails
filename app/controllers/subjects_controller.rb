@@ -80,8 +80,10 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     @subject.destroy
 
+    flash[:success] = 'Subject was successfully deleted.'
+
     respond_to do |format|
-      format.html { redirect_to(subjects_url) }
+      format.html { redirect_to(add_details_path) }
       format.xml  { head :ok }
     end
   end
