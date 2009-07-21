@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090721032427) do
+ActiveRecord::Schema.define(:version => 20090721033711) do
 
   create_table "alternate_titles", :force => true do |t|
     t.integer  "book_id"
