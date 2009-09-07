@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :admins, :collection => { :subjects => :any, :keywords => :any, :logout => :get, :status => :get, :locations => :any }
   #map.resources :searches
   map.resources :keyword_types
+  map.resources :locations
 
   map.keywords 'books/:id/add_keywords', :controller => 'books', :action => 'add_keyword'
   map.subject_types 'admins/subjects', :controller => 'admins', :action => 'subjects'

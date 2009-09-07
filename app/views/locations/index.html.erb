@@ -2,14 +2,14 @@
 
 <table>
   <tr>
-    <th>Book</th>
-    <th>Location type</th>
+    <th>Location</th>
+    <th>Number of books</th>
   </tr>
 
 <% for location in @locations %>
   <tr>
+    <td><%=h location.name %></td>
     <td><%=h location.book_id %></td>
-    <td><%=h location.location_type_id %></td>
     <td><%= link_to 'Show', location %></td>
     <td><%= link_to 'Edit', edit_location_path(location) %></td>
     <td><%= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete %></td>
