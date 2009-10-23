@@ -12,11 +12,11 @@ class Book < ActiveRecord::Base
   has_many :keyword
 
   def approved
-    Book.find(:all, :conditions => ["approved = true AND deleted = false"])
+    Book.find(:all, :conditions => ["approved = true AND deleted = false"], :order => "title")
   end
 
   def pending
-    Book.find(:all, :conditions => ["approved = false AND deleted = false"])
+    Book.find(:all, :conditions => ["approved = false AND deleted = false"], :order => "title")
   end
 
   def keywords
