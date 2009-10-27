@@ -1,4 +1,18 @@
 <% form_for @book, :url => { :controller => 'searches', :action => 'search' } do |f| %>
+
+<% f.fields_for :location do |l| %>
+<fieldset>
+  <legend>Location</legend>
+  <p>
+    <%= l.label 'location' %>
+    <%= l.select 'location', LocationType.find(:all).collect { |l| [l.name, l.id] }, {:include_blank => 'All'} %>
+  </p>
+</fieldset>
+<% end %>
+
+
+
+
 <fieldset>
   <legend>Title</legend>
 
@@ -93,17 +107,6 @@
   <p>
     <%= l.label 'language', 'Language' %>
     <%= l.select 'language', LanguageType.find(:all).collect { |l| [l.title, l.id] }, {:include_blank => 'All'} %>
-  </p>
-</fieldset>
-<% end %>
-
-
-<% f.fields_for :location do |l| %>
-<fieldset>
-  <legend>Location</legend>
-  <p>
-    <%= l.label 'location' %>
-    <%= l.select 'location', LocationType.find(:all).collect { |l| [l.name, l.id] }, {:include_blank => 'All'} %>
   </p>
 </fieldset>
 <% end %>
