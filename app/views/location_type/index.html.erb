@@ -8,7 +8,11 @@
 
 <% for location in @merged %>
   <tr>
-    <td><%= link_to location.name, location %></td>
+    <% if location.class == LocationType %>
+      <td><%= link_to location.name, location %></td>
+    <% else %>
+      <td><%= link_to location.name, location.location_type %></td>
+    <% end %>
     <td><%=h location.book_count %></td>
   </tr>
 <% end %>
