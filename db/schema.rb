@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090907193000) do
+ActiveRecord::Schema.define(:version => 20091027070244) do
 
   create_table "alternate_titles", :force => true do |t|
     t.integer  "book_id"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(:version => 20090907193000) do
   end
 
   create_table "location_variations", :force => true do |t|
-    t.integer  "location_id"
+    t.integer  "location_type_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

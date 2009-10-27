@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   #map.resources :searches
   map.resources :keyword_types
   map.resources :location_type
+  map.resources :location_variation
 
   map.locations 'locations', :controller => 'location_type', :action => 'index'
   map.keywords 'books/:id/add_keywords', :controller => 'books', :action => 'add_keyword'

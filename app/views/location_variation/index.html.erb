@@ -1,0 +1,24 @@
+Size:
+<%= @alternate_locations.size %>
+<br />
+<%= @alternate_locations.map { |x| x.name + "<br />" } %>
+<h1>Listing locations</h1>
+
+<table>
+  <tr>
+    <th>Location</th>
+    <th>Number of books</th>
+  </tr>
+
+<% for location in @location_types %>
+  <tr>
+    <td><%= link_to location.name, location %></td>
+    <td><%=h location.book_count %></td>
+  </tr>
+<% end %>
+
+
+  </tr>
+</table>
+
+<br />

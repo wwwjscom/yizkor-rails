@@ -1,3 +1,7 @@
+Size:
+<%= @alternate_locations.size %>
+<br />
+<%= @alternate_locations.map { |x| x.name + "<br />" } %>
 <h1>Listing locations</h1>
 
 <table>
@@ -12,6 +16,36 @@
     <td><%=h location.book_count %></td>
   </tr>
 <% end %>
+
+
+  </tr>
+
+<% for al in @alternate_locations %>
+  <tr>
+    <td><%= al.name %> (<%= link_to al.location_type.name, al.location_type %>)
+      <% #FIXME: The correct way to do this is likely using the link below, but for now we'll use the link above. %>
+      <% link_to al.name, { :controller => "location_variation", :action => "show", :id => al } %></td>
+  </tr>
+<% end %>
+
 </table>
 
+<%= @location_types.size %>
+<%= @alternate_locations.size %>
+<%= @merged.size %>
+
+
+Size:
+<%= @alternate_locations.size %>
 <br />
+<%= @alternate_locations.map { |x| x.name + "<br />" } %>
+<h1>Listing locations</h1>
+
+<table>
+<% for location in @merged %>
+  <tr>
+    <td><%= link_to location.name, location %></td>
+  </tr>
+<% end %>
+
+</table>
