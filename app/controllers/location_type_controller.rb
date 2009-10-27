@@ -1,11 +1,11 @@
 class LocationTypeController < ApplicationController
   def index
-    @location_types = LocationType.find(:all)
-    @alternate_locations = LocationVariation.something
+    location_types = LocationType.find(:all)
+    alternate_locations = LocationVariation.something
 
     # Merge the two arrays so that location variations
     # appear within the list of locations
-    @merged = @alternate_locations | @location_types
+    @merged = alternate_locations | location_types
     
     # Now sort them based on name
     @merged.sort! { |x,y| x.name <=> y.name }

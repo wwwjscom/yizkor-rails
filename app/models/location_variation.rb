@@ -11,4 +11,8 @@ class LocationVariation < ActiveRecord::Base
     x.each { |y| y.name = "#{y.name} (#{y.location_type.name})" }
     return x.to_a
   end
+
+  def book_count
+    self.location_type.location.size
+  end
 end
