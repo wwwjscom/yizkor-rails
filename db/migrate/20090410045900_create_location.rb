@@ -11,7 +11,13 @@ class CreateLocation < ActiveRecord::Migration
 
     create_table :locations do |t|
       t.integer :book_id
+      # This is null when the below statement
+      # is true
       t.integer :location_type_id
+      # location_variations_id is only filled in
+      # when the location associated with a book
+      # is a variation of another location.
+      t.integer :location_variation_id
       t.timestamps
     end
 
@@ -20,7 +26,12 @@ class CreateLocation < ActiveRecord::Migration
       t.string :name
       t.timestamps
     end
+
+  LocationVariation.create(:name => 'Test_var', :location_id => 1)
+  Location.create(:book_id => 1, :location_variation_id => 1)
+  Location.create(:book_id => 2, :location_variation_id => 1)
   end
+
 
   def self.down
     drop_table :locations

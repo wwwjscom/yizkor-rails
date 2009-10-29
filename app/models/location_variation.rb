@@ -1,5 +1,6 @@
 class LocationVariation < ActiveRecord::Base
   belongs_to :location_type
+  has_many :location
 
   # This method is a helper for displaying location
   # variations in a list.  It'll display the location
@@ -13,6 +14,7 @@ class LocationVariation < ActiveRecord::Base
   end
 
   def book_count
-    self.location_type.location.size
+    #self.location_type.location.size
+    self.location.size
   end
 end

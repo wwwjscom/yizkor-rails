@@ -11,7 +11,10 @@
     <% if location.class == LocationType %>
       <td><%= link_to location.name, location %></td>
     <% else %>
-      <td><%= link_to location.name, location.location_type %></td>
+      <% # Otherwise it is a location variation %>
+      <% variation = location.name.split('(')[0] %>
+      <% parent = "(" + location.name.split('(')[1] %>
+      <td><%= link_to variation, location %> <%= link_to parent, location.location_type %></td>
     <% end %>
     <td><%=h location.book_count %></td>
   </tr>

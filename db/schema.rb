@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20091027070244) do
   create_table "locations", :force => true do |t|
     t.integer  "book_id"
     t.integer  "location_type_id"
+    t.integer  "location_variation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
