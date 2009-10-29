@@ -4,9 +4,9 @@
   <tr>
   </tr>
 
-<% @locations.each do |location| %>
+<% @books.each do |book| %>
   <tr>
-    <td style="padding:5px;"><%= link_to location.book.title, book_path(location.book) %></td>
+    <td style="padding:5px;"><%= link_to book.title, book_path(book) %></td>
   </tr>
 <% end %>
 </table>

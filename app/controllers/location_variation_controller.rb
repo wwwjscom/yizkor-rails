@@ -9,6 +9,6 @@ class LocationVariationController < ApplicationController
 
   def show
     @location = LocationVariation.find(params[:id])
-    @books = @location.book
+    @books = @location.books
   end
 end

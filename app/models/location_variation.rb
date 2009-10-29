@@ -13,6 +13,18 @@ class LocationVariation < ActiveRecord::Base
     return x.to_a
   end
 
+  # Return the books that are associated
+  # with the location variation
+  def books
+    books = []
+    self.location.each do |location|
+      books << location.book
+    end
+    books
+  end
+
+  # Return the number of books that exist
+  # for the given location variation
   def book_count
     #self.location_type.location.size
     self.location.size
