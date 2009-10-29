@@ -149,7 +149,17 @@
 <p>
 <b>Locations:</b>
 <% @book.location.each do |l| %>
-  <%= "#{l.get_hash(l.location_type_id).name}, " %>
+  <% 
+     # Because we can have either a location_type,
+     # or a location variation associated with
+     # a book, we need to render their results
+     # accordingly 
+  %>
+  <% if not l.location_type_id.blank? %>
+    <%= link_to l.location_type.name, l.location_type %>, 
+  <% else %>
+    <%= link_to l.location_variation.name, l.location_variation %>, 
+  <% end %>
 <% end %>
 </p>
 
