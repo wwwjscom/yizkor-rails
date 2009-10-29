@@ -27,9 +27,10 @@ class CreateLocation < ActiveRecord::Migration
       t.timestamps
     end
 
-  LocationVariation.create(:name => 'Test_var', :location_id => 1)
-  Location.create(:book_id => 1, :location_variation_id => 1)
-  Location.create(:book_id => 2, :location_variation_id => 1)
+  # Test data for migrations
+  #LocationVariation.create(:name => 'Test_var', :location_id => 1)
+  #Location.create(:book_id => 1, :location_variation_id => 1)
+  #Location.create(:book_id => 2, :location_variation_id => 1)
   end
 
 
