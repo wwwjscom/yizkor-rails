@@ -6,7 +6,7 @@
     <input type="hidden" id="location_book_id" name="location[book_id]" value="<%= params[:book_id] %>" />
 
     <p>
-    <%= select ("location", "location_type_id", LocationType.find(:all).map {|k| [k.name,k.id]}) %>
+    <%= select ("location", "location_type_id", Location.all_locations.map {|k| [k.name,k.id]}) %>
     </p>
     <p>
     <%= f.submit "Create" %>
