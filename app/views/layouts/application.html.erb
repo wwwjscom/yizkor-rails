@@ -2,10 +2,6 @@
   <head>
     <title>Yizkor Book Search</title>
     <meta name="Inquery" content="noindex">
-    <script language="javascript" src="http://www.ushmm.org/shared/general.js"></script>
-    <link rel="stylesheet" href="http://www.ushmm.org/conscience/conscience.css">
-    <link rel="stylesheet" href="http://www.ushmm.org/conscience/history/history.css">
-    <link rel="stylesheet" href="http://www.ushmm.org/museum/exhibit/style.css">
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag "prototype" %>
@@ -14,86 +10,6 @@
 
   <body bgcolor="#D3D5C3" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
 
-    <!-- USHMM -->
-
-
-    <style>
-      .TextSiteSearch
-      {
-        color : #000000;
-        font-family : "Verdana, Arial";
-        font-size : .65em;
-        font-style : normal;
-        font-weight : normal;
-        line-height : 1em;
-      }
-    </style>
-
-
-
-    <table width="100%" style="background-image: url(http://www.ushmm.org/museum/exhibit/tops/topbg.gif); background-position: top left; background-repeat: repeat; background-color: #FFFFFF"  border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td>
-
-          <table border="0" cellspacing="0" cellpadding="0">
-            <tr>
-
-              <!--
-              <td valign="top"><img src="/museum/exhibit/tops/10.gif" style="margin:0 0 0 27;" alt=""></td>
-              -->
-              <td valign="top"><img src="http://www.ushmm.org/images/spacer.gif" style="margin:0 0 0 27;" width="52" height="66" alt=""></td>
-              <td valign="top"><a href="http://www.ushmm.org/" target="_top" onMouseOver="setImageSrc( 'ushmmBtn', 'http://www.ushmm.org/museum/exhibit/tops/ushmmo.gif' )" onMouseOut="setImageSrc( 'ushmmBtn', 'http://www.ushmm.org/museum/exhibit/tops/ushmm.gif' )"><img src="http://www.ushmm.org/museum/exhibit/tops/ushmm.gif" name="ushmmBtn" border="0" style="margin:23 0 0 0;" alt="United States Holocaust Memorial Museum"></a><br></td>
-            </tr>
-          </table>
-        </td>
-
-
-        <td align="right" style="padding: 0 10 0 0;">
-          <form style="margin: 0; padding: 0;" name="SiteSearchExtended" method="post" action="http://www.ushmm.org/uia-cgi/uia_query" onSubmit="return CheckFormExtended()" target="_top">
-            <input type=hidden name=noframes value="x">
-
-            <input type=hidden name=page_len value="25">
-            <input type=hidden name=max_docs value="all">
-            <input type=hidden name=db_group value="ushmm">
-            <input type=hidden name=db_name value="photos">
-
-            <input type=hidden name=db_name value="wlc">
-            <input type=hidden name=db_name value="website">
-
-            <table style="margin:0 0 0 0;" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td colspan="2">
-                  <img src="http://www.ushmm.org/museum/exhibit/tops/looking.gif" style="margin: 0 0 1 0;" border="0" alt="What are you looking for?"><br>
-
-                  <select style="background-color: #D3D5C3; margin: 0 0 1 0;" class="TextSiteSearch" name="query_append">
-
-                    <option value="" selected>All
-                    <option value="type(webpage or article)" >Web pages
-                    <option value="type(idcard)" >ID Cards
-                    <option value="type(testimony)" >Testimonies (Video)
-                    <option value="type(artifact)" >Artifacts
-                    <option value="type(music)" >Music
-                    <option value="type(photo or histphoto or instphoto)" >Photographs
-                    <option value="type(film)" >Historical Films
-                    <option value="type(document)" >Historical Documents
-                    <option value="type(map)" >Maps
-                    <option value="type(animatedmap)" >Animated Maps
-                  </select><br>
-
-                </td>
-              </tr>
-
-              <tr>
-                <td><input type="text" name="query" class="TextSiteSearch" style="width: 96; border-width: 1; border-style: solid; border-top-color: #000000; border-right-color: #D5CCBB; border-bottom-color: #D5CCBB; border-left-color: #000000;"></td>
-                <td><a href="javascript: submitformExtended();" onMouseOver="setImageSrc( 'arrowXBtn', 'http://www.ushmm.org/museum/exhibit/tops/searcho.gif' )" onMouseOut="setImageSrc( 'arrowXBtn', 'http://www.ushmm.org/museum/exhibit/tops/search.gif' )"><img src="http://www.ushmm.org/museum/exhibit/tops/search.gif" id="arrowXBtn" name="arrowXBtn" style="margin: 0 0 0 5;" border="0" alt="Search"></a></td>
-              </tr>
-            </table>
-
-          </form>
-
-        </td>
-      </tr>
-    </table>
 
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">

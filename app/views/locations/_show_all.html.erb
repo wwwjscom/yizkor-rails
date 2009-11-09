@@ -5,8 +5,7 @@
 
 <% for location in @locations %>
   <tr>
-    <td><%=h location.location_type.name %></td>
-    <td><%= link_to 'Edit', edit_book_location_path(@book, location) %></td>
+    <td><%=h locations_name(location) %></td>
     <td><%= link_to 'Destroy', book_location_path(@book, location), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
