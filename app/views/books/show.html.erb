@@ -66,17 +66,17 @@
 
 <p>
   <b>TOC:</b>
-  <%=h @book.has_toc %>
+  <%= @book.has_toc ? "Yes" : "No" %>
 </p>
 
 <p>
   <b>Index:</b>
-  <%=h @book.has_index %>
+  <%= @book.has_index ? "Yes" : "No" %>
 </p>
 
 <p>
   <b>Maps:</b>
-  <%=h @book.has_maps %>
+  <%= @book.has_maps ? "Yes" : "No" %>
 </p>
 
 </div>
