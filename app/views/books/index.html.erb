@@ -11,7 +11,7 @@
 
       <% for book in @pending %>
         <tr>
-          <td><%= link_to(h(book.title.titleize), book) %> - </td>
+          <td><%= link_to(h(book.title), book) %> - </td>
           <td><%= link_to 'Approve', approve_book_path(book), :confirm => 'Are you sure?', :method => :put %></td>
           <td><%= link_to 'Reject', reject_book_path(book), :confirm => 'Are you sure?', :method => :delete %></td>
         </tr>
