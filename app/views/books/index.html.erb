@@ -31,7 +31,7 @@
 
   <% for book in @books %>
     <tr>
-      <td><%= link_to(h(book.title.titleize), book) %></td>
+      <td><%= link_to(h(book.title), book) %></td>
     </tr>
   <% end %>
 </table>
