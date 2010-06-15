@@ -61,7 +61,7 @@
 <div class="book_results">
 <p>
   <b>Necrology:</b>
-  <%=h @book.has_necrology %>
+  <%= @book.has_necrology ? "Yes" : "No" %>
 </p>
 
 <p>
