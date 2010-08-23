@@ -70,8 +70,14 @@ class BooksController < ApplicationController
     #@book['approved'] = 1 if admin?
 
     if @book.save
-      flash[:success] = 'Book was successfully created.'
-      redirect_to :action => 'add_details', :id => @book.id
+      if admin?
+	flash[:success] = 'Book was successfully created.'
+	redirect_to add_details_path(@book.id)
+	#redirect_to :action => 'add_details', :id => @book.id
+      else
+	flash[:success] = 'Book was successfully created. Awaiting approval.'
+	redirect_to root_path
+      end
     else
       render :action => "new"
     end
