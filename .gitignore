@@ -1,3 +1,4 @@
 tmp/*
 log/*
 public/uploads/*
+config/database.yml
